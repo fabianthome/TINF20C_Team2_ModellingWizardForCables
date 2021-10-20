@@ -2,14 +2,13 @@
 
 ## About this project
 
-<p>
-<img src="https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/blob/master/DOCUMENTS/Git/Cable.PNG" align=right width="160" height="130">
+<p><img src="https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/blob/master/DOCUMENTS/Git/Cable.PNG" align=right width="160" height="130">
   This repository is based on a project developed in the module <b>Software Engineering I</b> at the </br> <a href=https://www.dhbw-stuttgart.de/>Baden-Württemberg Cooperative State University (DHBW-Stuttgart)</a> and commissioned by our lecturers </br><a href=http://wwwlehre.dhbw-stuttgart.de/~rentschler/><b>Markus Rentschler</b></a> and <b>Christian Holder</b>. 
 </p>
 
 ## Description
 
-<i>Insert text here</i>
+<p><i>Insert text here</i>
 
 The Modelling Wizard development was devided in departments and carried out by the following students:
 
@@ -20,8 +19,8 @@ The Modelling Wizard development was devided in departments and carried out by t
 * Max Gohlke        -  `Junior Developer`
 * Tim Sellemann     -  `Test Manager`
 * Leon Amtmann      -  `Documentation`
+</p>
 
-## About the installation and usage
 ## Project structure
 
 * `./DOCUMENTS`  - Contains the business case, customer requirement specification and reports of each department 
@@ -57,6 +56,17 @@ Modelling Wizard For Cables
 └── README.md
 ```
 
+## About AutomationML
+
+<p><i>Insert text here</i>
+</p>
+
+## Installation and usage
+
+<p><i>Insert text here</i>
+</p>
+
 ## Contact
 
-<p>Kevin Pauer - Project Manager & DHBW Student TINF20C<br><a href="mailto:inf20003@lehre.dhbw-stuttgart.de?"><img width="60" height="60" src="https://icon-library.com/images/mail-icon-png-transparent/mail-icon-png-transparent-3.jpg"/></a></p>
+<p>Kevin Pauer - Project Manager & DHBW Student TINF20C<br><a href="mailto:inf20003@lehre.dhbw-stuttgart.de?"><img width="60" height="60" src="https://icon-library.com/images/mail-icon-png-transparent/mail-icon-png-transparent-3.jpg"/></a>
+</p>
