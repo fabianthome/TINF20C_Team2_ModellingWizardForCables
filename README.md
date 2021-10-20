@@ -30,5 +30,4 @@ Modelling Wizard for Cables
 
 # Contact
 
-<p>DHBW student Kevin Pauer</p>
-Mailbox: [inf20003@lehre.dhbw-stuttgart.de](mailto:inf20003@lehre.dhbw-stuttgart.de)
+<p>Kevin Pauer - Project Manager & DHBW Student<br><a href="mailto:inf20003@lehre.dhbw-stuttgart.de?"><img width="60" height="60" src="https://icon-library.com/images/mail-icon-png-transparent/mail-icon-png-transparent-3.jpg"/></a></p>
