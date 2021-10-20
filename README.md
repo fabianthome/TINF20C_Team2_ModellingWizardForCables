@@ -1,4 +1,4 @@
-# Modelling Wizard for Cables /TIN20C - Project repository  
+# Modelling Wizard for Cables - Project repository  
 
 # Description
 
@@ -28,4 +28,5 @@ Modelling Wizard for Cables
 
 # Contact
 
+<p>DHBW student Kevin Pauer</p>
 Mailbox: [inf20003@lehre.dhbw-stuttgart.de](mailto:inf20003@lehre.dhbw-stuttgart.de)
