@@ -1,0 +1,72 @@
+Meeting Minutes
+
+01. Sitzung: 06.10.2021						     Protokoll: Calvin Friedrich
+Beginn: 16:00 Uhr
+Ende: 18:00 Uhr
+Mitglieder: Calvin Friedrich, Max Gohlke, Kevin Pauer, Thorsten Rausch, Tim Sellemann, Fabian 	Thomé
+
+Generelle Planung:
+--> Festlegung: Trello als Planungstool
+--> Klärung der Anforderungen für die Abgabe (CRS, BC, …)
+--> Aufbau CRS
+--> Anfrage zu Kundentreffen per Mail
+--> Ansammlung von Punkten, die mit dem Kunden abzustimmen sind
+ 
+ 
+ 
+02. Sitzung: 07.10.2021						     Protokoll: Calvin Friedrich
+Beginn: 11:30 Uhr
+Ende: 12:30 Uhr
+Mitglieder: Leon Amtmann, Calvin Friedrich, Max Gohlke, Kevin Pauer, Thorsten
+Rausch, Markus Rentschler (Kunde), Tim Sellemann, Fabian Thomé
+
+Fragerunde mit dem Kunden:
+--> Grundanforderung: Webbasierte Applikation
+--> Merkmale auswählen -> Produktauswahl wird angepasst nach Filterkriterien (IST)
+=> Vergleichende Analyse der verschiedenen Anbieter (zB Tabelle mit den Anbietern) [M12 Hersteller]
+--> Merkmale auswählen -> Produkt stellt sich aus den Einzelteilen zusammen
+=> Zusammengestelltes Kabel soll als AutomationML Tabelle ausgegeben werden (SOLL)
+--> Beispiele von ihm für AutomationML Modell
+--> 1. Aufgabe: CRS (nach Aufgabenbeschreibung)
+--> Fragestellung: Welche Anbieter haben welche Merkmale und was resultiert daraus? => Excel
+--> CAEX als Industriestandard
+ 
+ 
+ 
+03. Sitzung: 15.10.2021						     Protokoll: Calvin Friedrich
+Beginn: 10:30 Uhr
+Ende: 11:30 Uhr
+Mitglieder: Leon Amtmann, Calvin Friedrich, Max Gohlke, Kevin Pauer, Tim Sellemann, Fabian 	Thomé
+
+Erstellung des GitHub Repos
+Aufteilung in 2 Gruppen:
+ -> Gruppe 1: Business Case (Kevin Pauer, Tim Sellemann)
+=> Kostenmodell
+ -> Gruppe 2: Customer Requirements Specification (Leon Amtmann, Calvin Friedrich, Max Gohlke, 	Fabian Thomé
+=> Zielsetzung aus Aufgabenstellung
+-> Anforderung: Englische Dokumentation => Überarbeitung
+Trello Update für Abgabe nächsten Freitag je Gruppe
+ 
+ 
+ 
+04. Sitzung: 19.10.2021						     Protokoll: Kevin Pauer
+Beginn: 18:30 Uhr
+Ende: 19:30 Uhr
+Mitglieder: Kevin Pauer, Tim Sellemann
+
+Arbeit am BC
+•	Deckblatt
+•	Scope
+•	Profitable Benefits
+
+
+05. Sitzung 21.20.2021                  Protokoll: Calvin Friedrich
+Beginn: 15:45
+Ende: 17:45
+Mitglieder: Leon Amtmann, Calvin Friedrich
+
+Arbeit am CRS
+ •	Product Usage
+-> Business Processes
+-> Use Cases
+-> Features
