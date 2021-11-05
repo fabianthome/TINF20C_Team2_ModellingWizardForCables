@@ -4,7 +4,7 @@
 
 Zur Installation werden folgende Schritte benötigt:
 
-1. [NodeJS](https://nodejs.org/en/) herunterladen.
+1. [NodeJS](https://nodejs.org/en/) installieren.
 2. Im SOURCE Verzeichnis die Node Packages herunterladen mit
    `npm install`.
 3. Keine verwirrenden Fehlermeldungen bekommen.
@@ -18,6 +18,7 @@ Wer [JetBrains WebStorm](https://www.jetbrains.com/webstorm/) benutzen möchte k
 ## Entwicklung
 
 Wichtige Befehle:
+
 - Bauen: `ng build`
 - Ausführen: `ng serve`
 - Ein Component hinzufügen: `ng generate component <component-name>`
