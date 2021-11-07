@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CONNECTORS } from "../connectors";
 
 @Component({
   selector: 'app-product-table',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  title = 'All Products'
+  title = 'Connectors'
+  products = CONNECTORS
 
   constructor() {
   }

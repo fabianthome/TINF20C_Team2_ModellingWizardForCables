@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from "../product";
 
 @Component({
@@ -7,10 +7,7 @@ import { Product } from "../product";
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  product: Product = {
-    name: "USB-Connector",
-    description: "This is a placeholder"
-  }
+  @Input() product?: Product;
 
   constructor() {
   }
