@@ -9,6 +9,7 @@
     "header header"
     "sidebar main";
 
+  overflow: hidden;
   background-color: var(--color_background);
 }
 
@@ -20,4 +21,5 @@ app-sidebar {
 }
 main {
   grid-area: main;
+  overflow: auto;
 }
