@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
+  searchQuery: string = "";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  search() {
+    // todo
+  }
 }
