@@ -1,3 +1,7 @@
-<mat-card *ngFor="let item of items" class="grid-item" routerLink="details">
+<mat-card
+  *ngFor="let item of items"
+  class="grid-item"
+  [routerLink]="['/details', item.id]"
+>
   <p>item {{ item.text }}</p>
 </mat-card>

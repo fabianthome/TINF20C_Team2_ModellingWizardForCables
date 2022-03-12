@@ -4,5 +4,5 @@ import { CableTemplatesGridComponent } from '../components/cable-templates-grid/
 
 export const routes: Routes = [
   { path: '', component: CableTemplatesGridComponent },
-  { path: 'details', component: CableDetailsComponent },
+  { path: 'details/:id', component: CableDetailsComponent },
 ];
