@@ -14,7 +14,7 @@ import {CableTemplatesGridComponent} from './components/cable-templates-grid/cab
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {CableDetailsComponent} from './components/cable-details/cable-details.component';
-import {CableSearchComponent} from './Components/cable-search/cable-search.component';
+import {CableSearchComponent} from './components/cable-search/cable-search.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
