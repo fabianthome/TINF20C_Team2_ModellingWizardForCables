@@ -1,6 +1,7 @@
 :host {
   flex-grow: 1;
   display: flex;
+  overflow: auto;
 }
 
 mat-drawer-container {
@@ -10,9 +11,26 @@ mat-drawer-container {
 mat-drawer {
   background-color: var(--color_base);
   padding: 0.5rem;
+  min-width: 20%;
+
+  .drawer-content-row {
+    display: block;
+    margin: 0.5rem;
+  }
 }
 
-.row {
-  display: block;
-  margin: 0.5rem;
+.drawer-button {
+  $drawer-button-gap: 1rem;
+  position: absolute;
+  bottom: $drawer-button-gap;
+
+  &.close {
+    right: $drawer-button-gap;
+  }
+
+  &.open {
+    left: $drawer-button-gap;
+    z-index: 2;
+  }
 }
+
