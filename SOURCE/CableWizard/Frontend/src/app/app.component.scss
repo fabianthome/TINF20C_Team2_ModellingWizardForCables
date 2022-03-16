@@ -2,9 +2,6 @@
   position: absolute;
   inset: 0;
 
-  overflow: hidden;
-}
-
-main {
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }

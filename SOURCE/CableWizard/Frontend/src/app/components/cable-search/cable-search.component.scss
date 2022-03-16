@@ -1,5 +1,10 @@
 :host {
+  flex-grow: 1;
+  display: flex;
+}
 
+mat-drawer-container {
+  flex-grow: 1;
 }
 
 mat-drawer {
