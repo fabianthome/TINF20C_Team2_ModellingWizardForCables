@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  text-align: center;
+}
+
+.button {
+  $angle: 20deg;
+  $height: 5rem;
+  $gap: 0.5rem;
+  $width: 10rem;
+
+  height: $height;
+  width: $width;
+  transform: skewX(-$angle);
+
+  * {
+    display: inline-block;
+    transform: skewX($angle);
+  }
+
+  &.left {
+    margin-right: 0.5 * $gap;
+  }
+
+  &.center {
+    margin-left: 0.5 * $gap;
+    margin-right: 0.5 * $gap;
+  }
+
+  &.right {
+    margin-left: 0.5 * $gap;
+  }
+}
