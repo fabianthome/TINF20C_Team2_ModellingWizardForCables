@@ -1,0 +1,2 @@
+podman build -t sowiho/cablewizard:1.0.0 .
+podman save sowiho/cablewizard:1.0.0 | ssh -C root@amtmann.de docker load
