@@ -1,20 +1,19 @@
-FROM ubuntu:20.04
+FROM python
 
 MAINTAINER LaFaCa+Co "softwareengineering@sowiho.de"
-
-RUN apt-get update -y && \
-    apt-get install -y python3-pip python-dev
 
 #copy just the requirements.txt first to leverage Docker cache
 COPY ./requirements.txt /app/requirements.txt
 
-WORKDIR /app
+ENV FLASK_APP=app
 
-RUN pip install -r requirements.txt
+WORKDIR /app
 
 COPY . /app
 
-VOLUME ./data/
+VOLUME ./data
+
+RUN pip install -r requirements.txt
 
 ENTRYPOINT [ "python" ]
 
