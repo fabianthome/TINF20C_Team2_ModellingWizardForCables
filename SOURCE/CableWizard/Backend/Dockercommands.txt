@@ -1,2 +1,7 @@
 podman build -t sowiho/cablewizard:1.0.0 .
-podman save sowiho/cablewizard:1.0.0 | ssh -C root@amtmann.de docker load
+podman save sowiho/cablewizard:3.0.0 | ssh -C root@amtmann.de docker load
+
+
+docker buildx build --platform linux/amd64 -t sowiho/cablewizard:3.0.0 .
+docker save sowiho/cablewizard:3.0.0 | ssh -C root@amtmann.de docker load
+docker run -d --name=dhbw_cablewizardbackend --network=proxy -v /root/DHBW/cablewizard/data:/app/modellingWizardBackend/data sowiho/cablewizard:3.0.0
