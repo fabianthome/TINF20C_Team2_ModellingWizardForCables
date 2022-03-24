@@ -16,6 +16,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {CableDetailsComponent} from './components/cable-details/cable-details.component';
 import {CableSearchComponent} from './components/cable-search/cable-search.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     MatFormFieldModule,
