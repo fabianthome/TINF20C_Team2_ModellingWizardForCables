@@ -1,19 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CableList, DataService} from "../../services/data.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-cable-templates-grid',
   templateUrl: './cable-templates-grid.component.html',
   styleUrls: ['./cable-templates-grid.component.scss'],
 })
-export class CableTemplatesGridComponent implements OnInit {
-  items = [
-    { text: 'example1', id: "1" },
-    { text: 'example2', id: "2" },
-    { text: 'example3', id: "3" },
-    { text: 'example4', id: "4" },
-  ];
+export class CableTemplatesGridComponent implements OnInit, OnDestroy {
+  cables : CableList = [];
+  subscription : Subscription | undefined;
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.subscription = this.dataService.getCableList().subscribe({
+      next: value => this.cables = value,
+    })
+  }
+
+  ngOnDestroy() {
+    this.subscription?.unsubscribe();
+  }
+
 }

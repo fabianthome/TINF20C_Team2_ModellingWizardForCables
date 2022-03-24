@@ -1,7 +1,7 @@
 <mat-card
-  *ngFor="let item of items"
+  *ngFor="let cable of cables"
   class="grid-item"
-  [routerLink]="['/details', item.id]"
+  [routerLink]="['/details', cable]"
 >
-  <p>item {{ item.text }}</p>
+  <p>{{ cable }}</p>
 </mat-card>
