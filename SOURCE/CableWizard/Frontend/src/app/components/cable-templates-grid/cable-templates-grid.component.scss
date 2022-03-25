@@ -3,11 +3,11 @@ $card-width: 280px;
 
 :host {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax($card-height, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax($card-width, 1fr));
   grid-gap: 1rem;
   padding: 1rem;
 }
 
 .grid-item {
-  height: $card-width;
+  height: $card-height;
 }

@@ -1,4 +1,16 @@
 <mat-toolbar color="primary">
+  <button *ngIf="showBackButton"
+          mat-icon-button
+          aria-label="Menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <button *ngIf="!showBackButton"
+          mat-icon-button
+          aria-label="Back"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
   <span>Cable Wizard</span>
   <span class="example-spacer"></span>
   <button

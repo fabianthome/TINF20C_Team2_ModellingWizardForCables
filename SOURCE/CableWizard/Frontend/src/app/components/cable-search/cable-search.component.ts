@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {fromEvent} from "rxjs";
 
 @Component({
   selector: 'app-cable-search',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CableSearchComponent implements OnInit {
   searchQuery: string = "";
+
+  resize$ = fromEvent(window, 'resize');
+  resizeSubscription = this.resize$.subscribe()
 
   constructor() { }
 
