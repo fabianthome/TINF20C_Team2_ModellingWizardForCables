@@ -17,6 +17,7 @@ import {CableDetailsComponent} from './components/cable-details/cable-details.co
 import {CableSearchComponent} from './components/cable-search/cable-search.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {HttpClientModule} from "@angular/common/http";
+import {CableEditorTabsComponent} from './components/cable-editor-tabs/cable-editor-tabs.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {HttpClientModule} from "@angular/common/http";
     CableTemplatesGridComponent,
     CableDetailsComponent,
     CableSearchComponent,
+    CableEditorTabsComponent,
   ],
   imports: [
     BrowserModule,
