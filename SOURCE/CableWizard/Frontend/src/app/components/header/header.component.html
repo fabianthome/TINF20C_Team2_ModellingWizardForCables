@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
-  <button *ngIf="showBurgerMenu" mat-icon-button aria-label="Menu">
-    <mat-icon>menu</mat-icon>
-  </button>
+  <div *ngIf="showBurgerMenu">
+    <button onclick="toggleDrawer()" mat-icon-button aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
   <!-- <button *ngIf="!showBurgerMenu"
           mat-icon-button
           aria-label="Back"

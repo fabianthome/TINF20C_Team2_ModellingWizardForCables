@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import {fromEvent} from "rxjs";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
+import { fromEvent } from 'rxjs';
+import { DrawerService } from 'src/app/services/drawer.service';
 
 @Component({
   selector: 'app-cable-search',
   templateUrl: './cable-search.component.html',
-  styleUrls: ['./cable-search.component.scss']
+  styleUrls: ['./cable-search.component.scss'],
 })
 export class CableSearchComponent implements OnInit {
-  searchQuery: string = "";
+  @ViewChild('drawer') public drawer: MatDrawer | undefined;
+  searchQuery: string = '';
 
   resize$ = fromEvent(window, 'resize');
-  resizeSubscription = this.resize$.subscribe()
+  resizeSubscription = this.resize$.subscribe();
 
-  constructor() { }
+  constructor(public drawerService: DrawerService) {}
 
   ngOnInit(): void {
+    this.drawerService.setDrawer(this.drawer!);
   }
-
 }

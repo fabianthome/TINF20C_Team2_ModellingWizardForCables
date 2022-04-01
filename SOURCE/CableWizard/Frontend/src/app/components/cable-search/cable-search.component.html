@@ -4,24 +4,41 @@
 
     <mat-form-field appearance="standard" class="drawer-content-row">
       <mat-label>Search</mat-label>
-      <input matInput type="text" [(ngModel)]="searchQuery">
+      <input matInput type="text" [(ngModel)]="searchQuery" />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
     <h3 class="drawer-content-row">Filters</h3>
 
-    <mat-slide-toggle class="drawer-content-row">Filter option A</mat-slide-toggle>
+    <mat-slide-toggle class="drawer-content-row"
+      >Filter option A</mat-slide-toggle
+    >
 
-    <mat-slide-toggle class="drawer-content-row">Filter option B</mat-slide-toggle>
+    <mat-slide-toggle class="drawer-content-row"
+      >Filter option B</mat-slide-toggle
+    >
 
-    <mat-slide-toggle class="drawer-content-row">Filter option C</mat-slide-toggle>
-    <button class="drawer-button close" (click)="drawer.close()" mat-mini-fab color="primary">
+    <mat-slide-toggle class="drawer-content-row"
+      >Filter option C</mat-slide-toggle
+    >
+    <button
+      class="drawer-button close"
+      (click)="drawer.close()"
+      mat-mini-fab
+      color="primary"
+    >
       <mat-icon>chevron_left</mat-icon>
     </button>
   </mat-drawer>
   <app-cable-templates-grid></app-cable-templates-grid>
 </mat-drawer-container>
 
-<button class="drawer-button open" *ngIf="!drawer.opened" (click)="drawer.open()" mat-mini-fab color="primary" >
+<button
+  class="drawer-button open"
+  *ngIf="!drawer.opened"
+  (click)="drawer.open()"
+  mat-mini-fab
+  color="primary"
+>
   <mat-icon>chevron_right</mat-icon>
 </button>
