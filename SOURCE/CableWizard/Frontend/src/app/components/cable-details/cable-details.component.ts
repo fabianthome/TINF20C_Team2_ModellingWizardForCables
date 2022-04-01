@@ -12,18 +12,12 @@ export class CableDetailsComponent implements OnInit, OnDestroy {
 
   cableText: string = "loading...";
 
-  private routeSubscription: Subscription | undefined; // is this needed?
   private cableSubscription: Subscription | undefined;
 
   constructor(private route: ActivatedRoute, private api: DataService) {
   }
 
   ngOnInit(): void {
-    this.routeSubscription = this.route.params.subscribe((params) => {
-      console.log(params); //log the entire params object
-      console.log(params['id']); //log the value of id
-    });
-
     this.cableSubscription = this.route.params.pipe(
       map(params => params['id']),
       filter(id => typeof id == 'string'),

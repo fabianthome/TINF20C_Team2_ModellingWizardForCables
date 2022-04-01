@@ -37,12 +37,6 @@ export class DataService {
       responseType: 'json'
     })
   }
-
-  getKeywords(): Observable<any> {
-    return this.http.get(DataService.toURL("getcable"), {
-      responseType: 'text',
-    });
-  }
 }
 
 export type CableList = string[];
