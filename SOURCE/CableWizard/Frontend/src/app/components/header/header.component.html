@@ -1,17 +1,14 @@
 <mat-toolbar color="primary">
-  <button *ngIf="showBurgerMenu"
-          mat-icon-button
-          aria-label="Menu"
-  >
+  <button *ngIf="showBurgerMenu" mat-icon-button aria-label="Menu">
     <mat-icon>menu</mat-icon>
   </button>
-  <button *ngIf="!showBurgerMenu"
+  <!-- <button *ngIf="!showBurgerMenu"
           mat-icon-button
           aria-label="Back"
   >
     <mat-icon>arrow_back</mat-icon>
-  </button>
-  <span>Cable Wizard</span>
+  </button> -->
+  <a href="" class=""><span>Cable Wizard</span></a>
   <span class="example-spacer"></span>
   <button
     mat-icon-button
