@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <div *ngIf="showBurgerMenu">
-    <button onclick="toggleDrawer()" mat-icon-button aria-label="Menu">
+    <button (click)="toggleDrawer()" mat-icon-button aria-label="Menu">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
