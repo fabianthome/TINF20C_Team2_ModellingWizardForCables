@@ -14,5 +14,5 @@ export class HeaderComponent implements OnInit {
   }
 
   @Input()
-  showBackButton: boolean = true;
+  showBurgerMenu: boolean = true;
 }

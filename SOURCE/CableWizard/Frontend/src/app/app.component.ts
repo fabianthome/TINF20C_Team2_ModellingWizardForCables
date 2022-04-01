@@ -10,13 +10,13 @@ import {filter} from "rxjs";
 export class AppComponent {
   title = 'CableWizard';
 
-  showBackButton : boolean = false;
+  showBurgerMenu : boolean = false;
 
   constructor(private router: Router) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(event => {
-        this.showBackButton = (event as NavigationEnd).url == "/";
+        this.showBurgerMenu = (event as NavigationEnd).url == "/";
       })
   }
 }
