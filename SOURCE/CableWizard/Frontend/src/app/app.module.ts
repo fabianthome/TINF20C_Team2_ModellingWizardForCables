@@ -10,7 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {CableTemplatesGridComponent} from './components/cable-templates-grid/cable-templates-grid.component';
+import {CableSearchGridComponent} from './components/cable-search-grid/cable-search-grid.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {CableDetailsComponent} from './components/cable-details/cable-details.component';
@@ -18,15 +18,17 @@ import {CableSearchComponent} from './components/cable-search/cable-search.compo
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {HttpClientModule} from "@angular/common/http";
 import {CableEditorTabsComponent} from './components/cable-editor-tabs/cable-editor-tabs.component';
+import { CableSearchItemComponent } from './components/cable-search-item/cable-search-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CableTemplatesGridComponent,
+    CableSearchGridComponent,
     CableDetailsComponent,
     CableSearchComponent,
     CableEditorTabsComponent,
+    CableSearchItemComponent,
   ],
   imports: [
     BrowserModule,

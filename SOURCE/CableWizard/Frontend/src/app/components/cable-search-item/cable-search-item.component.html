@@ -1,0 +1,13 @@
+<p
+  [routerLink]="['/details', productId]"
+>
+  {{productId}}
+</p>
+<p *ngIf="productInfo != null">
+  {{productInfo.name}}
+  {{productInfo.producer}}
+</p>
+<p *ngIf="productInfo == null">
+  Loading...
+</p>
+

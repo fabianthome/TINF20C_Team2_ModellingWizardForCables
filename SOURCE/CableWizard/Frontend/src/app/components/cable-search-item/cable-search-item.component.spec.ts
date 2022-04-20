@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CableTemplatesGridComponent } from './cable-templates-grid.component';
+import { CableSearchItemComponent } from './cable-search-item.component';
 
-describe('CableTemplatesGridComponent', () => {
-  let component: CableTemplatesGridComponent;
-  let fixture: ComponentFixture<CableTemplatesGridComponent>;
+describe('CableSearchItemComponent', () => {
+  let component: CableSearchItemComponent;
+  let fixture: ComponentFixture<CableSearchItemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CableTemplatesGridComponent ]
+      declarations: [ CableSearchItemComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CableTemplatesGridComponent);
+    fixture = TestBed.createComponent(CableSearchItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

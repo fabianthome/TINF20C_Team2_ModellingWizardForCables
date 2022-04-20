@@ -1,7 +1,0 @@
-<mat-card
-  *ngFor="let productId of productIds$ | async"
-  class="grid-item"
-  [routerLink]="['/details', productId]"
->
-  <p>{{ productId }}</p>
-</mat-card>

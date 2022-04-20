@@ -1,0 +1,9 @@
+<mat-card
+  *ngFor="let productId of productIds$ | async"
+>
+  <app-cable-search-item
+    class="grid-item"
+    [productId]="productId"
+  >
+  </app-cable-search-item>
+</mat-card>
