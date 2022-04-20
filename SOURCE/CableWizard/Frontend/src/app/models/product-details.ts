@@ -1,6 +1,7 @@
 export interface ProductDetails {
   id: string
   name: string
+  producer: string
   attachedImagePaths : string[]
   attachedFilePaths : string[]
   connectors: Connector[]

@@ -21,7 +21,7 @@ export class CableDetailsComponent implements OnInit, OnDestroy {
     this.cableSubscription = this.route.params.pipe(
       map(params => params['id']),
       filter(id => typeof id == 'string'),
-      switchMap(id => this.api.getCable(id as string)),
+      switchMap(id => this.api.getProductDetails(id as string)),
     ).subscribe(
       cableInfo => this.cableText = JSON.stringify(cableInfo)
     )

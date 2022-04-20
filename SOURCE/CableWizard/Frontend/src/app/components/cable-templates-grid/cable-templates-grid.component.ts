@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CableList, DataService} from "../../services/data.service";
-import {Subscription} from "rxjs";
+import {DataService} from "../../services/data.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-cable-templates-grid',
@@ -8,19 +8,16 @@ import {Subscription} from "rxjs";
   styleUrls: ['./cable-templates-grid.component.scss'],
 })
 export class CableTemplatesGridComponent implements OnInit, OnDestroy {
-  cables : CableList = [];
-  subscription : Subscription | undefined;
+  productIds$ : Observable<string[]>;
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.productIds$ = this.dataService.getProductList().pipe()
+  }
 
   ngOnInit(): void {
-    this.subscription = this.dataService.getCableList().subscribe({
-      next: value => this.cables = value,
-    })
   }
 
   ngOnDestroy() {
-    this.subscription?.unsubscribe();
   }
 
 }
