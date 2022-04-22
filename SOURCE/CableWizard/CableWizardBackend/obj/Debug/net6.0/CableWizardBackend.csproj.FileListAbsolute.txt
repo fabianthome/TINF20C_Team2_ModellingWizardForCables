@@ -25,3 +25,6 @@ D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\Ca
 D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\CableWizardBackend\obj\Debug\net6.0\CableWizardBackend.pdb
 D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\CableWizardBackend\obj\Debug\net6.0\CableWizardBackend.genruntimeconfig.cache
 D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\CableWizardBackend\obj\Debug\net6.0\ref\CableWizardBackend.dll
+D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\CableWizardBackend\bin\Debug\net6.0\AMLEngine.dll
+D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\CableWizardBackend\bin\Debug\net6.0\Altova.dll
+D:\Projects\Angular\TINF20C_Team2_ModellingWizardForCables\SOURCE\CableWizard\CableWizardBackend\bin\Debug\net6.0\AltovaXML.dll

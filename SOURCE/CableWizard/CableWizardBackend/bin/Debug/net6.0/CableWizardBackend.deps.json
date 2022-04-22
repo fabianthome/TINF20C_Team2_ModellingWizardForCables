@@ -8,10 +8,27 @@
     ".NETCoreApp,Version=v6.0": {
       "CableWizardBackend/1.0.0": {
         "dependencies": {
+          "AMLEngine": "3.6.2",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
           "CableWizardBackend.dll": {}
+        }
+      },
+      "AMLEngine/3.6.2": {
+        "runtime": {
+          "lib/net40/AMLEngine.dll": {
+            "assemblyVersion": "3.6.2.0",
+            "fileVersion": "3.6.2.0"
+          },
+          "lib/net40/Altova.dll": {
+            "assemblyVersion": "1.0.5997.24845",
+            "fileVersion": "1.0.5997.24845"
+          },
+          "lib/net40/AltovaXML.dll": {
+            "assemblyVersion": "1.0.5997.24846",
+            "fileVersion": "1.0.5997.24846"
+          }
         }
       },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {},
@@ -68,6 +85,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AMLEngine/3.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P3Uu+nFX7dHGb+SABrZSgxJFgeUqFQMrAlRLuk/5ARK19s/qqDbjh7PaE3Fojw10NeuqzmG6grMeFDKXg1fqmg==",
+      "path": "amlengine/3.6.2",
+      "hashPath": "amlengine.3.6.2.nupkg.sha512"
     },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "type": "package",

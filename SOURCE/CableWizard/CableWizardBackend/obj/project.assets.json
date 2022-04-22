@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "AMLEngine/3.6.2": {
+        "type": "package",
+        "compile": {
+          "lib/net40/AMLEngine.dll": {},
+          "lib/net40/Altova.dll": {},
+          "lib/net40/AltovaXML.dll": {}
+        },
+        "runtime": {
+          "lib/net40/AMLEngine.dll": {},
+          "lib/net40/Altova.dll": {},
+          "lib/net40/AltovaXML.dll": {}
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -76,6 +89,25 @@
     }
   },
   "libraries": {
+    "AMLEngine/3.6.2": {
+      "sha512": "P3Uu+nFX7dHGb+SABrZSgxJFgeUqFQMrAlRLuk/5ARK19s/qqDbjh7PaE3Fojw10NeuqzmG6grMeFDKXg1fqmg==",
+      "type": "package",
+      "path": "amlengine/3.6.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "amlengine.3.6.2.nupkg.sha512",
+        "amlengine.nuspec",
+        "content/_._",
+        "lib/net40/AMLEngine.XML",
+        "lib/net40/AMLEngine.dll",
+        "lib/net40/AMLEngine.pdb",
+        "lib/net40/Altova.dll",
+        "lib/net40/Altova.pdb",
+        "lib/net40/AltovaXML.dll",
+        "lib/net40/AltovaXML.pdb"
+      ]
+    },
     "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
       "sha512": "LH4OE/76F6sOCslif7+Xh3fS/wUUrE5ryeXAMcoCnuwOQGT5Smw0p57IgDh/pHgHaGz/e+AmEQb7pRgb++wt0w==",
       "type": "package",
@@ -204,6 +236,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "AMLEngine >= 3.6.2",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -246,6 +279,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "AMLEngine": {
+            "target": "Package",
+            "version": "[3.6.2, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
@@ -272,5 +309,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AMLEngine 3.6.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AMLEngine",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

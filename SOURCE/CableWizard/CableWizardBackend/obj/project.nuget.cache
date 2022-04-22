@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rUGVEfPsjGVPnxzkQeqcJzzNUSR3+8yGxWxX7DANAePVJDjppfFxO0hrFeolWxJWaDiszAkrHNmRM2TUaq/ofA==",
+  "dgSpecHash": "hKhtCsGkNs81DCvtYfAYlR11/vJM1TYwPnJ97KAjEfgoXoomRDZY7t3SZ6YfEInKHOcIiPycRDtmTCE6it0fJg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Angular\\TINF20C_Team2_ModellingWizardForCables\\SOURCE\\CableWizard\\CableWizardBackend\\CableWizardBackend.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\thorsten\\.nuget\\packages\\amlengine\\3.6.2\\amlengine.3.6.2.nupkg.sha512",
     "C:\\Users\\thorsten\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\thorsten\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\thorsten\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
@@ -11,5 +12,16 @@
     "C:\\Users\\thorsten\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "C:\\Users\\thorsten\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'AMLEngine 3.6.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "AMLEngine",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
