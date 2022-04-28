@@ -12,21 +12,8 @@ public class ProductController : Controller
     [HttpGet(Name = "GetProductInfos")]
     public IEnumerable<ProductInfo> Get()
     {
+        AmlSerializer.Test();
         
-        var file = CAEXDocument.LoadFromFile("/Users/amtmann/Desktop/cable.aml");
-
-        // browse the Instance Hierarchies in the file to import some elements
-        foreach (var instanceHierarchy in file.CAEXFile.InstanceHierarchy)
-        {
-            // browse all InternalElements deep and import the internal Elements to your system
-            foreach (var internalElement in instanceHierarchy.Descendants<InternalElementType>())
-            {
-                Console.WriteLine(internalElement);
-                string test = internalElement.CAEXDocument.ToString();
-                Console.WriteLine(test);
-            }
-        }
-
         var products = new[]
         {
             // for each CABLEINFOLDER make new ProductInfo { ID = Itterate, Name = Filename, Producer = AML.Engine.get.producer}

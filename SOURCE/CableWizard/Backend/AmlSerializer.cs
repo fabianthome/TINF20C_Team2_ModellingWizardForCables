@@ -1,9 +1,44 @@
-﻿namespace CableWizardBackend;
+﻿using Aml.Engine.AmlObjects;
+using Aml.Engine.CAEX;
+using Aml.Engine.CAEX.Extensions;
 
-public class AmlSerializer
+namespace CableWizardBackend;
+
+public static class AmlSerializer
 {
-    public AmlSerializer()
+    private static readonly CAEXDocument Document;
+
+    static AmlSerializer()
     {
+        var filepath = $"{Directory.GetCurrentDirectory()}/Workdir/Cables_28032022.amlx";
+        //todo get this path over environment variables
+        var container = new AutomationMLContainer(filepath);
+        Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());
+    }
+
+    public static void Test()
+    {
+        var document = Document;
+        // inspect this in debug mode o_o
+        Console.WriteLine(Document);
+        Console.WriteLine(Document.CAEXFile);
         
+        
+        /*
+        var file = CAEXDocument.LoadFromFile("/Users/amtmann/Desktop/cable.aml");
+
+        // browse the Instance Hierarchies in the file to import some elements
+        foreach (var instanceHierarchy in file.CAEXFile.InstanceHierarchy)
+        {
+            Console.WriteLine(instanceHierarchy);
+            // browse all InternalElements deep and import the internal Elements to your system
+            foreach (var internalElement in instanceHierarchy.Descendants<InternalElementType>())
+            {
+                Console.WriteLine(internalElement);
+                var test = internalElement.CAEXDocument.ToString();
+                Console.WriteLine(test);
+            }
+        }
+        */
     }
 }
