@@ -18,12 +18,13 @@ public static class AmlSerializer
 
     public static void Test()
     {
-        var document = Document;
-        // inspect this in debug mode o_o
-        Console.WriteLine(Document);
-        Console.WriteLine(Document.CAEXFile);
-        
-        
+        var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
+
+        foreach (var productLibrary in systemUnitClassLib)
+        {
+            Console.WriteLine(productLibrary);
+        }
+
         /*
         var file = CAEXDocument.LoadFromFile("/Users/amtmann/Desktop/cable.aml");
 
