@@ -20,26 +20,36 @@ public static class AmlSerializer
     {
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
+        var products = new List<string>();
+
         foreach (var productLibrary in systemUnitClassLib)
         {
-            Console.WriteLine(productLibrary);
-        }
-
-        /*
-        var file = CAEXDocument.LoadFromFile("/Users/amtmann/Desktop/cable.aml");
-
-        // browse the Instance Hierarchies in the file to import some elements
-        foreach (var instanceHierarchy in file.CAEXFile.InstanceHierarchy)
-        {
-            Console.WriteLine(instanceHierarchy);
-            // browse all InternalElements deep and import the internal Elements to your system
-            foreach (var internalElement in instanceHierarchy.Descendants<InternalElementType>())
+            Console.WriteLine($"Product library: {productLibrary}");
+            foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
             {
-                Console.WriteLine(internalElement);
-                var test = internalElement.CAEXDocument.ToString();
-                Console.WriteLine(test);
+                var list = DeepSearch(systemUnitFamilyType);
+                foreach (var unitFamilyType in list)
+                {
+                    Console.WriteLine($"Cable: {unitFamilyType}");
+                }
             }
         }
-        */
+    }
+
+    private static List<SystemUnitFamilyType> DeepSearch(SystemUnitFamilyType familyType)
+    {
+        if (familyType.SystemUnitClass.Count == 0)
+        {
+            return new List<SystemUnitFamilyType> {familyType};
+        }
+
+        List<SystemUnitFamilyType> results = new List<SystemUnitFamilyType>();
+
+        foreach (var inner in familyType.SystemUnitClass)
+        {
+            results = results.Concat(DeepSearch(inner)).ToList();
+        }
+
+        return results;
     }
 }
