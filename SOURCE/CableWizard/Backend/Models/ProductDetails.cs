@@ -1,6 +1,6 @@
 namespace CableWizardBackend.Models;
 
-public class CableDetails
+public class ProductDetails
 {
     public string Id { get; set; }
     public string Name { get; set; }

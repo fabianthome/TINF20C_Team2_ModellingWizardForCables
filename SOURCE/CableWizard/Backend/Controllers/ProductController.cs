@@ -9,11 +9,11 @@ public class ProductDetailsController : Controller
 {
     [HttpGet(Name = "GetProductDetails")]
     
-    public CableDetails Get(int id)
+    public ProductDetails Get(int id)
     {
         AmlSerializer.Test();
 
-        return new CableDetails
+        return new ProductDetails
         {
             Id = "test",
             Name = "test2"
