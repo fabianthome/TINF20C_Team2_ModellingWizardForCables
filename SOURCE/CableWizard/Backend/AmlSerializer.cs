@@ -28,9 +28,23 @@ public static class AmlSerializer
             foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
             {
                 var list = DeepSearch(systemUnitFamilyType);
+                
                 foreach (var unitFamilyType in list)
                 {
+                    // cables
                     Console.WriteLine($"Cable: {unitFamilyType}");
+                    
+                    // connectors
+                    foreach (var externalInterface in unitFamilyType.ExternalInterfaceAndInherited)
+                    {
+                        Console.WriteLine($"Connector: {externalInterface}");
+                    }
+                    
+                    // pins - doesn't work properly for Balluff lib yet
+                    foreach (var externalInterface in unitFamilyType.InternalElementAndInherited)
+                    {
+                        Console.WriteLine($"Pin: {externalInterface}");
+                    } 
                 }
             }
         }
