@@ -4,30 +4,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace CableWizardBackend.Controllers;
 
 [ApiController]
-[Route("api/v2/products")]
-public class ProductController : Controller
+[Route("api/v2/product-details/{id:int}")]
+public class ProductDetailsController : Controller
 {
-    [HttpGet(Name = "GetProductInfos")]
-    public IEnumerable<ProductInfo> Get()
+    [HttpGet(Name = "GetProductDetails")]
+    
+    public CableDetails Get(int id)
     {
         AmlSerializer.Test();
-        
-        var products = new[]
+
+        return new CableDetails
         {
-            // for each CABLEINFOLDER make new ProductInfo { ID = Itterate, Name = Filename, Producer = AML.Engine.get.producer}
-            new ProductInfo
-            {
-                Id = "1",
-                Name = "example-cable",
-                Producer = "Balluff"
-            }, 
-            new ProductInfo
-            {
-                Id = "2",
-                Name = "Erdbeere",
-                Producer = "Murr"
-            }
+            Id = "test",
+            Name = "test2"
         };
-        return products;
     }
 }
