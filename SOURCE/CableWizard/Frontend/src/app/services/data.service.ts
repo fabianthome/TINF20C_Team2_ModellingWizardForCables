@@ -33,7 +33,7 @@ export class DataService {
   }
 
   getProductDetails(productId: string): Observable<ProductDetails> {
-    return this.http.get<ProductDetails>(DataService.toURL("product-details", `product-id=${productId}`), {
+    return this.http.get<ProductDetails>(DataService.toURL(`product-details/${productId}`), {
       responseType: 'json'
     })
   }
