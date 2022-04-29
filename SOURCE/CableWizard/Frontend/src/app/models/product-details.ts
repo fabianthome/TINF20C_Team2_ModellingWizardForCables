@@ -1,9 +1,9 @@
 export interface ProductDetails {
   id: string
   name: string
-  producer: string
   attachedImagePaths : string[]
   attachedFilePaths : string[]
+  attributes: Object //todo: define more precisely
   connectors: Connector[]
   wires: Wire[]
 }

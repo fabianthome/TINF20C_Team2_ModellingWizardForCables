@@ -1,9 +1,9 @@
 <mat-card
-  *ngFor="let product of products$ | async"
+  *ngFor="let id of productIds$ | async"
 >
   <app-cable-search-item
     class="grid-item"
-    [productId]="product.id"
+    [productId]="id"
   >
   </app-cable-search-item>
 </mat-card>

@@ -1,7 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {ProductInfo} from "../models/product-info";
 import {ProductDetails} from "../models/product-details";
 
 const API_URL = 'https://localhost:7200/api/v2';
@@ -27,14 +26,8 @@ export class DataService {
     return url;
   }
 
-  getProductList(): Observable<ProductInfo[]> {
-    return this.http.get<ProductInfo[]>(DataService.toURL("products"), {
-      responseType: 'json'
-    });
-  }
-
-  getProductInfo(productId: string): Observable<ProductInfo> {
-    return this.http.get<ProductInfo>(DataService.toURL("product-info", `product-id=${productId}`), {
+  getProductList(): Observable<string[]> {
+    return this.http.get<string[]>(DataService.toURL("products"), {
       responseType: 'json'
     });
   }
