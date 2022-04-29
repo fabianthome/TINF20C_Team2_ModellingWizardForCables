@@ -43,8 +43,16 @@ public static class AmlSerializer
                     // pins - doesn't work properly for Balluff lib yet
                     foreach (var internalElement in unitFamilyType.InternalElementAndInherited)
                     {
-                        Console.WriteLine($"Pin: {internalElement}");
-                    } 
+                        // todo: how to filter internalElement for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
+
+                        // access colours of wires (c1 etc.)
+                        foreach (var attribute in internalElement.Attribute)
+                        {
+                            //Console.WriteLine($"{attribute.Value}");
+                        }
+
+                        //Console.WriteLine($"Pin: {internalElement}");
+                    }
                 }
             }
         }
@@ -56,14 +64,14 @@ public static class AmlSerializer
         {
             return new List<SystemUnitFamilyType> {familyType};
         }
-
+    
         List<SystemUnitFamilyType> results = new List<SystemUnitFamilyType>();
-
+        
         foreach (var inner in familyType.SystemUnitClass)
         {
             results = results.Concat(DeepSearch(inner)).ToList();
         }
-
+        
         return results;
     }
 }
