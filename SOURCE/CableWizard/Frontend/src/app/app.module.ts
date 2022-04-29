@@ -19,6 +19,7 @@ import { CableSearchComponent } from './components/cable-search/cable-search.com
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HttpClientModule } from '@angular/common/http';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 import { CableEditorTabsComponent } from './components/cable-editor-tabs/cable-editor-tabs.component';
 import { CableSearchItemComponent } from './components/cable-search-item/cable-search-item.component';
@@ -51,6 +52,7 @@ import { EditorComponent } from './components/editor/editor.component';
     MatSidenavModule,
     ReactiveFormsModule,
     MatChipsModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
