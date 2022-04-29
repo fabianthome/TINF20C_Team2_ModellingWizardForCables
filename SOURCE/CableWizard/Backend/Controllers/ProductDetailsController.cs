@@ -4,12 +4,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace CableWizardBackend.Controllers;
 
 [ApiController]
-[Route("api/v2/products")]
-public class ProductController : Controller
+[Route("api/v2/product-details/{id:int}")]
+public class ProductDetailsController : Controller
 {
-    [HttpGet(Name = "GetProducts")]
-    public IEnumerable<string> Get()
+    [HttpGet(Name = "GetProductDetails")]
+    
+    public ProductDetails Get(int id)
     {
-        return new[] {"test, test"};
+        AmlSerializer.Test();
+
+        return new ProductDetails
+        {
+            Id = "test",
+            Name = "test2"
+        };
     }
 }

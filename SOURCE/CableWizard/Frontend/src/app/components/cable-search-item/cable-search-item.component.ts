@@ -1,7 +1,7 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {ProductInfo} from "../../models/product-info";
 import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
+import {ProductDetails} from "../../models/product-details";
 
 @Component({
   selector: 'app-cable-search-item',
@@ -12,14 +12,14 @@ export class CableSearchItemComponent implements OnInit, OnDestroy {
 
   @Input() productId: string | undefined
 
-  productInfo: ProductInfo | undefined;
+  productDetails: ProductDetails | undefined;
 
   private subscription: Subscription | undefined;
 
   constructor(private dataService: DataService) {
     if (this.productId != null) {
-      this.subscription = this.dataService.getProductInfo(this.productId).subscribe(
-        productInfo => this.productInfo = productInfo
+      this.subscription = this.dataService.getProductDetails(this.productId).subscribe(
+        details => this.productDetails = details
       )
     }
   }

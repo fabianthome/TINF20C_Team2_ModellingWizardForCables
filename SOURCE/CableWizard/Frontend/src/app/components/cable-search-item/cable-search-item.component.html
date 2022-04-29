@@ -3,11 +3,10 @@
 >
   {{productId}}
 </p>
-<p *ngIf="productInfo != null">
-  {{productInfo.name}}
-  {{productInfo.producer}}
+<p *ngIf="productDetails != null">
+  {{productDetails.name}}
 </p>
-<p *ngIf="productInfo == null">
+<p *ngIf="productDetails == null">
   Loading...
 </p>
 
