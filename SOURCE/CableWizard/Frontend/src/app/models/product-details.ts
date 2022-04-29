@@ -3,9 +3,14 @@ export interface ProductDetails {
   name: string
   attachedImagePaths : string[]
   attachedFilePaths : string[]
-  attributes: Object //todo: define more precisely
+  attributes: ProductAttributes
   connectors: Connector[]
   wires: Wire[]
+}
+
+export interface ProductAttributes {
+  length: number,
+  manufacturer: string
 }
 
 export interface Connector {
