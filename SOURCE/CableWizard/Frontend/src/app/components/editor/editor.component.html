@@ -1,0 +1,73 @@
+<h1 mat-dialog-title>Kabel konfigurieren</h1>
+<form
+  name="form"
+  (ngSubmit)="(f.form.valid)"
+  #f="ngForm"
+  novalidate
+  class="backgorund"
+>
+  <div class="form-group">
+    <label for="cable.cableName">Kabelname</label>
+    <input
+      type="cable.cableName"
+      class="form-control"
+      name="cable.cableName"
+      [(ngModel)]="cable.cableName"
+      required
+      cable.cableName
+      #cable.cableName="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="cable.cableId">Kabel Id</label>
+    <input
+      type="cable.cableId"
+      class="form-control"
+      name="cable.cableId"
+      [(ngModel)]="cable.cableId"
+      required
+      cable.cableId
+      #cable.cableId="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="cable.wires">Wires</label>
+    <button
+      mat-icon-button
+      class="add-icon"
+      aria-label="Example icon-button with heart icon"
+      [disableRipple]="true"
+      (click)="addWire()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <div *ngFor="let wire of cable.wires">
+      <div>{{ wire }}</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="cable.wires">Connectors</label>
+    <button
+      mat-icon-button
+      class="add-icon"
+      aria-label="Example icon-button with heart icon"
+      [disableRipple]="true"
+      (click)="addConnector()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <div *ngFor="let connector of cable.connectors">
+      <div>{{ connector.type }}</div>
+      <div *ngFor="let pin of connector.pins">
+        <div>{{ pin.type }}</div>
+        <div>{{ pin.name }}</div>
+        <div>{{ pin.connectedWire }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group footer-buttons">
+    <button class="btn btn-danger btn-block" mat-dialog-close>Cancel</button>
+    <span class="spacer"></span>
+    <button class="btn btn-primary btn-block">Confirm</button>
+  </div>
+</form>
