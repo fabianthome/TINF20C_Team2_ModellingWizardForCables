@@ -1,7 +1,5 @@
 ﻿using CableWizardBackend.Models;
 using Microsoft.AspNetCore.Mvc;
-using Aml.Engine.CAEX;
-using Aml.Engine.CAEX.Extensions;
 
 namespace CableWizardBackend.Controllers;
 

@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
 import {Observable} from "rxjs";
+import {ProductInfo} from "../../models/product-info";
 
 @Component({
   selector: 'app-cable-search-grid',
@@ -8,10 +9,10 @@ import {Observable} from "rxjs";
   styleUrls: ['./cable-search-grid.component.scss'],
 })
 export class CableSearchGridComponent implements OnInit, OnDestroy {
-  productIds$ : Observable<string[]>;
+  products$ : Observable<ProductInfo[]>;
 
   constructor(private dataService: DataService) {
-    this.productIds$ = this.dataService.getProductList().pipe()
+    this.products$ = this.dataService.getProductList().pipe()
   }
 
   ngOnInit(): void {
