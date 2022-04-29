@@ -41,9 +41,9 @@ public static class AmlSerializer
                     }
                     
                     // pins - doesn't work properly for Balluff lib yet
-                    foreach (var externalInterface in unitFamilyType.InternalElementAndInherited)
+                    foreach (var internalElement in unitFamilyType.InternalElementAndInherited)
                     {
-                        Console.WriteLine($"Pin: {externalInterface}");
+                        Console.WriteLine($"Pin: {internalElement}");
                     } 
                 }
             }
