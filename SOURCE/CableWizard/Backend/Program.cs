@@ -1,12 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
-var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
+var allowSpecificOrigins = "AllowSpecificOrigins";
+
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(myAllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:4200");
-        });
+    options.AddPolicy(allowSpecificOrigins, policy => policy.WithOrigins("http://localhost:4200"));
 });
 
 builder.Services.AddControllers();
@@ -21,7 +18,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(myAllowSpecificOrigins);
+app.UseCors(allowSpecificOrigins);
 
 app.UseHttpsRedirection();
 
