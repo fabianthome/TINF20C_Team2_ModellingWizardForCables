@@ -1,5 +1,6 @@
 <mat-card
   *ngFor="let product of products$ | async"
+  [routerLink]="routerLink(product)"
 >
   <p>{{product.name}}</p>
   <p>{{product.id}}</p>

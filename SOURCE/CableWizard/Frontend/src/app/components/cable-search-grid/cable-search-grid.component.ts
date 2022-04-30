@@ -36,6 +36,9 @@ export class CableSearchGridComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+  routerLink(product: ProductDetails) {
+    return `details/${product.id}`;
+  }
 }
 
 interface FilterOptions {
