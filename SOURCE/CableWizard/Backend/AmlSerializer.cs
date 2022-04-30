@@ -23,11 +23,11 @@ public static class AmlSerializer
         Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());
     }
 
-    public static String GetProducts()
+    public static IEnumerable<string> GetProducts()
     {
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
-        var productList = new List<String>();
+        var productList = new List<string>();
 
         foreach (var productLibrary in systemUnitClassLib)
         {
@@ -41,8 +41,7 @@ public static class AmlSerializer
                 }
             }
         }
-        var products = JsonSerializer.Serialize(productList);
-        return products;
+        return productList;
     }
 
     public static void GetProductDetails(string id) // WIP

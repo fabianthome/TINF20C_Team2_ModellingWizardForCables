@@ -7,7 +7,7 @@ namespace CableWizardBackend.Controllers;
 public class ProductController : Controller
 {
     [HttpGet(Name = "GetProducts")]
-    public string Get()
+    public IEnumerable<string> Get()
     {
         return AmlSerializer.GetProducts();
     }
