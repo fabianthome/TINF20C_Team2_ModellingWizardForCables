@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from "../../services/data.service";
-import {Observable} from "rxjs";
+import {BehaviorSubject, combineLatest, map, Observable, switchMap} from "rxjs";
+import {ProductDetails} from "../../models/product-details";
 
 @Component({
   selector: 'app-cable-search-grid',
@@ -8,11 +9,26 @@ import {Observable} from "rxjs";
   styleUrls: ['./cable-search-grid.component.scss'],
 })
 export class CableSearchGridComponent implements OnInit, OnDestroy {
-  productIds$ : Observable<string[]>;
+  products$: Observable<ProductDetails[]>
+  filteredProducts$: Observable<ProductDetails[]>
+  filterOptions$: Observable<FilterOptions>
 
   constructor(private dataService: DataService) {
-    this.productIds$ = this.dataService.getProductList().pipe()
+    this.filterOptions$ = new BehaviorSubject<FilterOptions>({
+      nameMustContain: "",
+    })
+    this.products$ = this.dataService.getProductList().pipe(
+      switchMap(ids => combineLatest(ids.map(id => this.dataService.getProductDetails(id))))
+    )
+    this.filteredProducts$ = combineLatest([this.products$, this.filterOptions$]).pipe(
+      map(([product, filter]) => this.filterProducts(product, filter))
+    )
   }
+
+  private filterProducts(products: ProductDetails[], filter: FilterOptions) {
+    return products.filter(product => !product.name.includes(filter.nameMustContain))
+  }
+
 
   ngOnInit(): void {
   }
@@ -20,4 +36,8 @@ export class CableSearchGridComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
+}
+
+interface FilterOptions {
+  nameMustContain: string
 }

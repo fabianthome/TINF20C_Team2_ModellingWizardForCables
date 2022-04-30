@@ -1,8 +1,6 @@
 export interface ProductDetails {
   id: string
   name: string
-  attachedImagePaths : string[]
-  attachedFilePaths : string[]
   attributes: ProductAttributes
   connectors: Connector[]
   wires: Wire[]
@@ -24,6 +22,4 @@ export interface Pin {
   connectedWireName: string
 }
 
-export interface Wire {
-  name: string
-}
+export type Wire = string
