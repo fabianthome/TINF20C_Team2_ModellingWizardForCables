@@ -1,11 +1,18 @@
 ﻿using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
+using System.Text.Json;
 
 namespace CableWizardBackend;
 
 public static class AmlSerializer
 {
+    private class Product
+    {
+        public string Name { get; set; }
+        public string Id { get; set; }
+    }
+    
     private static readonly CAEXDocument Document;
 
     static AmlSerializer()
@@ -16,19 +23,49 @@ public static class AmlSerializer
         Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());
     }
 
-    public static void Test()
+    public static String GetProducts()
     {
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
-        var products = new List<string>();
+        var productList = new List<Product>();
 
         foreach (var productLibrary in systemUnitClassLib)
         {
-            Console.WriteLine($"Product library: {productLibrary}");
             foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
             {
                 var list = DeepSearch(systemUnitFamilyType);
                 
+                foreach (var unitFamilyType in list)
+                {
+                    Product product = new Product
+                    {
+                        Name = unitFamilyType.Name,
+                        Id = unitFamilyType.ID
+                    };
+
+                    productList.Add(product);
+                }
+            }
+        }
+        var products = JsonSerializer.Serialize(productList);
+        return products;
+    }
+
+    public static void GetProductDetails()
+    {
+        var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
+
+        var productList = new List<Product>();
+
+        foreach (var productLibrary in systemUnitClassLib)
+        {
+            //product lib
+            Console.WriteLine($"Product library: {productLibrary}");
+            
+            foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
+            {
+                var list = DeepSearch(systemUnitFamilyType);
+
                 foreach (var unitFamilyType in list)
                 {
                     // cables
@@ -51,7 +88,7 @@ public static class AmlSerializer
                             //Console.WriteLine($"{attribute.Value}");
                         }
 
-                        //Console.WriteLine($"Pin: {internalElement}");
+                        Console.WriteLine($"Pin: {internalElement}");
                     }
                 }
             }
