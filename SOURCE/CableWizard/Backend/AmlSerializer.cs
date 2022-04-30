@@ -1,18 +1,12 @@
 ﻿using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
-using System.Text.Json;
+using CableWizardBackend.Models;
 
 namespace CableWizardBackend;
 
 public static class AmlSerializer
 {
-    private class Product
-    {
-        public string Name { get; set; }
-        public string Id { get; set; }
-    }
-    
     private static readonly CAEXDocument Document;
 
     static AmlSerializer()
@@ -44,18 +38,14 @@ public static class AmlSerializer
         return productList;
     }
 
-    public static void GetProductDetails(string id) // WIP
+    public static ProductDetails GetProductDetails(string id)
     {
-        Console.WriteLine("looking for product...");
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
-        var productList = new List<Product>();
+        var productDetails = new ProductDetails();
 
         foreach (var productLibrary in systemUnitClassLib)
         {
-            //product lib
-            //Console.WriteLine($"Product library: {productLibrary}");
-            
             foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
             {
                 var list = DeepSearch(systemUnitFamilyType);
@@ -64,12 +54,13 @@ public static class AmlSerializer
                 {
                     if (unitFamilyType.ID == id)
                     {
-                        //Product product = new Product
-                        //{
-                        //    Name = unitFamilyType.Name,
-                        //    Id = unitFamilyType.ID
-                        //};
-                        
+                        productDetails.Id = id;
+                        productDetails.Name = unitFamilyType.Name;
+                        productDetails.Library = productLibrary.ToString();
+                        productDetails.Connectors = new List<string>();
+                        productDetails.Wires = new List<string>();
+                        productDetails.Pins = new List<string>();
+
                         // cables
                         Console.WriteLine($"Cable: {unitFamilyType}");
                         
@@ -77,25 +68,38 @@ public static class AmlSerializer
                         foreach (var externalInterface in unitFamilyType.ExternalInterfaceAndInherited)
                         {
                             Console.WriteLine($"Connector: {externalInterface}");
+                            productDetails.Connectors.Add(externalInterface.ToString());
                         }
                         
                         // pins - doesn't work properly for Balluff lib yet
-                        foreach (var internalElement in unitFamilyType.InternalElementAndInherited)
+                        foreach (var wire in unitFamilyType.InternalElementAndInherited)
                         {
                             // todo: how to filter internalElement for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
                         
+                            /*
                             // access colours of wires (c1 etc.)
-                            foreach (var attribute in internalElement.Attribute)
+                            foreach (var attribute in wire.Attribute)
                             {
-                                //Console.WriteLine($"{attribute.Value}");
+                                Console.WriteLine($"{attribute.Value}");
                             }
+                            */
                         
-                            Console.WriteLine($"Pin: {internalElement}");
+                            Console.WriteLine($"Wire: {wire}");
+                            productDetails.Wires.Add(wire.ToString());
+
+                            foreach (var pin in wire.ExternalInterface)
+                            {
+                                Console.WriteLine($"Pin: {pin}");
+                                productDetails.Pins.Add(pin.ToString());
+                            }
                         }
+                        return productDetails;
                     }
                 }
             }
         }
+        Console.WriteLine($"No cable with that ID!");
+        return productDetails;
     }
 
     private static List<SystemUnitFamilyType> DeepSearch(SystemUnitFamilyType familyType)
