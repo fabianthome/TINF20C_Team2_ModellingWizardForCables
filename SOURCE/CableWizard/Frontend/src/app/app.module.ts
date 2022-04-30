@@ -18,7 +18,6 @@ import {CableSearchComponent} from './components/cable-search/cable-search.compo
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {HttpClientModule} from "@angular/common/http";
 import {CableEditorTabsComponent} from './components/cable-editor-tabs/cable-editor-tabs.component';
-import { CableSearchItemComponent } from './components/cable-search-item/cable-search-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import { CableSearchItemComponent } from './components/cable-search-item/cable-s
     CableDetailsComponent,
     CableSearchComponent,
     CableEditorTabsComponent,
-    CableSearchItemComponent,
   ],
   imports: [
     BrowserModule,
