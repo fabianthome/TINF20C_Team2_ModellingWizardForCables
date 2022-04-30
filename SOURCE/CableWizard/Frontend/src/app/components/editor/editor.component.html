@@ -34,6 +34,231 @@
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
+          <mat-panel-title> Attribute </mat-panel-title>
+          <mat-panel-description>
+            Klappe das Panel aus, um alle Attribute zu sehen
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Identification-Data </mat-panel-title>
+            <mat-panel-description>
+              Klappe das Panel aus, um alle Attribute zur Identifikation zu
+              sehen
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="form-group">
+            <label for="cable.attributes.IdentificationData.Manufacturer"
+              >Manufacturer</label
+            >
+            <input
+              type="cable.attributes.IdentificationData.Manufacturer"
+              class="form-control"
+              name="cable.attributes.IdentificationData.Manufacturer"
+              [(ngModel)]="cable.attributes.IdentificationData.Manufacturer"
+              required
+              cable.attributes.IdentificationData.Manufacturer
+              #cable.attributes.IdentificationData.Manufacturer="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.IdentificationData.ManufacturerURI"
+              >Manufacturer URI</label
+            >
+            <input
+              type="cable.attributes.IdentificationData.ManufacturerURI"
+              class="form-control"
+              name="cable.attributes.IdentificationData.ManufacturerURI"
+              [(ngModel)]="cable.attributes.IdentificationData.ManufacturerURI"
+              required
+              cable.attributes.IdentificationData.ManufacturerURI
+              #cable.attributes.IdentificationData.ManufacturerURI="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.IdentificationData.DeviceClass"
+              >Device-Class</label
+            >
+            <input
+              type="cable.attributes.IdentificationData.DeviceClass"
+              class="form-control"
+              name="cable.attributes.IdentificationData.DeviceClass"
+              [(ngModel)]="cable.attributes.IdentificationData.DeviceClass"
+              required
+              cable.attributes.IdentificationData.DeviceClass
+              #cable.attributes.IdentificationData.DeviceClass="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.IdentificationData.Model">Model</label>
+            <input
+              type="cable.attributes.IdentificationData.Model"
+              class="form-control"
+              name="cable.attributes.IdentificationData.Model"
+              [(ngModel)]="cable.attributes.IdentificationData.Model"
+              required
+              cable.attributes.IdentificationData.Model
+              #cable.attributes.IdentificationData.Model="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.IdentificationData.ProductCode"
+              >Product-Code</label
+            >
+            <input
+              type="cable.attributes.IdentificationData.ProductCode"
+              class="form-control"
+              name="cable.attributes.IdentificationData.ProductCode"
+              [(ngModel)]="cable.attributes.IdentificationData.ProductCode"
+              required
+              cable.attributes.IdentificationData.ProductCode
+              #cable.attributes.IdentificationData.ProductCode="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.IdentificationData.ProductInstanceURI"
+              >Product-Instance-URI</label
+            >
+            <input
+              type="cable.attributes.IdentificationData.ProductInstanceURI"
+              class="form-control"
+              name="cable.attributes.IdentificationData.ProductInstanceURI"
+              [(ngModel)]="
+                cable.attributes.IdentificationData.ProductInstanceURI
+              "
+              required
+              cable.attributes.IdentificationData.ProductInstanceURI
+              #cable.attributes.IdentificationData.ProductInstanceURI="ngModel"
+            />
+            <br />
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> General-Technical-Data </mat-panel-title>
+            <mat-panel-description>
+              Klappe das Panel aus, um alle Attribute zu den Technischen Daten
+              zu sehen
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="form-group">
+            <div>
+              <label
+                for="cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMin"
+                >Temperature-Min</label
+              >
+              <input
+                type="cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMin"
+                class="form-control"
+                name="cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMin"
+                [(ngModel)]="
+                  cable.attributes.GeneralTechnicalData.AmbientTemperature
+                    .TemperatureMin
+                "
+                required
+                cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMin
+                #cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMin="ngModel"
+              />
+              <br />
+              <label
+                for="cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMax"
+                >Temperature-Max</label
+              >
+              <input
+                type="cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMax"
+                class="form-control"
+                name="cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMax"
+                [(ngModel)]="
+                  cable.attributes.GeneralTechnicalData.AmbientTemperature
+                    .TemperatureMax
+                "
+                required
+                cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMax
+                #cable.attributes.GeneralTechnicalData.AmbientTemperature.TemperatureMax="ngModel"
+              />
+              <br />
+            </div>
+            <label for="cable.attributes.GeneralTechnicalData.IPCode"
+              >IP-Code</label
+            >
+            <input
+              type="cable.attributes.GeneralTechnicalData.IPCode"
+              class="form-control"
+              name="cable.attributes.GeneralTechnicalData.IPCode"
+              [(ngModel)]="cable.attributes.GeneralTechnicalData.IPCode"
+              required
+              cable.attributes.GeneralTechnicalData.IPCode
+              #cable.attributes.GeneralTechnicalData.IPCode="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.GeneralTechnicalData.Material"
+              >Material</label
+            >
+            <input
+              type="cable.attributes.GeneralTechnicalData.Material"
+              class="form-control"
+              name="cable.attributes.GeneralTechnicalData.Material"
+              [(ngModel)]="cable.attributes.GeneralTechnicalData.Material"
+              required
+              cable.attributes.GeneralTechnicalData.Material
+              #cable.attributes.GeneralTechnicalData.Material="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.GeneralTechnicalData.Weight"
+              >Weight</label
+            >
+            <input
+              type="cable.attributes.GeneralTechnicalData.Weight"
+              class="form-control"
+              name="cable.attributes.GeneralTechnicalData.Weight"
+              [(ngModel)]="cable.attributes.GeneralTechnicalData.Weight"
+              required
+              cable.attributes.GeneralTechnicalData.Weight
+              #cable.attributes.GeneralTechnicalData.Weight="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.GeneralTechnicalData.Height"
+              >Height</label
+            >
+            <input
+              type="cable.attributes.GeneralTechnicalData.Height"
+              class="form-control"
+              name="cable.attributes.GeneralTechnicalData.Height"
+              [(ngModel)]="cable.attributes.GeneralTechnicalData.Height"
+              required
+              cable.attributes.GeneralTechnicalData.Height
+              #cable.attributes.GeneralTechnicalData.Height="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.GeneralTechnicalData.Widht"
+              >Widht</label
+            >
+            <input
+              type="cable.attributes.GeneralTechnicalData.Widht"
+              class="form-control"
+              name="cable.attributes.GeneralTechnicalData.Widht"
+              [(ngModel)]="cable.attributes.GeneralTechnicalData.Widht"
+              required
+              cable.attributes.GeneralTechnicalData.Widht
+              #cable.attributes.GeneralTechnicalData.Widht="ngModel"
+            />
+            <br />
+            <label for="cable.attributes.GeneralTechnicalData.Length"
+              >Length</label
+            >
+            <input
+              type="cable.attributes.GeneralTechnicalData.Length"
+              class="form-control"
+              name="cable.attributes.GeneralTechnicalData.Length"
+              [(ngModel)]="cable.attributes.GeneralTechnicalData.Length"
+              required
+              cable.attributes.GeneralTechnicalData.Length
+              #cable.attributes.GeneralTechnicalData.Length="ngModel"
+            />
+            <br />
+          </div>
+        </mat-expansion-panel>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <br />
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
           <mat-panel-title> Wires </mat-panel-title>
           <mat-panel-description>
             Klappe das Panel aus, um alle Wires zu sehen

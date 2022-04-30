@@ -1,62 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CableDetailsComponent } from '../cable-details/cable-details.component';
-
-const cable = {
-  id: 1,
-  name: 'BCC M313-M313-30-300-EX43T2-050',
-  attributes: {
-    Length: 50,
-    Manufacturer: 'Balluff',
-  },
-  wires: ['C1', 'C2', 'C3'],
-  connectors: [
-    {
-      type: 'M12A3PinFemale',
-      pins: [
-        {
-          type: 'PinType',
-          name: '1',
-          connectedWire: 'C1',
-        },
-        {
-          type: 'PinType',
-          name: '2',
-          connectedWire: 'C2',
-        },
-        {
-          type: 'PinType',
-          name: '3',
-          connectedWire: 'C3',
-        },
-        {
-          type: 'PinType',
-          name: '4',
-          connectedWire: 'C4',
-        },
-      ],
-    },
-  ],
-};
-
-export interface Pin {
-  type: string;
-  name: string;
-  connectedWire: string;
-}
-
-export interface Connector {
-  type: string;
-  pins: Pin[];
-}
-
-export interface Cable {
-  cableId: number;
-  cableName: string;
-  wires: string[];
-  connectors: Connector[];
-  connectorType: string;
-  pins: Pin[];
-}
+import {
+  Attributes,
+  Cable,
+  cable,
+  Connector,
+  Pin,
+} from '../../models/cable.models';
 
 @Component({
   selector: 'app-editor',
@@ -64,6 +13,7 @@ export interface Cable {
   styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit {
+  attributes: Attributes = cable.attributes;
   cableId: number = cable.id;
   cableName: string = cable.name;
   wires: string[] = cable.wires;
@@ -73,6 +23,7 @@ export class EditorComponent implements OnInit {
 
   constructor() {}
   cable: Cable = {
+    attributes: this.attributes,
     cableId: cable.id,
     cableName: cable.name,
     wires: cable.wires,
