@@ -14,7 +14,7 @@ public class ProductDetailsController : Controller
         AmlSerializer.GetProductDetails(id);
         return new ProductDetails
         {
-            Id = "test",
+            Id = id,
             Name = "test2"
         };
     }
