@@ -9,32 +9,32 @@ export interface ProductDetails {
 }
 
 export interface IdentificationData {
-  Manufacturer: string;
-  ManufacturerURI: string;
-  DeviceClass: string;
-  Model: string;
-  ProductCode: string;
-  ProductInstanceURI: string;
+  manufacturer: string;
+  manufacturerURI: string;
+  deviceClass: string;
+  model: string;
+  productCode: string;
+  productInstanceURI: string;
 }
 
 export interface AmbientTemperature {
-  TemperatureMin: number;
-  TemperatureMax: number;
+  temperatureMin: number;
+  temperatureMax: number;
 }
 
 export interface GeneralTechnicalData {
-  AmbientTemperature: AmbientTemperature;
-  IPCode: string;
-  Material: string;
-  Weight: number;
-  Height: number;
-  Widht: number;
-  Length: number;
+  ambientTemperature: AmbientTemperature;
+  iPCode: string;
+  material: string;
+  weight: number;
+  height: number;
+  width: number;
+  length: number;
 }
 
 export interface ProductAttributes {
-  IdentificationData: IdentificationData;
-  GeneralTechnicalData: GeneralTechnicalData;
+  identificationData: IdentificationData;
+  generalTechnicalData: GeneralTechnicalData;
 }
 
 export interface Connector {
