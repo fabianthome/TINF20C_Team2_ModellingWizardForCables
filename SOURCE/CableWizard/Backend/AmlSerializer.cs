@@ -27,7 +27,7 @@ public static class AmlSerializer
     {
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
-        var productList = new List<Product>();
+        var productList = new List<String>();
 
         foreach (var productLibrary in systemUnitClassLib)
         {
@@ -37,13 +37,7 @@ public static class AmlSerializer
                 
                 foreach (var unitFamilyType in list)
                 {
-                    Product product = new Product
-                    {
-                        Name = unitFamilyType.Name,
-                        Id = unitFamilyType.ID
-                    };
-
-                    productList.Add(product);
+                    productList.Add(unitFamilyType.ID);
                 }
             }
         }
@@ -51,8 +45,9 @@ public static class AmlSerializer
         return products;
     }
 
-    public static void GetProductDetails()
+    public static void GetProductDetails(string id) // WIP
     {
+        Console.WriteLine("looking for product...");
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
         var productList = new List<Product>();
@@ -60,7 +55,7 @@ public static class AmlSerializer
         foreach (var productLibrary in systemUnitClassLib)
         {
             //product lib
-            Console.WriteLine($"Product library: {productLibrary}");
+            //Console.WriteLine($"Product library: {productLibrary}");
             
             foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
             {
@@ -68,27 +63,36 @@ public static class AmlSerializer
 
                 foreach (var unitFamilyType in list)
                 {
-                    // cables
-                    Console.WriteLine($"Cable: {unitFamilyType}");
-                    
-                    // connectors
-                    foreach (var externalInterface in unitFamilyType.ExternalInterfaceAndInherited)
+                    if (unitFamilyType.ID == id)
                     {
-                        Console.WriteLine($"Connector: {externalInterface}");
-                    }
-                    
-                    // pins - doesn't work properly for Balluff lib yet
-                    foreach (var internalElement in unitFamilyType.InternalElementAndInherited)
-                    {
-                        // todo: how to filter internalElement for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
-
-                        // access colours of wires (c1 etc.)
-                        foreach (var attribute in internalElement.Attribute)
+                        //Product product = new Product
+                        //{
+                        //    Name = unitFamilyType.Name,
+                        //    Id = unitFamilyType.ID
+                        //};
+                        
+                        // cables
+                        Console.WriteLine($"Cable: {unitFamilyType}");
+                        
+                        // connectors
+                        foreach (var externalInterface in unitFamilyType.ExternalInterfaceAndInherited)
                         {
-                            //Console.WriteLine($"{attribute.Value}");
+                            Console.WriteLine($"Connector: {externalInterface}");
                         }
-
-                        Console.WriteLine($"Pin: {internalElement}");
+                        
+                        // pins - doesn't work properly for Balluff lib yet
+                        foreach (var internalElement in unitFamilyType.InternalElementAndInherited)
+                        {
+                            // todo: how to filter internalElement for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
+                        
+                            // access colours of wires (c1 etc.)
+                            foreach (var attribute in internalElement.Attribute)
+                            {
+                                //Console.WriteLine($"{attribute.Value}");
+                            }
+                        
+                            Console.WriteLine($"Pin: {internalElement}");
+                        }
                     }
                 }
             }
