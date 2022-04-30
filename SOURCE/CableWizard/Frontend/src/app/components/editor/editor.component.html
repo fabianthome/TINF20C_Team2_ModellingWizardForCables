@@ -8,27 +8,27 @@
     class="backgorund"
   >
     <div class="form-group">
-      <label for="cable.cableName">Kabelname</label>
+      <label for="cable.name">Kabelname</label>
       <input
-        type="cable.cableName"
+        type="cable.name"
         class="form-control"
-        name="cable.cableName"
-        [(ngModel)]="cable.cableName"
+        name="cable.name"
+        [(ngModel)]="cable.name"
         required
-        cable.cableName
-        #cable.cableName="ngModel"
+        cable.name
+        #cable.name="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="cable.cableId">Kabel Id</label>
+      <label for="cable.id">Kabel Id</label>
       <input
-        type="cable.cableId"
+        type="cable.id"
         class="form-control"
-        name="cable.cableId"
-        [(ngModel)]="cable.cableId"
+        name="cable.id"
+        [(ngModel)]="cable.id"
         required
-        cable.cableId
-        #cable.cableId="ngModel"
+        cable.id
+        #cable.id="ngModel"
       />
     </div>
     <mat-accordion class="example-headers-align" multi>
@@ -266,7 +266,7 @@
         </mat-expansion-panel-header>
         <div class="form-group">
           <div *ngFor="let wire of cable.wires">
-            <div>{{ wire }}</div>
+            <div>{{ wire.name }}</div>
           </div>
         </div>
         <button
@@ -291,7 +291,7 @@
         </mat-expansion-panel-header>
         <div class="form-group">
           <div *ngFor="let connector of cable.connectors">
-            <div>{{ connector.type }}</div>
+            <div>{{ connector.name }}</div>
             <div>
               <mat-expansion-panel *ngFor="let pin of connector.pins">
                 <mat-expansion-panel-header
@@ -301,7 +301,7 @@
                 >
                 <div>{{ pin.type }}</div>
                 <div>{{ pin.name }}</div>
-                <div>{{ pin.connectedWire }}</div>
+                <div>{{ pin.connectedWireName }}</div>
               </mat-expansion-panel>
               <br />
             </div>

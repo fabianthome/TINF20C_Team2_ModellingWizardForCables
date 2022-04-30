@@ -1,6 +1,8 @@
 export const cable = {
-  id: 1,
+  id: '12sadasd',
   name: 'BCC M313-M313-30-300-EX43T2-050',
+  attachedImagePaths: ['./32edq', './32edq'],
+  attachedFilePaths: ['./32edq', './32edq'],
   attributes: {
     IdentificationData: {
       Manufacturer: 'Balluff',
@@ -24,82 +26,32 @@ export const cable = {
       Length: 224,
     },
   },
-  wires: ['C1', 'C2', 'C3'],
+  wires: [{ name: 'C1' }, { name: 'C2' }, { name: 'C3' }, { name: 'C4' }],
   connectors: [
     {
-      type: 'M12A3PinFemale',
+      name: 'M12A3PinFemale',
       pins: [
         {
           type: 'PinType',
           name: '1',
-          connectedWire: 'C1',
+          connectedWireName: 'C1',
         },
         {
           type: 'PinType',
           name: '2',
-          connectedWire: 'C2',
+          connectedWireName: 'C2',
         },
         {
           type: 'PinType',
           name: '3',
-          connectedWire: 'C3',
+          connectedWireName: 'C3',
         },
         {
           type: 'PinType',
           name: '4',
-          connectedWire: 'C4',
+          connectedWireName: 'C4',
         },
       ],
     },
   ],
 };
-
-export interface Pin {
-  type: string;
-  name: string;
-  connectedWire: string;
-}
-
-export interface Connector {
-  type: string;
-  pins: Pin[];
-}
-
-export interface IdentificationData {
-  Manufacturer: string;
-  ManufacturerURI: string;
-  DeviceClass: string;
-  Model: string;
-  ProductCode: string;
-  ProductInstanceURI: string;
-}
-
-export interface AmbientTemperature {
-  TemperatureMin: number;
-  TemperatureMax: number;
-}
-
-export interface GeneralTechnicalData {
-  AmbientTemperature: AmbientTemperature;
-  IPCode: string;
-  Material: string;
-  Weight: number;
-  Height: number;
-  Widht: number;
-  Length: number;
-}
-
-export interface Attributes {
-  IdentificationData: IdentificationData;
-  GeneralTechnicalData: GeneralTechnicalData;
-}
-
-export interface Cable {
-  attributes: Attributes;
-  cableId: number;
-  cableName: string;
-  wires: string[];
-  connectors: Connector[];
-  connectorType: string;
-  pins: Pin[];
-}

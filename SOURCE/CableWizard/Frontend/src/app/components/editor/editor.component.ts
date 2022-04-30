@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { cable } from '../../models/cable.models';
 import {
-  Attributes,
-  Cable,
-  cable,
+  ProductDetails,
+  ProductAttributes,
   Connector,
   Pin,
-} from '../../models/cable.models';
+  Wire,
+} from '../../models/product-details';
 
 @Component({
   selector: 'app-editor',
@@ -13,23 +14,25 @@ import {
   styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit {
-  attributes: Attributes = cable.attributes;
-  cableId: number = cable.id;
-  cableName: string = cable.name;
-  wires: string[] = cable.wires;
+  attributes: ProductAttributes = cable.attributes;
+  id: string = cable.id;
+  name: string = cable.name;
+  wires: Wire[] = cable.wires;
   connectors: Connector[] = cable.connectors;
-  connectorType: string = cable.connectors[0].type;
+  connectorType: string = cable.connectors[0].name;
   pins: Pin[] = cable.connectors[0].pins;
+  attachedImagePaths: string[] = cable.attachedImagePaths;
+  attachedFilePaths: string[] = cable.attachedFilePaths;
 
   constructor() {}
-  cable: Cable = {
+  cable: ProductDetails = {
+    id: this.id,
+    name: this.name,
+    attachedImagePaths: this.attachedImagePaths,
+    attachedFilePaths: this.attachedFilePaths,
     attributes: this.attributes,
-    cableId: cable.id,
-    cableName: cable.name,
-    wires: cable.wires,
     connectors: cable.connectors,
-    connectorType: cable.connectors[0].type,
-    pins: cable.connectors[0].pins,
+    wires: cable.wires,
   };
 
   ngOnInit(): void {
@@ -38,27 +41,27 @@ export class EditorComponent implements OnInit {
 
   addConnector() {
     this.cable.connectors.push({
-      type: 'M12A3PinMale',
+      name: 'M12A3PinMale',
       pins: [
         {
           type: 'PinType',
           name: '1',
-          connectedWire: 'C1',
+          connectedWireName: 'C1',
         },
         {
           type: 'PinType',
           name: '2',
-          connectedWire: 'C2',
+          connectedWireName: 'C2',
         },
         {
           type: 'PinType',
           name: '3',
-          connectedWire: 'C3',
+          connectedWireName: 'C3',
         },
         {
           type: 'PinType',
           name: '4',
-          connectedWire: 'C4',
+          connectedWireName: 'C4',
         },
       ],
     });
@@ -66,6 +69,6 @@ export class EditorComponent implements OnInit {
 
   addWire() {
     const countOfWires = this.cable.wires.length;
-    this.cable.wires.push('C' + (countOfWires + 1));
+    this.cable.wires.push({ name: 'C' + (countOfWires + 1) });
   }
 }
