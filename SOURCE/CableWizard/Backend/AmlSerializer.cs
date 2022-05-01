@@ -94,7 +94,7 @@ public static class AmlSerializer
                         attributes.Manufacturer = attribute.Value;
                         break;
                     case "ManufacturerURI":
-                        attributes.ManufacturerURI = attribute.Value;
+                        attributes.ManufacturerUri = attribute.Value;
                         break;
                     case "DeviceClass":
                         attributes.DeviceClass = attribute.Value;
@@ -106,28 +106,28 @@ public static class AmlSerializer
                         attributes.ProductCode = attribute.Value;
                         break;
                     case "TemperatureMin":
-                        attributes.TemperatureMin = attribute.Value;
+                        attributes.TemperatureMin = double.Parse(attribute.Value);
                         break;
                     case "TemperatureMax":
-                        attributes.TemperatureMax = attribute.Value;
+                        attributes.TemperatureMax = double.Parse(attribute.Value);
                         break;
                     case "IPCode":
-                        attributes.IPCode = attribute.Value;
+                        attributes.IpCode = attribute.Value;
                         break;
                     case "Material":
                         attributes.Material = attribute.Value;
                         break;
                     case "Weight":
-                        attributes.Weight = attribute.Value;
+                        attributes.Weight = double.Parse(attribute.Value);
                         break;
                     case "Height":
-                        attributes.Height = attribute.Value;
+                        attributes.Height = double.Parse(attribute.Value);
                         break;
                     case "Width":
-                        attributes.Width = attribute.Value;
+                        attributes.Width = double.Parse(attribute.Value);
                         break;
                     case "Length":
-                        attributes.Length = attribute.Value;
+                        attributes.Length = double.Parse(attribute.Value);
                         break;
                 }
             }
