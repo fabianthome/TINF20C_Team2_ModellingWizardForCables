@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatDrawer} from '@angular/material/sidenav';
 import {DrawerService} from 'src/app/services/drawer.service';
-import {FilterOptions} from "../../models/filter-options";
+import {FilterOptions, filterProducts} from "../../models/filter-options";
 import {BehaviorSubject, combineLatest, map, Observable, switchMap} from "rxjs";
 import {DataService} from "../../services/data.service";
 import {ProductDetails} from "../../models/product-details";
@@ -57,14 +57,4 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     console.log(this.filter)
     this.filter$.next(this.filter)
   }
-}
-
-function filterProducts(products: ProductDetails[], filter: FilterOptions) {
-  return products.filter(product => {
-
-    if (!product.name.includes(filter.queryText)) return false;
-
-    return true;
-
-  });
 }
