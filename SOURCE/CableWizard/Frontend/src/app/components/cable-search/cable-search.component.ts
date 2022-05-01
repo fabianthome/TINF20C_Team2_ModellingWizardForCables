@@ -15,9 +15,10 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
   @ViewChild('drawer')
   public drawer: MatDrawer | undefined;
   public filter: FilterOptions;
-  public filter$: BehaviorSubject<FilterOptions>
-  public products$: Observable<ProductDetails[]>
   public filteredProducts$: Observable<ProductDetails[]>;
+
+  private allProducts: Observable<ProductDetails[]>
+  private filter$: BehaviorSubject<FilterOptions>
 
   constructor(public dataService: DataService, public drawerService: DrawerService) {
     this.filter = {
@@ -35,10 +36,10 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     }
     this.filter$ = new BehaviorSubject<FilterOptions>(this.filter)
 
-    this.products$ = this.dataService.getProductList().pipe(
+    this.allProducts = this.dataService.getProductList().pipe(
       switchMap(ids => combineLatest(ids.map(id => this.dataService.getProductDetails(id))))
     )
-    this.filteredProducts$ = combineLatest([this.products$, this.filter$]).pipe(
+    this.filteredProducts$ = combineLatest([this.allProducts, this.filter$]).pipe(
       map(([products, filter]) => filterProducts(products, filter))
     )
 
@@ -51,7 +52,9 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     this.drawerService.setDrawer(this.drawer!)
   }
 
-  filterChanged() {
+  onFilterChanged() {
+    console.log("Updated search filter:")
+    console.log(this.filter)
     this.filter$.next(this.filter)
   }
 }

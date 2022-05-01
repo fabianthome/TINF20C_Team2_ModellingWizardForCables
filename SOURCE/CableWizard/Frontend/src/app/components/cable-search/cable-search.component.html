@@ -8,7 +8,7 @@
     <div class="drawer-row">
       <mat-form-field appearance="standard" class="drawer-row-item">
         <mat-label>Search</mat-label>
-        <input matInput type="text" [(ngModel)]="filter.queryText" (ngModelChange)="filterChanged()"/>
+        <input matInput type="text" [(ngModel)]="filter.queryText" (ngModelChange)="onFilterChanged()"/>
         <mat-icon matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
@@ -20,11 +20,11 @@
     <div class="drawer-row">
       <mat-form-field appearance="standard">
         <mat-label>Minimum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.lengthMin" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.lengthMin" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Maximum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.lengthMax" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.lengthMax" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
     </div>
 
@@ -35,11 +35,11 @@
     <div class="drawer-row">
       <mat-form-field appearance="standard">
         <mat-label>Minimum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.widthMin" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.widthMin" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Maximum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.widthMax" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.widthMax" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
     </div>
 
@@ -50,11 +50,11 @@
     <div class="drawer-row">
       <mat-form-field appearance="standard">
         <mat-label>Minimum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.heightMin" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.heightMin" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Maximum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.heightMax" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.heightMax" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
     </div>
 
@@ -65,11 +65,11 @@
     <div class="drawer-row">
       <mat-form-field appearance="standard">
         <mat-label>Minimum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.temperatureMin" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.temperatureMin" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
       <mat-form-field appearance="standard">
         <mat-label>Maximum</mat-label>
-        <input matInput type="number" [(ngModel)]="filter.temperatureMax" (ngModelChange)="filterChanged()"/>
+        <input matInput type="number" [(ngModel)]="filter.temperatureMax" (ngModelChange)="onFilterChanged()"/>
       </mat-form-field>
     </div>
 
