@@ -1,40 +1,91 @@
 <mat-drawer-container>
   <mat-drawer mode="side" #drawer opened>
-    <h3 class="drawer-content-row">Search cable templates</h3>
 
-    <mat-form-field appearance="standard" class="drawer-content-row">
-      <mat-label>Search</mat-label>
-      <input matInput type="text" [(ngModel)]="searchQuery" />
-      <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
+    <div class="drawer-row">
+      <h2>Search cables</h2>
+    </div>
 
-    <h3 class="drawer-content-row">Filters</h3>
+    <div class="drawer-row">
+      <mat-form-field appearance="standard" class="drawer-row-item">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" [(ngModel)]="filter.queryText" (ngModelChange)="filterChanged()"/>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
 
-    <mat-slide-toggle class="drawer-content-row"
-      >Filter option A</mat-slide-toggle
-    >
+    <div class="drawer-row">
+      <h3>Length</h3>
+    </div>
 
-    <mat-slide-toggle class="drawer-content-row"
-      >Filter option B</mat-slide-toggle
-    >
+    <div class="drawer-row">
+      <mat-form-field appearance="standard">
+        <mat-label>Minimum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.lengthMin" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Maximum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.lengthMax" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+    </div>
 
-    <mat-slide-toggle class="drawer-content-row"
-      >Filter option C</mat-slide-toggle
-    >
-    <button
-      class="drawer-button close"
+    <div class="drawer-row">
+      <h3>Width</h3>
+    </div>
+
+    <div class="drawer-row">
+      <mat-form-field appearance="standard">
+        <mat-label>Minimum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.widthMin" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Maximum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.widthMax" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+    </div>
+
+    <div class="drawer-row">
+      <h3>Height</h3>
+    </div>
+
+    <div class="drawer-row">
+      <mat-form-field appearance="standard">
+        <mat-label>Minimum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.heightMin" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Maximum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.heightMax" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+    </div>
+
+    <div class="drawer-row">
+      <h3>Temperature</h3>
+    </div>
+
+    <div class="drawer-row">
+      <mat-form-field appearance="standard">
+        <mat-label>Minimum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.temperatureMin" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+      <mat-form-field appearance="standard">
+        <mat-label>Maximum</mat-label>
+        <input matInput type="number" [(ngModel)]="filter.temperatureMax" (ngModelChange)="filterChanged()"/>
+      </mat-form-field>
+    </div>
+
+    <button class="drawer-button close"
       (click)="drawer.close()"
       mat-mini-fab
       color="primary"
     >
       <mat-icon>chevron_left</mat-icon>
     </button>
+
   </mat-drawer>
-  <app-cable-search-grid></app-cable-search-grid>
+  <app-cable-search-grid [products]="filteredProducts$ | async"></app-cable-search-grid>
 </mat-drawer-container>
 
-<button
-  class="drawer-button open"
+<button class="drawer-button open"
   *ngIf="!drawer.opened"
   (click)="drawer.open()"
   mat-mini-fab
