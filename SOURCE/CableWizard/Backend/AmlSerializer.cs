@@ -80,6 +80,8 @@ public static class AmlSerializer
 
     private static ProductDetails GetAttributes(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
     {
+        var attributes = new ProductAttributes();
+        
         foreach (var attributeClass in unitFamilyType.Attribute)
         {
             var attributesList = DeepSearchAttributes(attributeClass);
@@ -89,48 +91,49 @@ public static class AmlSerializer
                 switch (attribute.Name)
                 {
                     case "Manufacturer": 
-                        productDetails.Manufacturer = attribute.Value;
+                        attributes.Manufacturer = attribute.Value;
                         break;
                     case "ManufacturerURI":
-                        productDetails.ManufacturerURI = attribute.Value;
+                        attributes.ManufacturerURI = attribute.Value;
                         break;
                     case "DeviceClass":
-                        productDetails.DeviceClass = attribute.Value;
+                        attributes.DeviceClass = attribute.Value;
                         break;
                     case "Model":
-                        productDetails.Model = attribute.Value;
+                        attributes.Model = attribute.Value;
                         break;
                     case "ProductCode":
-                        productDetails.ProductCode = attribute.Value;
+                        attributes.ProductCode = attribute.Value;
                         break;
                     case "TemperatureMin":
-                        productDetails.TemperatureMin = attribute.Value;
+                        attributes.TemperatureMin = attribute.Value;
                         break;
                     case "TemperatureMax":
-                        productDetails.TemperatureMax = attribute.Value;
+                        attributes.TemperatureMax = attribute.Value;
                         break;
                     case "IPCode":
-                        productDetails.IPCode = attribute.Value;
+                        attributes.IPCode = attribute.Value;
                         break;
                     case "Material":
-                        productDetails.Material = attribute.Value;
+                        attributes.Material = attribute.Value;
                         break;
                     case "Weight":
-                        productDetails.Weight = attribute.Value;
+                        attributes.Weight = attribute.Value;
                         break;
                     case "Height":
-                        productDetails.Height = attribute.Value;
+                        attributes.Height = attribute.Value;
                         break;
                     case "Width":
-                        productDetails.Width = attribute.Value;
+                        attributes.Width = attribute.Value;
                         break;
                     case "Length":
-                        productDetails.Length = attribute.Value;
+                        attributes.Length = attribute.Value;
                         break;
                 }
             }
         }
 
+        productDetails.Attributes = attributes;
         return productDetails;
     }
     
