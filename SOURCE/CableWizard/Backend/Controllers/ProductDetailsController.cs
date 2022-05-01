@@ -11,11 +11,28 @@ public class ProductDetailsController : Controller
     
     public ProductDetails Get(string id)
     {
-        AmlSerializer.GetProductDetails(id);
+        var productDetails = AmlSerializer.GetProductDetails(id);
         return new ProductDetails
         {
             Id = id,
-            Name = "test2"
+            Name = productDetails.Name,
+            Library = productDetails.Library,
+            Connectors = productDetails.Connectors,
+            Wires = productDetails.Wires,
+            Pins = productDetails.Pins,
+            Manufacturer = productDetails.Manufacturer,
+            ManufacturerURI = productDetails.ManufacturerURI,
+            DeviceClass = productDetails.DeviceClass,
+            Model = productDetails.Model,
+            ProductCode = productDetails.ProductCode,
+            TemperatureMin = productDetails.TemperatureMin,
+            TemperatureMax = productDetails.TemperatureMax,
+            IPCode = productDetails.IPCode,
+            Material = productDetails.Material,
+            Weight = productDetails.Weight,
+            Height = productDetails.Height,
+            Width = productDetails.Width,
+            Length = productDetails.Length
         };
     }
 }

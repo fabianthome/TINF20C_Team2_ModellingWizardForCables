@@ -1,18 +1,12 @@
 ﻿using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
-using System.Text.Json;
+using CableWizardBackend.Models;
 
 namespace CableWizardBackend;
 
 public static class AmlSerializer
 {
-    private class Product
-    {
-        public string Name { get; set; }
-        public string Id { get; set; }
-    }
-    
     private static readonly CAEXDocument Document;
 
     static AmlSerializer()
@@ -44,58 +38,144 @@ public static class AmlSerializer
         return productList;
     }
 
-    public static void GetProductDetails(string id) // WIP
+    public static ProductDetails GetProductDetails(string id)
     {
-        Console.WriteLine("looking for product...");
         var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
 
-        var productList = new List<Product>();
+        var productDetails = new ProductDetails();
 
         foreach (var productLibrary in systemUnitClassLib)
         {
-            //product lib
-            //Console.WriteLine($"Product library: {productLibrary}");
-            
             foreach (var systemUnitFamilyType in productLibrary.SystemUnitClass)
             {
                 var list = DeepSearch(systemUnitFamilyType);
 
                 foreach (var unitFamilyType in list)
                 {
-                    if (unitFamilyType.ID == id)
+                    if (unitFamilyType.ID == id) // search for requested id
                     {
-                        //Product product = new Product
-                        //{
-                        //    Name = unitFamilyType.Name,
-                        //    Id = unitFamilyType.ID
-                        //};
-                        
                         // cables
-                        Console.WriteLine($"Cable: {unitFamilyType}");
+                        //Console.WriteLine($"Cable: {unitFamilyType}");
+                        productDetails.Id = id;
+                        productDetails.Name = unitFamilyType.Name;
+                        productDetails.Library = productLibrary.ToString();
+                        
+                        // attributes - todo: autmatically choose attribute that doesn't have any child attributes
+                        foreach (var attributeClass in unitFamilyType.Attribute)
+                        {
+                            foreach (var attribute in attributeClass.Attribute)
+                            {
+                                if (attribute.Name == "Manufacturer")
+                                {
+                                    productDetails.Manufacturer = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "ManufacturerURI")
+                                {
+                                    productDetails.ManufacturerURI = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "DeviceClass")
+                                {
+                                    productDetails.DeviceClass = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "Model")
+                                {
+                                    productDetails.Model = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "ProductCode")
+                                {
+                                    productDetails.ProductCode = attribute.Value;
+                                }
+
+                                if (attribute.Name == "IPCode")
+                                {
+                                    productDetails.IPCode = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "Material")
+                                {
+                                    productDetails.Material = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "Weight")
+                                {
+                                    productDetails.Weight = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "Height")
+                                {
+                                    productDetails.Height = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "Width")
+                                {
+                                    productDetails.Width = attribute.Value;
+                                }
+                                
+                                if (attribute.Name == "Length")
+                                {
+                                    productDetails.Length = attribute.Value;
+                                }
+
+                                foreach (var childAttribute in attribute.Attribute)
+                                {
+                                    if (childAttribute.Name == "TemperatureMin")
+                                    {
+                                        productDetails.TemperatureMin = childAttribute.Value;
+                                    }
+                                
+                                    if (childAttribute.Name == "TemperatureMax")
+                                    {
+                                        productDetails.TemperatureMax = childAttribute.Value;
+                                    }
+                                }
+                            }
+                        }
                         
                         // connectors
+                        productDetails.Connectors = new List<string>();
                         foreach (var externalInterface in unitFamilyType.ExternalInterfaceAndInherited)
                         {
-                            Console.WriteLine($"Connector: {externalInterface}");
+                            //Console.WriteLine($"Connector: {externalInterface}");
+                            productDetails.Connectors.Add(externalInterface.ToString());
                         }
                         
-                        // pins - doesn't work properly for Balluff lib yet
-                        foreach (var internalElement in unitFamilyType.InternalElementAndInherited)
+                        // wires - doesn't work properly for Balluff lib yet
+                        productDetails.Wires = new List<string>();
+                        productDetails.Pins = new List<string>();
+                        foreach (var wire in unitFamilyType.InternalElementAndInherited)
                         {
-                            // todo: how to filter internalElement for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
+                            // todo: how to filter wire for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
                         
+                            //Console.WriteLine($"Wire: {wire}");
+                            productDetails.Wires.Add(wire.ToString());
+                            
+                            /*
                             // access colours of wires (c1 etc.)
-                            foreach (var attribute in internalElement.Attribute)
+                            foreach (var attribute in wire.Attribute)
                             {
-                                //Console.WriteLine($"{attribute.Value}");
+                                Console.WriteLine($"{attribute.Value}");
                             }
-                        
-                            Console.WriteLine($"Pin: {internalElement}");
+                            */
+
+                            // pins - todo: same problem as wires
+                            foreach (var pin in wire.ExternalInterface)
+                            {
+                                //Console.WriteLine($"Pin: {pin}");
+                                productDetails.Pins.Add(pin.ToString());
+                            }
                         }
+                        
+                        return productDetails;
                     }
                 }
             }
         }
+        Console.WriteLine($"No cable with that ID!");
+        return productDetails;
     }
 
     private static List<SystemUnitFamilyType> DeepSearch(SystemUnitFamilyType familyType)
