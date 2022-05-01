@@ -172,11 +172,15 @@ public static class AmlSerializer
         productDetails.Pins = new List<string>();
         foreach (var wire in unitFamilyType.InternalElementAndInherited)
         {
-            // todo: how to filter wire for those that have a <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" /> child?
-                        
-            //Console.WriteLine($"Wire: {wire}");
-            productDetails.Wires.Add(wire.ToString());
-                            
+            foreach (var roleReq in wire.RoleRequirements)
+            {
+                if (roleReq.RefBaseRoleClassPath == "CableRCL/Wire")
+                {
+                    //Console.WriteLine($"Wire: {wire}");
+                    productDetails.Wires.Add(wire.ToString());
+                }
+            }
+            
             /*
             // access colours of wires (c1 etc.)
             foreach (var attribute in wire.Attribute)
