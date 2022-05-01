@@ -71,4 +71,8 @@ export class EditorComponent implements OnInit {
     const countOfWires = this.cable.wires.length;
     this.cable.wires.push({ name: 'C' + (countOfWires + 1) });
   }
+
+  confirmEdit() {
+    console.log(this.cable);
+  }
 }
