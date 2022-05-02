@@ -170,34 +170,59 @@ public static class AmlSerializer
     {
         productDetails.Wires = new List<string>();
         productDetails.Pins = new List<string>();
-        foreach (var wire in unitFamilyType.InternalElementAndInherited)
+        foreach (var wireClass in unitFamilyType.InternalElementAndInherited)
         {
-            foreach (var roleReq in wire.RoleRequirements)
-            {
-                if (roleReq.RefBaseRoleClassPath == "CableRCL/Wire")
-                {
-                    //Console.WriteLine($"Wire: {wire}");
-                    productDetails.Wires.Add(wire.ToString());
-                }
-            }
-            
-            /*
-            // access colours of wires (c1 etc.)
-            foreach (var attribute in wire.Attribute)
-            {
-                Console.WriteLine($"{attribute.Value}");
-            }
-            */
+            var wiresList = DeepSearchWires(wireClass);
 
-            // pins - todo: same problem as wires
-            foreach (var pin in wire.ExternalInterface)
+            foreach (var wire in wiresList)
             {
-                //Console.WriteLine($"Pin: {pin}");
-                productDetails.Pins.Add(pin.ToString());
+                foreach (var roleReq in wire.RoleRequirements)
+                {
+                    if (roleReq.RefBaseRoleClassPath == "CableRCL/Wire")
+                    {
+                        //Console.WriteLine($"added {wire}");
+                        productDetails.Wires.Add(wire.ToString());
+                    }
+                }
+                
+                /*
+                // access colours of wires (c1 etc.)
+                foreach (var attribute in wire.Attribute)
+                {
+                    Console.WriteLine($"{attribute.Value}");
+                }
+                */
+
+                // pins - todo: same problem as wires
+                foreach (var pin in wire.ExternalInterface)
+                {
+                    if (pin.RefBaseClassPath == "AutomationMLComponentBaseICL/ElectricInterface")
+                    {
+                        //Console.WriteLine($"Pin: {pin}");
+                        productDetails.Pins.Add(pin.ToString());
+                    }
+                }
             }
         }
 
         return productDetails;
+    }
+
+    private static List<InternalElementType> DeepSearchWires(InternalElementType wire)
+    {
+        if (wire.InternalElement.Count == 0)
+        {
+            return new List<InternalElementType> {wire};
+        }
+        
+        var wires = new List<InternalElementType>();
+
+        foreach (var childWire in wire.InternalElement)
+        {
+            wires = wires.Concat(DeepSearchWires(childWire)).ToList();
+        }
+        
+        return wires;
     }
     
     private static List<SystemUnitFamilyType> DeepSearch(SystemUnitFamilyType familyType)
