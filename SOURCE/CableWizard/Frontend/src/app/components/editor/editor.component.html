@@ -30,6 +30,17 @@
         cable.id
         #cable.id="ngModel"
       />
+      <br />
+      <label for="cable.library">Product-Instance-URI</label>
+      <input
+        type="cable.library"
+        class="form-control"
+        name="cable.library"
+        [(ngModel)]="cable.library"
+        required
+        cable.library
+        #cable.library="ngModel"
+      />
     </div>
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>
@@ -48,82 +59,61 @@
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="form-group">
-            <label for="cable.attributes.identificationData.manufacturer"
-              >Manufacturer</label
-            >
+            <label for="cable.attributes.manufacturer">Manufacturer</label>
             <input
-              type="cable.attributes.identificationData.manufacturer"
+              type="cable.attributes.manufacturer"
               class="form-control"
-              name="cable.attributes.identificationData.manufacturer"
-              [(ngModel)]="cable.attributes.identificationData.manufacturer"
+              name="cable.attributes.manufacturer"
+              [(ngModel)]="cable.attributes.manufacturer"
               required
-              cable.attributes.identificationData.manufacturer
-              #cable.attributes.identificationData.manufacturer="ngModel"
+              cable.attributes.manufacturer
+              #cable.attributes.manufacturer="ngModel"
             />
             <br />
-            <label for="cable.attributes.identificationData.manufacturerURI"
+            <label for="cable.attributes.manufacturerURI"
               >Manufacturer URI</label
             >
             <input
-              type="cable.attributes.identificationData.manufacturerURI"
+              type="cable.attributes.manufacturerURI"
               class="form-control"
-              name="cable.attributes.identificationData.manufacturerURI"
-              [(ngModel)]="cable.attributes.identificationData.manufacturerURI"
+              name="cable.attributes.manufacturerURI"
+              [(ngModel)]="cable.attributes.manufacturerUri"
               required
-              cable.attributes.identificationData.manufacturerURI
-              #cable.attributes.identificationData.manufacturerURI="ngModel"
+              cable.attributes.manufacturerURI
+              #cable.attributes.manufacturerURI="ngModel"
             />
             <br />
-            <label for="cable.attributes.identificationData.DeviceClass"
-              >Device-Class</label
-            >
+            <label for="cable.attributes.DeviceClass">Device-Class</label>
             <input
-              type="cable.attributes.identificationData.deviceClass"
+              type="cable.attributes.deviceClass"
               class="form-control"
-              name="cable.attributes.identificationData.deviceClass"
-              [(ngModel)]="cable.attributes.identificationData.deviceClass"
+              name="cable.attributes.deviceClass"
+              [(ngModel)]="cable.attributes.deviceClass"
               required
-              cable.attributes.identificationData.deviceClass
-              #cable.attributes.identificationData.deviceClass="ngModel"
+              cable.attributes.deviceClass
+              #cable.attributes.deviceClass="ngModel"
             />
             <br />
-            <label for="cable.attributes.identificationData.model">Model</label>
+            <label for="cable.attributes.model">Model</label>
             <input
-              type="cable.attributes.identificationData.model"
+              type="cable.attributes.model"
               class="form-control"
-              name="cable.attributes.identificationData.model"
-              [(ngModel)]="cable.attributes.identificationData.model"
+              name="cable.attributes.model"
+              [(ngModel)]="cable.attributes.model"
               required
-              cable.attributes.identificationData.model
-              #cable.attributes.identificationData.model="ngModel"
+              cable.attributes.model
+              #cable.attributes.model="ngModel"
             />
             <br />
-            <label for="cable.attributes.identificationData.ProductCode"
-              >Product-Code</label
-            >
+            <label for="cable.attributes.ProductCode">Product-Code</label>
             <input
-              type="cable.attributes.identificationData.productCode"
+              type="cable.attributes.productCode"
               class="form-control"
-              name="cable.attributes.identificationData.productCode"
-              [(ngModel)]="cable.attributes.identificationData.productCode"
+              name="cable.attributes.productCode"
+              [(ngModel)]="cable.attributes.productCode"
               required
-              cable.attributes.identificationData.productCode
-              #cable.attributes.identificationData.productCode="ngModel"
-            />
-            <br />
-            <label for="cable.attributes.identificationData.productInstanceURI"
-              >Product-Instance-URI</label
-            >
-            <input
-              type="cable.attributes.identificationData.productInstanceURI"
-              class="form-control"
-              name="cable.attributes.identificationData.productInstanceURI"
-              [(ngModel)]="
-                cable.attributes.identificationData.productInstanceURI
-              "
-              required
-              cable.attributes.identificationData.productInstanceURI
-              #cable.attributes.identificationData.productInstanceURI="ngModel"
+              cable.attributes.productCode
+              #cable.attributes.productCode="ngModel"
             />
             <br />
           </div>
@@ -138,117 +128,97 @@
           </mat-expansion-panel-header>
           <div class="form-group">
             <div>
-              <label
-                for="cable.attributes.generalTechnicalData.ambientTemperature.temperatureMin"
+              <label for="cable.attributes.ambientTemperature.temperatureMin"
                 >Temperature-Min</label
               >
               <input
-                type="cable.attributes.generalTechnicalData.ambientTemperature.temperatureMin"
+                type="cable.attributes.ambientTemperature.temperatureMin"
                 class="form-control"
-                name="cable.attributes.generalTechnicalData.ambientTemperature.temperatureMin"
-                [(ngModel)]="
-                  cable.attributes.generalTechnicalData.ambientTemperature
-                    .temperatureMin
-                "
+                name="cable.attributes.ambientTemperature.temperatureMin"
+                [(ngModel)]="cable.attributes.temperatureMin"
                 required
-                cable.attributes.generalTechnicalData.ambientTemperature.temperatureMin
-                #cable.attributes.generalTechnicalData.ambientTemperature.temperatureMin="ngModel"
+                cable.attributes.ambientTemperature.temperatureMin
+                #cable.attributes.ambientTemperature.temperatureMin="ngModel"
               />
               <br />
-              <label
-                for="cable.attributes.generalTechnicalData.ambientTemperature.temperatureMax"
+              <label for="cable.attributes.ambientTemperature.temperatureMax"
                 >Temperature-Max</label
               >
               <input
-                type="cable.attributes.generalTechnicalData.ambientTemperature.temperatureMax"
+                type="cable.attributes.ambientTemperature.temperatureMax"
                 class="form-control"
-                name="cable.attributes.generalTechnicalData.ambientTemperature.temperatureMax"
-                [(ngModel)]="
-                  cable.attributes.generalTechnicalData.ambientTemperature
-                    .temperatureMax
-                "
+                name="cable.attributes.ambientTemperature.temperatureMax"
+                [(ngModel)]="cable.attributes.temperatureMax"
                 required
-                cable.attributes.generalTechnicalData.ambientTemperature.temperatureMax
-                #cable.attributes.generalTechnicalData.ambientTemperature.temperatureMax="ngModel"
+                cable.attributes.ambientTemperature.temperatureMax
+                #cable.attributes.ambientTemperature.temperatureMax="ngModel"
               />
               <br />
             </div>
-            <label for="cable.attributes.generalTechnicalData.iPCode"
-              >IP-Code</label
-            >
+            <label for="cable.attributes.ipCode">IP-Code</label>
             <input
-              type="cable.attributes.generalTechnicalData.iPCode"
+              type="cable.attributes.ipCode"
               class="form-control"
-              name="cable.attributes.generalTechnicalData.iPCode"
-              [(ngModel)]="cable.attributes.generalTechnicalData.iPCode"
+              name="cable.attributes.ipCode"
+              [(ngModel)]="cable.attributes.ipCode"
               required
-              cable.attributes.generalTechnicalData.iPCode
-              #cable.attributes.generalTechnicalData.iPCode="ngModel"
+              cable.attributes.ipCode
+              #cable.attributes.ipCode="ngModel"
             />
             <br />
-            <label for="cable.attributes.generalTechnicalData.material"
-              >Material</label
-            >
+            <label for="cable.attributes.material">Material</label>
             <input
-              type="cable.attributes.generalTechnicalData.material"
+              type="cable.attributes.material"
               class="form-control"
-              name="cable.attributes.generalTechnicalData.material"
-              [(ngModel)]="cable.attributes.generalTechnicalData.material"
+              name="cable.attributes.material"
+              [(ngModel)]="cable.attributes.material"
               required
-              cable.attributes.generalTechnicalData.material
-              #cable.attributes.generalTechnicalData.material="ngModel"
+              cable.attributes.material
+              #cable.attributes.material="ngModel"
             />
             <br />
-            <label for="cable.attributes.generalTechnicalData.weight"
-              >Weight</label
-            >
+            <label for="cable.attributes.weight">Weight</label>
             <input
-              type="cable.attributes.generalTechnicalData.weight"
+              type="cable.attributes.weight"
               class="form-control"
-              name="cable.attributes.generalTechnicalData.weight"
-              [(ngModel)]="cable.attributes.generalTechnicalData.weight"
+              name="cable.attributes.weight"
+              [(ngModel)]="cable.attributes.weight"
               required
-              cable.attributes.generalTechnicalData.weight
-              #cable.attributes.generalTechnicalData.weight="ngModel"
+              cable.attributes.weight
+              #cable.attributes.weight="ngModel"
             />
             <br />
-            <label for="cable.attributes.generalTechnicalData.height"
-              >Height</label
-            >
+            <label for="cable.attributes.height">Height</label>
             <input
-              type="cable.attributes.generalTechnicalData.height"
+              type="cable.attributes.height"
               class="form-control"
-              name="cable.attributes.generalTechnicalData.height"
-              [(ngModel)]="cable.attributes.generalTechnicalData.height"
+              name="cable.attributes.height"
+              [(ngModel)]="cable.attributes.height"
               required
-              cable.attributes.generalTechnicalData.height
-              #cable.attributes.generalTechnicalData.height="ngModel"
+              cable.attributes.height
+              #cable.attributes.height="ngModel"
             />
             <br />
-            <label for="cable.attributes.generalTechnicalData.width"
-              >Widht</label
-            >
+            <label for="cable.attributes.width">Widht</label>
             <input
-              type="cable.attributes.generalTechnicalData.width"
+              type="cable.attributes.width"
               class="form-control"
-              name="cable.attributes.generalTechnicalData.width"
-              [(ngModel)]="cable.attributes.generalTechnicalData.width"
+              name="cable.attributes.width"
+              [(ngModel)]="cable.attributes.width"
               required
-              cable.attributes.generalTechnicalData.width
-              #cable.attributes.generalTechnicalData.width="ngModel"
+              cable.attributes.width
+              #cable.attributes.width="ngModel"
             />
             <br />
-            <label for="cable.attributes.generalTechnicalData.length"
-              >Length</label
-            >
+            <label for="cable.attributes.length">Length</label>
             <input
-              type="cable.attributes.generalTechnicalData.length"
+              type="cable.attributes.length"
               class="form-control"
-              name="cable.attributes.generalTechnicalData.length"
-              [(ngModel)]="cable.attributes.generalTechnicalData.length"
+              name="cable.attributes.length"
+              [(ngModel)]="cable.attributes.length"
               required
-              cable.attributes.generalTechnicalData.length
-              #cable.attributes.generalTechnicalData.length="ngModel"
+              cable.attributes.length
+              #cable.attributes.length="ngModel"
             />
             <br />
           </div>
@@ -338,7 +308,7 @@
         </div>
       </mat-expansion-panel>
     </mat-accordion>
-    <br />
+    <!-- <br />
     <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -367,7 +337,7 @@
         />
         <br />
       </mat-expansion-panel>
-    </mat-accordion>
+    </mat-accordion> -->
     <br />
     <div class="form-group footer-buttons">
       <button class="btn btn-danger btn-block" mat-dialog-close>Cancel</button>

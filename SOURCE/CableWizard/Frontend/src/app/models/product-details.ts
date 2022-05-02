@@ -1,40 +1,28 @@
 export interface ProductDetails {
-  id: string;
-  name: string;
   attachedImagePaths: string[];
   attachedFilePaths: string[];
+  id: string;
+  name: string;
+  library: string;
   attributes: ProductAttributes;
   connectors: Connector[];
   wires: Wire[];
 }
 
-export interface IdentificationData {
-  manufacturer: string;
-  manufacturerURI: string;
-  deviceClass: string;
-  model: string;
-  productCode: string;
-  productInstanceURI: string;
-}
-
-export interface AmbientTemperature {
-  temperatureMin: number;
-  temperatureMax: number;
-}
-
-export interface GeneralTechnicalData {
-  ambientTemperature: AmbientTemperature;
-  iPCode: string;
-  material: string;
-  weight: number;
-  height: number;
-  width: number;
-  length: number;
-}
-
 export interface ProductAttributes {
-  identificationData: IdentificationData;
-  generalTechnicalData: GeneralTechnicalData;
+  manufacturer: string | null;
+  manufacturerUri: string | null;
+  deviceClass: string | null;
+  model: string | null;
+  productCode: string | null;
+  ipCode: string | null;
+  material: string | null;
+  length: number | null;
+  width: number | null;
+  height: number | null;
+  weight: number | null;
+  temperatureMin: number | null;
+  temperatureMax: number | null;
 }
 
 export interface Connector {

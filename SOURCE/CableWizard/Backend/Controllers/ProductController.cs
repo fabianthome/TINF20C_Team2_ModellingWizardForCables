@@ -9,6 +9,6 @@ public class ProductController : Controller
     [HttpGet(Name = "GetProducts")]
     public IEnumerable<string> Get()
     {
-        return new[] {"test", "test"};
+        return AmlSerializer.GetProducts();
     }
 }

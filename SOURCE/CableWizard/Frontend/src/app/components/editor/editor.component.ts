@@ -18,6 +18,7 @@ export class EditorComponent implements OnInit {
   id: string = cable.id;
   name: string = cable.name;
   wires: Wire[] = cable.wires;
+  library: string = cable.library;
   connectors: Connector[] = cable.connectors;
   connectorType: string = cable.connectors[0].name;
   pins: Pin[] = cable.connectors[0].pins;
@@ -26,10 +27,11 @@ export class EditorComponent implements OnInit {
 
   constructor() {}
   cable: ProductDetails = {
-    id: this.id,
-    name: this.name,
     attachedImagePaths: this.attachedImagePaths,
     attachedFilePaths: this.attachedFilePaths,
+    id: this.id,
+    library: this.library,
+    name: this.name,
     attributes: this.attributes,
     connectors: cable.connectors,
     wires: cable.wires,
