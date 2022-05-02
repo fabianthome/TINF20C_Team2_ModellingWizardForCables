@@ -22,6 +22,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {CableEditorTabsComponent} from './components/cable-editor-tabs/cable-editor-tabs.component';
 import {EditorComponent} from './components/editor/editor.component';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -33,24 +35,26 @@ import {EditorComponent} from './components/editor/editor.component';
     CableEditorTabsComponent,
     EditorComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSlideToggleModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    ReactiveFormsModule,
-    MatChipsModule,
-    MatExpansionModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSlideToggleModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        ReactiveFormsModule,
+        MatChipsModule,
+        MatExpansionModule,
+        MatDividerModule,
+        MatTooltipModule,
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })
