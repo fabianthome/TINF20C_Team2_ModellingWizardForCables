@@ -1,34 +1,40 @@
 import {ProductDetails} from "./product-details";
 
-export interface FilterOptions {
-  queryText: string
-  widthMin: number | null
-  widthMax: number | null
-  heightMin: number | null
-  heightMax: number | null
-  lengthMin: number | null
-  lengthMax: number | null
-  weightMin: number | null
-  weightMax: number | null
-  temperatureMin: number | null
-  temperatureMax: number | null
-}
+export class FilterOptions {
+  queryText: string = ""
+  width = new NumberRangeFilter()
+  height = new NumberRangeFilter()
+  length = new NumberRangeFilter()
+  weight = new NumberRangeFilter()
+  temperature = new NumberRangeFilter()
 
-export function filterProducts(products: ProductDetails[], filter: FilterOptions) {
-  return products.filter(product => {
+  apply(products: ProductDetails[]): ProductDetails[] {
+    return products.filter(product => {
 
-    if (!isInRange(product.attributes.length, filter.lengthMin, filter.lengthMax)) return false;
-    if (!isInRange(product.attributes.width, filter.widthMin, filter.widthMax)) return false;
-    if (!isInRange(product.attributes.height, filter.heightMin, filter.heightMax)) return false;
+      if (!this.width.allows(product.attributes.width)) return false
+      if (!this.height.allows(product.attributes.height)) return false
+      if (!this.length.allows(product.attributes.length)) return false
+      if (!this.weight.allows(product.attributes.weight)) return false
+      if (!this.temperature.allows(product.attributes.temperatureMin)) return false
+      if (!this.temperature.allows(product.attributes.temperatureMax)) return false
 
-    return (product.name.includes(filter.queryText));
-  });
-}
-
-function isInRange(attribute: number | null, min: number | null, max: number | null) {
-  if (attribute != null) {
-    if (min != null && attribute < min) return false
-    if (max != null && attribute > max) return false
+      return (product.name.includes(this.queryText));
+    });
   }
-  return true
 }
+
+export class NumberRangeFilter {
+  min: number | null = null
+  max: number | null = null
+  acceptNull: boolean = true
+
+  allows(attribute: number | null): boolean {
+    if (attribute == null) return this.acceptNull
+    if (this.min != null && attribute < this.min) return false
+    if (this.max != null && attribute > this.max) return false // noinspection RedundantIfStatementJS
+
+    return true
+  }
+}
+
+

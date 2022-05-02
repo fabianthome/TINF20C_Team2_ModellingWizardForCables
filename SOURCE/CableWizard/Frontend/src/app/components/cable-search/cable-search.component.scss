@@ -10,8 +10,11 @@ mat-drawer-container {
 
 mat-drawer {
   background-color: var(--color_base);
-  padding: 1rem;
   min-width: 20%;
+}
+
+.drawer-content {
+  padding: 1rem 1rem 4rem;
 
   .drawer-row {
     display: grid;
@@ -24,15 +27,21 @@ mat-drawer {
       margin: 0;
     }
 
-    >mat-form-field {
+    > mat-form-field {
       margin: -0.5rem 0;
     }
 
     *:is(h1, h2, h3, h4) {
-      margin: 1rem 0 0;
+      margin: 2rem 0 0;
+    }
+
+    .drawer-spacer {
+      display: block;
+      height: 4rem;
     }
   }
 }
+
 
 .drawer-button {
   $drawer-button-gap: 1rem;
