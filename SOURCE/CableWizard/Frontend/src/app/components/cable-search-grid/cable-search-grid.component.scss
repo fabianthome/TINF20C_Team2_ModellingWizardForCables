@@ -1,5 +1,6 @@
-$card-height: 360px;
-$card-width: 280px;
+$card-height: 400px;
+$card-width: 320px;
+$card-max-title-height: 120px;
 
 :host {
   display: grid;
@@ -9,5 +10,18 @@ $card-width: 280px;
 }
 
 .grid-item {
-  height: $card-height;
+  h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    height: 2rem;
+  }
+}
+
+.attributes-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  padding-top: 1rem;
 }
