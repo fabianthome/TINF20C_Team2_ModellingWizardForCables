@@ -55,20 +55,20 @@ public static class AmlSerializer
                     if (unitFamilyType.ID == id) // search for requested id
                     {
                         // cables
-                        //Console.WriteLine($"Cable: {unitFamilyType}");
                         productDetails.Id = id;
                         productDetails.Name = unitFamilyType.Name;
                         productDetails.Library = productLibrary.ToString();
-                        
+                        var wirePinIds = new List<string>();
+
                         // attributes
                         productDetails = GetAttributes(productDetails, unitFamilyType);
                         
                         // connectors
                         productDetails = GetConnectors(productDetails, unitFamilyType);
-                        
-                        // wires - todo: doesn't work properly for Balluff lib yet (DeepSearchWires() needed)
-                        productDetails = GetWires(productDetails, unitFamilyType);
-                        
+
+                        // wires
+                        productDetails = GetWires(productDetails, unitFamilyType, ref wirePinIds);
+
                         return productDetails;
                     }
                 }
@@ -76,6 +76,27 @@ public static class AmlSerializer
         }
         Console.WriteLine($"No cable with that ID!");
         return productDetails;
+    }
+
+    public static bool DeleteProduct(string id)
+    {
+        var cable = Document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
+        if (cable != null)
+        {
+            // only cables can be deleted
+            foreach (var roleClass in cable.SupportedRoleClass)
+            {
+                if (roleClass.RefRoleClassPath == "CableRCL/Cable")
+                {
+                    // delete cable
+                    cable.Remove(removeRelations: true);
+                    Document.SaveToFile("Workdir/Cables_28032022.amlx", true);
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private static ProductDetails GetAttributes(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
@@ -156,20 +177,42 @@ public static class AmlSerializer
 
     private static ProductDetails GetConnectors(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
     {
-        productDetails.Connectors = new List<string>();
-        foreach (var externalInterface in unitFamilyType.ExternalInterfaceAndInherited)
+        // add connectors
+        productDetails.Connectors = new List<ProductConnector>();
+        
+        foreach (var connector in unitFamilyType.ExternalInterfaceAndInherited)
         {
-            //Console.WriteLine($"Connector: {externalInterface}");
-            productDetails.Connectors.Add(externalInterface.ToString());
+            var productConnector = new ProductConnector()
+            {
+                Type = connector.Name
+            };
+
+            // add pins to connectors
+            productConnector.Pins = new List<ProductPin>();
+            
+            foreach (var connectorPin in connector.ExternalInterfaceAndDescendants)
+            {
+                var productPin = new ProductPin()
+                {
+                    Name = connectorPin.Name
+                };
+
+                // add connected wires to pins
+                GetLinks(unitFamilyType, connectorPin.ID, productPin);
+                
+                productConnector.Pins.Add(productPin);
+            }
+            
+            productDetails.Connectors.Add(productConnector);
         }
         
         return productDetails;
     }
-
-    private static ProductDetails GetWires(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
+    
+    private static ProductDetails GetWires(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType, ref List<string> wirePinIds)
     {
         productDetails.Wires = new List<string>();
-        productDetails.Pins = new List<string>();
+        //productDetails.Pins = new List<string>(); //not needed?!
         foreach (var wireClass in unitFamilyType.InternalElementAndInherited)
         {
             var wiresList = DeepSearchWires(wireClass);
@@ -185,6 +228,16 @@ public static class AmlSerializer
                     }
                 }
                 
+                // add pin ids to list to access connected wires later on
+                foreach (var pin in wire.ExternalInterface)
+                {
+                    if (pin.RefBaseClassPath == "AutomationMLComponentBaseICL/ElectricInterface")
+                    {
+                        wirePinIds.Add(pin.ID);
+                        //productDetails.Pins.Add(pin.ToString()); //not needed?!
+                    }
+                }
+                
                 /*
                 // access colours of wires (c1 etc.)
                 foreach (var attribute in wire.Attribute)
@@ -192,16 +245,6 @@ public static class AmlSerializer
                     Console.WriteLine($"{attribute.Value}");
                 }
                 */
-
-                // pins - todo: same problem as wires
-                foreach (var pin in wire.ExternalInterface)
-                {
-                    if (pin.RefBaseClassPath == "AutomationMLComponentBaseICL/ElectricInterface")
-                    {
-                        //Console.WriteLine($"Pin: {pin}");
-                        productDetails.Pins.Add(pin.ToString());
-                    }
-                }
             }
         }
 
@@ -225,11 +268,53 @@ public static class AmlSerializer
         return wires;
     }
     
+    private static void GetLinks(SystemUnitFamilyType unitFamilyType, string connectorPinId, ProductPin productPin)
+    {
+        foreach (var internalLink in unitFamilyType.InternalLink)
+        {
+            //Console.WriteLine($"{internalLink.Name}: {internalLink.RefPartnerSideA} & {internalLink.RefPartnerSideB}");
+
+            // if pin id is saved in side A of internal link
+            if (connectorPinId == internalLink.RefPartnerSideA)
+            {
+                var connectorPin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideA);
+                var wirePin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideB);
+                
+                //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
+                productPin.ConnectedWire = wirePin.CAEXParent.ToString();
+            }
+            // if pin id is saved in side B of internal link
+            else if (connectorPinId == internalLink.RefPartnerSideB)
+            {
+                var connectorPin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideB);
+                var wirePin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideA);
+
+                //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
+                productPin.ConnectedWire = wirePin.CAEXParent.ToString();
+            }
+        }
+    }
+    
     private static List<SystemUnitFamilyType> DeepSearch(SystemUnitFamilyType familyType)
     {
         if (familyType.SystemUnitClass.Count == 0)
         {
-            return new List<SystemUnitFamilyType> {familyType};
+            // only add to list, if it's really a cable
+            foreach (var roleClass in familyType.SupportedRoleClass)
+            {
+                if (roleClass.RefRoleClassPath == "CableRCL/Cable")
+                {
+                    return new List<SystemUnitFamilyType> {familyType};
+                }
+            }
         }
     
         List<SystemUnitFamilyType> results = new List<SystemUnitFamilyType>();

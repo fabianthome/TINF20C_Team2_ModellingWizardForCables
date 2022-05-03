@@ -38,6 +38,18 @@ export class DataService {
     })
   }
 
+  deleteProductDetails(productId: string) {
+    return this.http.delete(DataService.toURL(`delete-product/${productId}`), {
+      responseType: 'json'
+    })
+  }
+
+  postProductDetails(product: ProductDetails) {
+    return this.http.post(DataService.toURL(`edit-product`), product, {
+      responseType: 'json'
+    })
+  }
+
   getFile(path: string): Observable<Blob> {
     return this.http.get(DataService.toURL(path), {
       responseType: 'blob'
