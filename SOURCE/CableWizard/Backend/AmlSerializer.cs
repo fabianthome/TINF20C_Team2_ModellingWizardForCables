@@ -90,7 +90,7 @@ public static class AmlSerializer
                 {
                     // delete cable
                     cable.Remove(removeRelations: true);
-                    Document.SaveToFile("Cables_28032022.amlx", true);
+                    Document.SaveToFile("Workdir/Cables_28032022.amlx", true);
                     return true;
                 }
             }
