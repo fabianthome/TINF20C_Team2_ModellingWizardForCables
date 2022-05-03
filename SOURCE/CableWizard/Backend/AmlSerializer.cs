@@ -58,7 +58,6 @@ public static class AmlSerializer
                         productDetails.Id = id;
                         productDetails.Name = unitFamilyType.Name;
                         productDetails.Library = productLibrary.ToString();
-                        var connectorPinIds = new List<string>();
                         var wirePinIds = new List<string>();
 
                         // attributes
