@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './components/header/header.component';
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -16,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {CableDetailsComponent} from './components/cable-details/cable-details.component';
 import {CableSearchComponent} from './components/cable-search/cable-search.component';
+import {CableSearchNumberRangeComponent} from "./components/cable-search-number-range/cable-search-number-range.component";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {HttpClientModule} from '@angular/common/http';
 import {MatChipsModule} from '@angular/material/chips';
@@ -29,9 +29,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
   declarations: [
     AppComponent,
     HeaderComponent,
-    CableSearchGridComponent,
     CableDetailsComponent,
     CableSearchComponent,
+    CableSearchGridComponent,
+    CableSearchNumberRangeComponent,
     CableEditorTabsComponent,
     EditorComponent,
   ],

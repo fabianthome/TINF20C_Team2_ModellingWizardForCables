@@ -14,34 +14,22 @@ mat-drawer {
 }
 
 .drawer-content {
-  padding: 1rem 1rem 4rem;
+  display: block;
+  padding: 0 1rem 4rem;
+
+  .drawer-title {
+    margin: 2rem 0 0;
+  }
 
   .drawer-row {
     display: grid;
-    margin: 0;
-    grid-gap: 0.5rem;
-    grid-auto-flow: column;
+  }
 
-    > * {
-      display: block;
-      margin: 0;
-    }
-
-    > mat-form-field {
-      margin: -0.5rem 0;
-    }
-
-    *:is(h1, h2, h3, h4) {
-      margin: 2rem 0 0;
-    }
-
-    .drawer-spacer {
-      display: block;
-      height: 4rem;
-    }
+  .drawer-spacer {
+    display: block;
+    height: 4rem;
   }
 }
-
 
 .drawer-button {
   $drawer-button-gap: 1rem;
@@ -58,3 +46,7 @@ mat-drawer {
   }
 }
 
+mat-form-field {
+  margin-inline: 0;
+  margin-block: -0.5rem;
+}
