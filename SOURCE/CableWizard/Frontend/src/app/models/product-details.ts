@@ -36,6 +36,12 @@ export interface Pin {
   connectedWireName: string;
 }
 
+// backend returns these as string not object!
+export type Wire = string
+
+/*
 export interface Wire {
   name: string;
 }
+*/
+
