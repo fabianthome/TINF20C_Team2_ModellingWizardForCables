@@ -71,7 +71,7 @@ export class EditorComponent implements OnInit {
 
   addWire() {
     const countOfWires = this.cable.wires.length;
-    this.cable.wires.push({ name: 'C' + (countOfWires + 1) });
+    this.cable.wires.push('C' + (countOfWires + 1) );
   }
 
   confirmEdit() {

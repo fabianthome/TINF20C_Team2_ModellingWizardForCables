@@ -19,7 +19,7 @@ export const cable = {
     temperatureMin: -5,
     temperatureMax: 70,
   },
-  wires: [{ name: 'C1' }, { name: 'C2' }, { name: 'C3' }, { name: 'C4' }],
+  wires: ['C1', 'C2', 'C3', 'C4'],
   connectors: [
     {
       name: 'M12A3PinFemale',
