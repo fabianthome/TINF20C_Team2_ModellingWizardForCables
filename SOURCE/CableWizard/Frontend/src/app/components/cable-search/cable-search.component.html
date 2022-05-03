@@ -12,7 +12,7 @@
         </mat-form-field>
       </div>
 
-      <h2 class="drawer-title">Length</h2>
+      <h3 class="drawer-title">Length</h3>
 
       <app-cable-search-number-range
         [attribute]="filter.length"
@@ -20,7 +20,7 @@
         (attributeChange)="onFilterChanged()"
       ></app-cable-search-number-range>
 
-      <h2 class="drawer-title">Width</h2>
+      <h3 class="drawer-title">Width</h3>
 
       <app-cable-search-number-range
         [attribute]="filter.width"
@@ -28,7 +28,7 @@
         (attributeChange)="onFilterChanged()"
       ></app-cable-search-number-range>
 
-      <h2 class="drawer-title">Height</h2>
+      <h3 class="drawer-title">Height</h3>
 
       <app-cable-search-number-range
         [attribute]="filter.height"
@@ -36,7 +36,7 @@
         (attributeChange)="onFilterChanged()"
       ></app-cable-search-number-range>
 
-      <h2 class="drawer-title">Weight</h2>
+      <h3 class="drawer-title">Weight</h3>
 
       <app-cable-search-number-range
         [attribute]="filter.weight"
@@ -44,7 +44,7 @@
         (attributeChange)="onFilterChanged()"
       ></app-cable-search-number-range>
 
-      <h2 class="drawer-title">Temperature</h2>
+      <h3 class="drawer-title">Temperature</h3>
 
       <app-cable-search-number-range
         [attribute]="filter.temperature"
@@ -53,6 +53,7 @@
       ></app-cable-search-number-range>
 
     </div>
+
     <button class="drawer-button close"
             (click)="drawer.close()"
             mat-mini-fab
@@ -60,6 +61,7 @@
     >
       <mat-icon>chevron_left</mat-icon>
     </button>
+
   </mat-drawer>
   <app-cable-search-grid [products]="filteredProducts$ | async"></app-cable-search-grid>
 </mat-drawer-container>

@@ -8,6 +8,6 @@
   <input matInput type="number" [(ngModel)]="attribute.max" (ngModelChange)="onAttributeChanged()"/>
 </mat-form-field>
 
-<mat-slide-toggle class="below" [(ngModel)]="attribute.acceptNull" (ngModelChange)="onAttributeChanged()">
+<mat-slide-toggle color="primary" class="below" [(ngModel)]="attribute.acceptNull" (ngModelChange)="onAttributeChanged()">
   Show products with unknown {{name}}
 </mat-slide-toggle>
