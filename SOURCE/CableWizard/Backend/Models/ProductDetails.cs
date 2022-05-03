@@ -7,7 +7,7 @@ public class ProductDetails
     public string Library { get; set; }
     
     public ProductAttributes Attributes { get; set; }
-    public List<string> Connectors { get; set; }
     public List<string> Wires { get; set; }
-    public List<string> Pins { get; set; }
+    public List<ProductConnector> Connectors { get; set; }
+    //public List<string> Pins { get; set; } //not needed?!
 }

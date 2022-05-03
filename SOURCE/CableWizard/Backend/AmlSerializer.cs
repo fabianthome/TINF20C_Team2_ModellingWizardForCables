@@ -65,13 +65,10 @@ public static class AmlSerializer
                         productDetails = GetAttributes(productDetails, unitFamilyType);
                         
                         // connectors
-                        productDetails = GetConnectors(productDetails, unitFamilyType, ref connectorPinIds);
+                        productDetails = GetConnectors(productDetails, unitFamilyType);
 
                         // wires
                         productDetails = GetWires(productDetails, unitFamilyType, ref wirePinIds);
-
-                        // internal links - todo: instead of just logging in terminal, add relations to ProductDetails
-                        GetInternalLinks(unitFamilyType, connectorPinIds);
 
                         return productDetails;
                     }
@@ -158,19 +155,35 @@ public static class AmlSerializer
         return attributes;
     }
 
-    private static ProductDetails GetConnectors(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType, ref List<string> connectorPinIds)
+    private static ProductDetails GetConnectors(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
     {
-        productDetails.Connectors = new List<string>();
+        // add connectors
+        productDetails.Connectors = new List<ProductConnector>();
+        
         foreach (var connector in unitFamilyType.ExternalInterfaceAndInherited)
         {
-            //Console.WriteLine($"Connector: {externalInterface}");
-            productDetails.Connectors.Add(connector.ToString());
+            var productConnector = new ProductConnector()
+            {
+                Type = connector.Name
+            };
+
+            // add pins to connectors
+            productConnector.Pins = new List<ProductPin>();
             
             foreach (var connectorPin in connector.ExternalInterfaceAndDescendants)
             {
-                //Console.WriteLine($"Pin: {connectorPin.Name}, {connectorPin.ID}");
-                connectorPinIds.Add(connectorPin.ID);
+                var productPin = new ProductPin()
+                {
+                    Name = connectorPin.Name
+                };
+
+                // add connected wires to pins
+                GetLinks(unitFamilyType, connectorPin.ID, productPin);
+                
+                productConnector.Pins.Add(productPin);
             }
+            
+            productDetails.Connectors.Add(productConnector);
         }
         
         return productDetails;
@@ -179,7 +192,7 @@ public static class AmlSerializer
     private static ProductDetails GetWires(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType, ref List<string> wirePinIds)
     {
         productDetails.Wires = new List<string>();
-        productDetails.Pins = new List<string>();
+        //productDetails.Pins = new List<string>(); //not needed?!
         foreach (var wireClass in unitFamilyType.InternalElementAndInherited)
         {
             var wiresList = DeepSearchWires(wireClass);
@@ -195,14 +208,13 @@ public static class AmlSerializer
                     }
                 }
                 
-                // pins
+                // add pin ids to list to access connected wires later on
                 foreach (var pin in wire.ExternalInterface)
                 {
                     if (pin.RefBaseClassPath == "AutomationMLComponentBaseICL/ElectricInterface")
                     {
-                        //Console.WriteLine($"Pin: {pin}");
-                        productDetails.Pins.Add(pin.ToString());
                         wirePinIds.Add(pin.ID);
+                        //productDetails.Pins.Add(pin.ToString()); //not needed?!
                     }
                 }
                 
@@ -235,37 +247,38 @@ public static class AmlSerializer
         
         return wires;
     }
-
-    private static void GetInternalLinks(SystemUnitFamilyType unitFamilyType, List<string> connectorPinIds)
+    
+    private static void GetLinks(SystemUnitFamilyType unitFamilyType, string connectorPinId, ProductPin productPin)
     {
         foreach (var internalLink in unitFamilyType.InternalLink)
         {
-            Console.WriteLine($"{internalLink.Name}: {internalLink.RefPartnerSideA} & {internalLink.RefPartnerSideB}");
+            //Console.WriteLine($"{internalLink.Name}: {internalLink.RefPartnerSideA} & {internalLink.RefPartnerSideB}");
 
-            foreach (var connectorPinId in connectorPinIds)
+            // if pin id is saved in side A of internal link
+            if (connectorPinId == internalLink.RefPartnerSideA)
             {
-                if (connectorPinId == internalLink.RefPartnerSideA)
-                {
-                    var connectorPin =
-                        Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
-                            .RefPartnerSideA);
-                    var wirePin =
-                        Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
-                            .RefPartnerSideB);
+                var connectorPin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideA);
+                var wirePin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideB);
+                
+                //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
+                productPin.ConnectedWire = wirePin.CAEXParent.ToString();
+            }
+            // if pin id is saved in side B of internal link
+            else if (connectorPinId == internalLink.RefPartnerSideB)
+            {
+                var connectorPin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideB);
+                var wirePin =
+                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                        .RefPartnerSideA);
 
-                    Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
-                }
-                else if (connectorPinId == internalLink.RefPartnerSideB)
-                {
-                    var connectorPin =
-                        Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
-                            .RefPartnerSideB);
-                    var wirePin =
-                        Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
-                            .RefPartnerSideA);
-
-                    Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
-                }
+                //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
+                productPin.ConnectedWire = wirePin.CAEXParent.ToString();
             }
         }
     }
