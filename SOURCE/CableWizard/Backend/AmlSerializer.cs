@@ -78,6 +78,27 @@ public static class AmlSerializer
         return productDetails;
     }
 
+    public static bool DeleteProduct(string id)
+    {
+        var cable = Document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
+        if (cable != null)
+        {
+            // only cables can be deleted
+            foreach (var roleClass in cable.SupportedRoleClass)
+            {
+                if (roleClass.RefRoleClassPath == "CableRCL/Cable")
+                {
+                    // delete cable
+                    cable.Remove(removeRelations: true);
+                    Document.SaveToFile("Cables_28032022.amlx", true);
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     private static ProductDetails GetAttributes(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
     {
         var attributes = new ProductAttributes();
@@ -286,7 +307,14 @@ public static class AmlSerializer
     {
         if (familyType.SystemUnitClass.Count == 0)
         {
-            return new List<SystemUnitFamilyType> {familyType};
+            // only add to list, if it's really a cable
+            foreach (var roleClass in familyType.SupportedRoleClass)
+            {
+                if (roleClass.RefRoleClassPath == "CableRCL/Cable")
+                {
+                    return new List<SystemUnitFamilyType> {familyType};
+                }
+            }
         }
     
         List<SystemUnitFamilyType> results = new List<SystemUnitFamilyType>();
