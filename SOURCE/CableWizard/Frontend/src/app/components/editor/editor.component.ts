@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { filter, map, Subscription, switchMap } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 import { cable } from '../../models/cable.models';
 import {
   ProductDetails,
@@ -7,7 +10,6 @@ import {
   Pin,
   Wire,
 } from '../../models/product-details';
-
 @Component({
   selector: 'app-editor',
   templateUrl: './editor.component.html',
@@ -20,12 +22,12 @@ export class EditorComponent implements OnInit {
   wires: Wire[] = cable.wires;
   library: string = cable.library;
   connectors: Connector[] = cable.connectors;
-  connectorType: string = cable.connectors[0].name;
+  connectorType: string = cable.connectors[0].type;
   pins: Pin[] = cable.connectors[0].pins;
   attachedImagePaths: string[] = cable.attachedImagePaths;
   attachedFilePaths: string[] = cable.attachedFilePaths;
+  cableText: any;
 
-  constructor() {}
   cable: ProductDetails = {
     attachedImagePaths: this.attachedImagePaths,
     attachedFilePaths: this.attachedFilePaths,
@@ -36,44 +38,62 @@ export class EditorComponent implements OnInit {
     connectors: cable.connectors,
     wires: cable.wires,
   };
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
+  private cableSubscription: Subscription | undefined;
 
   ngOnInit(): void {
-    console.log(this.cable);
+    this.cableSubscription = this.route.params
+      .pipe(
+        map((params) => params['id']),
+        filter((id) => typeof id == 'string'),
+        switchMap((id) => this.dataService.getProductDetails(id as string))
+      )
+      .subscribe((cableInfo) => {
+        this.cableText = JSON.stringify(cableInfo);
+        // const cable: ProductDetails = {
+        //   attachedImagePaths: cableInfo.attachedImagePaths,
+        //   attachedFilePaths: cableInfo.attachedFilePaths,
+        //   id: cableInfo.id,
+        //   library: cableInfo.library,
+        //   name: cableInfo.name,
+        //   attributes: cableInfo.attributes,
+        //   connectors: cableInfo.connectors,
+        //   wires: cableInfo.wires,
+        // };
+        this.cable = cableInfo;
+        console.log(this.cable);
+      });
   }
-
   addConnector() {
     this.cable.connectors.push({
-      name: 'M12A3PinMale',
+      type: 'M12A3PinMale',
       pins: [
         {
-          type: 'PinType',
           name: '1',
-          connectedWireName: 'C1',
+          connectedWire: 'C1',
         },
         {
-          type: 'PinType',
           name: '2',
-          connectedWireName: 'C2',
+          connectedWire: 'C2',
         },
         {
-          type: 'PinType',
           name: '3',
-          connectedWireName: 'C3',
+          connectedWire: 'C3',
         },
         {
-          type: 'PinType',
           name: '4',
-          connectedWireName: 'C4',
+          connectedWire: 'C4',
         },
       ],
     });
   }
-
   addWire() {
     const countOfWires = this.cable.wires.length;
-    this.cable.wires.push('C' + (countOfWires + 1) );
+    this.cable.wires.push('C' + (countOfWires + 1));
   }
-
   confirmEdit() {
     console.log(this.cable);
   }

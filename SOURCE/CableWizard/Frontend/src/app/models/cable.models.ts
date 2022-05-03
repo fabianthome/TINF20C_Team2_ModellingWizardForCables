@@ -22,27 +22,27 @@ export const cable = {
   wires: ['C1', 'C2', 'C3', 'C4'],
   connectors: [
     {
-      name: 'M12A3PinFemale',
+      type: 'M12A3PinFemale',
       pins: [
         {
           type: 'PinType',
           name: '1',
-          connectedWireName: 'C1',
+          connectedWire: 'C1',
         },
         {
           type: 'PinType',
           name: '2',
-          connectedWireName: 'C2',
+          connectedWire: 'C2',
         },
         {
           type: 'PinType',
           name: '3',
-          connectedWireName: 'C3',
+          connectedWire: 'C3',
         },
         {
           type: 'PinType',
           name: '4',
-          connectedWireName: 'C4',
+          connectedWire: 'C4',
         },
       ],
     },

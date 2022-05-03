@@ -261,15 +261,15 @@
         </mat-expansion-panel-header>
         <div class="form-group">
           <div *ngFor="let connector of cable.connectors">
-            <label for="connector.name">Connector Name</label>
+            <label for="connector.type">Connector Name</label>
             <input
-              type="connector.name"
+              type="connector.type"
               class="form-control"
-              name="connector.name"
-              [(ngModel)]="connector.name"
+              name="connector.type"
+              [(ngModel)]="connector.type"
               required
-              connector.name
-              #connector.name="ngModel"
+              connector.type
+              #connector.type="ngModel"
             />
             <br />
             <div>
@@ -279,18 +279,18 @@
                     Pin
                   </mat-panel-title></mat-expansion-panel-header
                 >
-                <div>Pin-Type: {{ pin.type }}</div>
+                <div>PinType</div>
                 <div>Pin-Name: {{ pin.name }}</div>
                 <br />
                 <label for="connector.name">Verbunden mit:</label>
                 <input
                   type="text"
                   class="form-control"
-                  name="pin.connectedWireName"
-                  [(ngModel)]="pin.connectedWireName"
+                  name="pin.connectedWire"
+                  [(ngModel)]="pin.connectedWire"
                   required
-                  pin.connectedWireName
-                  #pin.connectedWireName="ngModel"
+                  pin.connectedWire
+                  #pin.connectedWire="ngModel"
                 />
               </mat-expansion-panel>
               <br />

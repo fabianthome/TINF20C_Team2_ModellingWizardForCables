@@ -26,22 +26,20 @@ export interface ProductAttributes {
 }
 
 export interface Connector {
-  name: string;
+  type: string;
   pins: Pin[];
 }
 
 export interface Pin {
   name: string;
-  type: string;
-  connectedWireName: string;
+  connectedWire: string;
 }
 
 // backend returns these as string not object!
-export type Wire = string
+export type Wire = string;
 
 /*
 export interface Wire {
   name: string;
 }
 */
-
