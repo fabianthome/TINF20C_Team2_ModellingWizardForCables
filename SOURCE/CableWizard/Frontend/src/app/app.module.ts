@@ -24,6 +24,7 @@ import {CableEditorTabsComponent} from './components/cable-editor-tabs/cable-edi
 import {EditorComponent} from './components/editor/editor.component';
 import {MatDividerModule} from "@angular/material/divider";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
         MatExpansionModule,
         MatDividerModule,
         MatTooltipModule,
+        MatDialogModule,
     ],
   providers: [],
   bootstrap: [AppComponent],

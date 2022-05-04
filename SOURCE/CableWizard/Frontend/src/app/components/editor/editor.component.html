@@ -1,237 +1,212 @@
 <mat-card class="canvas">
-  <h1 mat-dialog-title>Kabel konfigurieren</h1>
+  <h1 mat-dialog-title>Configure cable</h1>
   <form
     name="form"
     (ngSubmit)="(f.form.valid)"
     #f="ngForm"
     novalidate
-    class="backgorund"
   >
     <div class="form-group">
-      <label for="cable.name">Kabelname</label>
+      <label for="cable-name">Cable name</label>
       <input
+        id="cable-name"
         type="cable.name"
         class="form-control"
         name="cable.name"
         [(ngModel)]="cable.name"
         required
-        cable.name
-        #cable.name="ngModel"
       />
     </div>
     <div class="form-group">
-      <label for="cable.id">Kabel Id</label>
+      <label for="cable-id">ID</label>
       <input
-        type="cable.id"
+        id="cable-id"
+        type="cable-id"
         class="form-control"
         name="cable.id"
         [(ngModel)]="cable.id"
         required
-        cable.id
-        #cable.id="ngModel"
       />
-      <br />
-      <label for="cable.library">Product-Instance-URI</label>
+      <br/>
+      <label for="cable-library">Library</label>
       <input
+        id="cable-library"
         type="cable.library"
         class="form-control"
         name="cable.library"
         [(ngModel)]="cable.library"
         required
-        cable.library
-        #cable.library="ngModel"
       />
     </div>
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title> Attribute </mat-panel-title>
+          <mat-panel-title>Attributes</mat-panel-title>
           <mat-panel-description>
-            Klappe das Panel aus, um alle Attribute zu sehen
+            Expand the panel to see all attributes
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title> Identification-Data </mat-panel-title>
+            <mat-panel-title>Identification-Data</mat-panel-title>
             <mat-panel-description>
-              Klappe das Panel aus, um alle Attribute zur Identifikation zu
-              sehen
+              Expand the panel to see all identification attributes
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="form-group">
-            <label for="cable.attributes.manufacturer">Manufacturer</label>
+            <label for="cable-attributes-manufacturer">Manufacturer</label>
             <input
+              id="cable-attributes-manufacturer"
               type="cable.attributes.manufacturer"
               class="form-control"
               name="cable.attributes.manufacturer"
               [(ngModel)]="cable.attributes.manufacturer"
               required
-              cable.attributes.manufacturer
-              #cable.attributes.manufacturer="ngModel"
             />
-            <br />
-            <label for="cable.attributes.manufacturerURI"
-              >Manufacturer URI</label
-            >
+            <br/>
+            <label for="cable-attributes-manufacturer-uri">Manufacturer URI</label>
             <input
+              id="cable-attributes-manufacturer-uri"
               type="cable.attributes.manufacturerURI"
               class="form-control"
               name="cable.attributes.manufacturerURI"
               [(ngModel)]="cable.attributes.manufacturerUri"
               required
-              cable.attributes.manufacturerURI
-              #cable.attributes.manufacturerURI="ngModel"
             />
-            <br />
-            <label for="cable.attributes.DeviceClass">Device-Class</label>
+            <br/>
+            <label for="cable-attributes-device-class">Device-Class</label>
             <input
+              id="cable-attributes-device-class"
               type="cable.attributes.deviceClass"
               class="form-control"
               name="cable.attributes.deviceClass"
               [(ngModel)]="cable.attributes.deviceClass"
               required
-              cable.attributes.deviceClass
-              #cable.attributes.deviceClass="ngModel"
             />
-            <br />
-            <label for="cable.attributes.model">Model</label>
+            <br/>
+            <label for="cable-attributes-model">Model</label>
             <input
+              id="cable-attributes-model"
               type="cable.attributes.model"
               class="form-control"
               name="cable.attributes.model"
               [(ngModel)]="cable.attributes.model"
               required
-              cable.attributes.model
-              #cable.attributes.model="ngModel"
             />
-            <br />
-            <label for="cable.attributes.ProductCode">Product-Code</label>
+            <br/>
+            <label for="cable-attributes-product-code">Product-Code</label>
             <input
+              id="cable-attributes-product-code"
               type="cable.attributes.productCode"
               class="form-control"
               name="cable.attributes.productCode"
               [(ngModel)]="cable.attributes.productCode"
               required
-              cable.attributes.productCode
-              #cable.attributes.productCode="ngModel"
             />
-            <br />
+            <br/>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title> General-Technical-Data </mat-panel-title>
+            <mat-panel-title> General-Technical-Data</mat-panel-title>
             <mat-panel-description>
-              Klappe das Panel aus, um alle Attribute zu den Technischen Daten
-              zu sehen
+              Expand the panel to see all the technical data attributes
             </mat-panel-description>
           </mat-expansion-panel-header>
           <div class="form-group">
             <div>
-              <label for="cable.attributes.ambientTemperature.temperatureMin"
-                >Temperature-Min</label
-              >
+              <label for="cable-attributes-temperature-min">Temperature-Min</label>
               <input
+                id="cable-attributes-temperature-min"
                 type="cable.attributes.ambientTemperature.temperatureMin"
                 class="form-control"
                 name="cable.attributes.ambientTemperature.temperatureMin"
                 [(ngModel)]="cable.attributes.temperatureMin"
                 required
-                cable.attributes.ambientTemperature.temperatureMin
-                #cable.attributes.ambientTemperature.temperatureMin="ngModel"
               />
-              <br />
-              <label for="cable.attributes.ambientTemperature.temperatureMax"
-                >Temperature-Max</label
-              >
+              <br/>
+              <label for="cable-attributes-temperature-max">Temperature-Max</label>
               <input
+                id="cable-attributes-temperature-max"
                 type="cable.attributes.ambientTemperature.temperatureMax"
                 class="form-control"
                 name="cable.attributes.ambientTemperature.temperatureMax"
                 [(ngModel)]="cable.attributes.temperatureMax"
                 required
-                cable.attributes.ambientTemperature.temperatureMax
-                #cable.attributes.ambientTemperature.temperatureMax="ngModel"
               />
-              <br />
+              <br/>
             </div>
-            <label for="cable.attributes.ipCode">IP-Code</label>
+            <label for="cable-attributes-ip-code">IP-Code</label>
             <input
+              id="cable-attributes-ip-code"
               type="cable.attributes.ipCode"
               class="form-control"
               name="cable.attributes.ipCode"
               [(ngModel)]="cable.attributes.ipCode"
               required
-              cable.attributes.ipCode
-              #cable.attributes.ipCode="ngModel"
             />
-            <br />
-            <label for="cable.attributes.material">Material</label>
+            <br/>
+            <label for="cable-attributes-material">Material</label>
             <input
+              id="cable-attributes-material"
               type="cable.attributes.material"
               class="form-control"
               name="cable.attributes.material"
               [(ngModel)]="cable.attributes.material"
               required
-              cable.attributes.material
-              #cable.attributes.material="ngModel"
             />
-            <br />
-            <label for="cable.attributes.weight">Weight</label>
+            <br/>
+            <label for="cable-attributes-weight">Weight</label>
             <input
+              id="cable-attributes-weight"
               type="cable.attributes.weight"
               class="form-control"
               name="cable.attributes.weight"
               [(ngModel)]="cable.attributes.weight"
               required
-              cable.attributes.weight
-              #cable.attributes.weight="ngModel"
             />
-            <br />
-            <label for="cable.attributes.height">Height</label>
+            <br/>
+            <label for="cable-attributes-height">Height</label>
             <input
+              id="cable-attributes-height"
               type="cable.attributes.height"
               class="form-control"
               name="cable.attributes.height"
               [(ngModel)]="cable.attributes.height"
               required
-              cable.attributes.height
-              #cable.attributes.height="ngModel"
             />
-            <br />
-            <label for="cable.attributes.width">Widht</label>
+            <br/>
+            <label for="cable-attributes-width">Width</label>
             <input
+              id="cable-attributes-width"
               type="cable.attributes.width"
               class="form-control"
               name="cable.attributes.width"
               [(ngModel)]="cable.attributes.width"
               required
-              cable.attributes.width
-              #cable.attributes.width="ngModel"
             />
-            <br />
-            <label for="cable.attributes.length">Length</label>
+            <br/>
+            <label for="cable-attributes-length">Length</label>
             <input
+              id="cable-attributes-length"
               type="cable.attributes.length"
               class="form-control"
               name="cable.attributes.length"
               [(ngModel)]="cable.attributes.length"
               required
-              cable.attributes.length
-              #cable.attributes.length="ngModel"
             />
-            <br />
+            <br/>
           </div>
         </mat-expansion-panel>
       </mat-expansion-panel>
     </mat-accordion>
-    <br />
+    <br/>
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title> Wires </mat-panel-title>
+          <mat-panel-title> Wires</mat-panel-title>
           <mat-panel-description>
-            Klappe das Panel aus, um alle Wires zu sehen
+            Expand the panel to see all wires
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="form-group">
@@ -250,50 +225,50 @@
         </button>
       </mat-expansion-panel>
     </mat-accordion>
-    <br />
+    <br/>
     <mat-accordion class="example-headers-align" multi>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title> Connectors </mat-panel-title>
+          <mat-panel-title>Connectors</mat-panel-title>
           <mat-panel-description>
-            Klappe das Panel aus, um alle Connectors zu sehen
+            Expand the panel to see all connectors
           </mat-panel-description>
         </mat-expansion-panel-header>
         <div class="form-group">
           <div *ngFor="let connector of cable.connectors">
-            <label for="connector.type">Connector Name</label>
+            <label for="connector-type">Connector Name</label>
             <input
+              id="connector-type"
               type="connector.type"
               class="form-control"
               name="connector.type"
               [(ngModel)]="connector.type"
               required
-              connector.type
-              #connector.type="ngModel"
             />
-            <br />
+            <br/>
             <div>
               <mat-expansion-panel *ngFor="let pin of connector.pins">
                 <mat-expansion-panel-header
-                  ><mat-panel-title>
+                >
+                  <mat-panel-title>
                     Pin
-                  </mat-panel-title></mat-expansion-panel-header
+                  </mat-panel-title>
+                </mat-expansion-panel-header
                 >
                 <div>PinType</div>
                 <div>Pin-Name: {{ pin.name }}</div>
-                <br />
-                <label for="connector.name">Verbunden mit:</label>
+                <br/>
+                <label for="connector-name">Connected to wire</label>
                 <input
+                  id="connector-name"
                   type="text"
                   class="form-control"
                   name="pin.connectedWire"
                   [(ngModel)]="pin.connectedWire"
                   required
-                  pin.connectedWire
-                  #pin.connectedWire="ngModel"
                 />
               </mat-expansion-panel>
-              <br />
+              <br/>
             </div>
           </div>
           <button
@@ -338,9 +313,11 @@
         <br />
       </mat-expansion-panel>
     </mat-accordion> -->
-    <br />
+    <br/>
     <div class="form-group footer-buttons">
-      <button class="btn btn-danger btn-block" mat-dialog-close>Cancel</button>
+      <button class="btn btn-danger btn-block" (click)="cancelEdit()">
+        Cancel
+      </button>
       <span class="spacer"></span>
       <button class="btn btn-primary btn-block" (click)="confirmEdit()">
         Confirm

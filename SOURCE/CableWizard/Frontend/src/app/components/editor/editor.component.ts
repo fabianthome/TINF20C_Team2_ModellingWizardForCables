@@ -97,4 +97,8 @@ export class EditorComponent implements OnInit {
   confirmEdit() {
     console.log(this.cable);
   }
+
+  cancelEdit() {
+    //todo
+  }
 }
