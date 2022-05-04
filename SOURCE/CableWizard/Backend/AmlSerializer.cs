@@ -1,7 +1,9 @@
-﻿using Aml.Engine.AmlObjects;
+﻿using System.Text;
+using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using CableWizardBackend.Models;
+using Newtonsoft.Json;
 
 namespace CableWizardBackend;
 
@@ -97,6 +99,47 @@ public static class AmlSerializer
         }
 
         return false;
+    }
+
+    public static void CreateProduct(string productDetailsInfo)
+    {
+        byte[] productDetailsData = Convert.FromBase64String(productDetailsInfo);
+        productDetailsInfo = Encoding.UTF8.GetString(productDetailsData);
+        var productDetails = JsonConvert.DeserializeObject<ProductDetails>(productDetailsInfo);
+        
+        var document = CAEXDocument.New_CAEXDocument();
+        var productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_MyCables");
+        var cableDir = productLib.SystemUnitClass.Append("Cables");
+        var cable = cableDir.SystemUnitClass.Append(productDetails.Name);
+
+        var data = cable.Attribute.Append("Data");
+        var manufacturer = data.Attribute.Append("Manufacturer");
+        var manufacturerUri = data.Attribute.Append(("ManufacturerURI"));
+        var model = data.Attribute.Append("Model");
+        var productCode = data.Attribute.Append("ProductCode");
+        var temperatureMin = data.Attribute.Append("TemperatureMin");
+        var temperatureMax = data.Attribute.Append("TemperatureMax");
+        var ipCode = data.Attribute.Append("IPCode");
+        var weight = data.Attribute.Append("Weight");
+        var height = data.Attribute.Append("Height");
+        var width = data.Attribute.Append("Width");
+        var length = data.Attribute.Append("Length");
+        
+        
+
+        // add connectors & pins
+        foreach (var connectorInfo in productDetails.Connectors)
+        {
+            var connector = cable.ExternalInterface.Append(connectorInfo.Type);
+            foreach (var pinInfo in connectorInfo.Pins)
+            {
+                var pin = connector.ExternalInterface.Append(pinInfo.Name);
+            }
+        }
+
+        //var roleClass = cable.SupportedRoleClass.Append([(RefRoleClassPath: "CableRCL/Cable")]);
+
+        document.SaveToFile("Workdir/MyCables.aml", true);
     }
 
     private static ProductDetails GetAttributes(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
