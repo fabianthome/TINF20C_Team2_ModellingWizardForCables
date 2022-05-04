@@ -101,14 +101,14 @@ public static class AmlSerializer
         return false;
     }
 
-    public static void CreateProduct(string productDetailsInfo)
+    public static void CreateProduct(string filename, string productDetailsInfo)
     {
         byte[] productDetailsData = Convert.FromBase64String(productDetailsInfo);
         productDetailsInfo = Encoding.UTF8.GetString(productDetailsData);
         var productDetails = JsonConvert.DeserializeObject<ProductDetails>(productDetailsInfo);
         
         var document = CAEXDocument.New_CAEXDocument();
-        var productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_MyCables");
+        var productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + filename);
         var cableDir = productLib.SystemUnitClass.Append("Cables");
         var cable = cableDir.SystemUnitClass.Append(productDetails.Name);
 
@@ -139,7 +139,7 @@ public static class AmlSerializer
 
         //var roleClass = cable.SupportedRoleClass.Append([(RefRoleClassPath: "CableRCL/Cable")]);
 
-        document.SaveToFile("Workdir/MyCables.aml", true);
+        document.SaveToFile("Workdir/" + filename + ".aml", true);
     }
 
     private static ProductDetails GetAttributes(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)

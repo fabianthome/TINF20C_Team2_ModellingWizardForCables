@@ -3,14 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace CableWizardBackend.Controllers;
 
 [ApiController]
-[Route("api/v2/create-product/{id:regex(^[[a-z0-9]]*)}")]
+[Route("api/v2/create-product/{filename:regex(^[[a-z0-9]]*)}/{productDetails:regex(^[[a-z0-9]]*)}")]
 
 public class CreateProduct : Controller
 {
-    [HttpGet(Name = "CreateProduct")]
+    [HttpPost(Name = "CreateProduct")]
 
-    public void Get(string id)
+    public void Post(string filename, string productDetails)
     {
-        AmlSerializer.CreateProduct(id);
+        AmlSerializer.CreateProduct(filename, productDetails);
     }
 }
