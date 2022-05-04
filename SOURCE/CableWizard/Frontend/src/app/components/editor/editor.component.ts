@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {filter, map, Subscription, switchMap} from 'rxjs';
 import {DataService} from 'src/app/services/data.service';
-import {ProductDetails, EXAMPLE_CABLE} from '../../models/product-details';
+import {ProductDetails, DefaultCableDetails} from '../../models/product-details';
 
 @Component({
   selector: 'app-editor',
@@ -10,7 +10,7 @@ import {ProductDetails, EXAMPLE_CABLE} from '../../models/product-details';
   styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit, OnDestroy {
-  cable: ProductDetails = EXAMPLE_CABLE
+  cable: ProductDetails = DefaultCableDetails
 
   constructor(
     private route: ActivatedRoute,

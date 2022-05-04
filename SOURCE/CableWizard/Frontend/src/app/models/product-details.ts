@@ -44,7 +44,7 @@ export interface Wire {
 }
 */
 
-export const EXAMPLE_CABLE = {
+export const DefaultCableDetails: ProductDetails = {
   id: '',
   name: 'BCC M313-M313-30-300-EX43T2-050',
   attachedImagePaths: ['./32edq', './32edq'],
@@ -71,22 +71,22 @@ export const EXAMPLE_CABLE = {
       type: 'M12A3PinFemale',
       pins: [
         {
-          type: 'PinType',
+          //  type: 'PinType',
           name: '1',
           connectedWire: 'C1',
         },
         {
-          type: 'PinType',
+          //  type: 'PinType',
           name: '2',
           connectedWire: 'C2',
         },
         {
-          type: 'PinType',
+          //  type: 'PinType',
           name: '3',
           connectedWire: 'C3',
         },
         {
-          type: 'PinType',
+          //  type: 'PinType',
           name: '4',
           connectedWire: 'C4',
         },
