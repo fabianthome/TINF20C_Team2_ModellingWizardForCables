@@ -7,9 +7,9 @@ namespace CableWizardBackend.Controllers;
 
 public class DeleteController : Controller
 {
-    [HttpGet(Name = "DeleteProduct")]
+    [HttpDelete(Name = "DeleteProduct")]
 
-    public string Get(string id)
+    public string Delete(string id)
     {
         if (AmlSerializer.DeleteProduct(id))
         {
