@@ -74,7 +74,11 @@ export class EditorComponent implements OnInit, OnDestroy {
   confirmEdit() {
     console.log(this.cable);
     var encoded = btoa(JSON.stringify(this.cable));
-    console.log(encoded);
+    this.dataService
+      .createProduct(this.cable.name, encoded)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 
   deleteWire(wireName: string) {

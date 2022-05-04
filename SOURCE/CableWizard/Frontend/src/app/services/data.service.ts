@@ -58,7 +58,7 @@ export class DataService {
     });
   }
 
-  createProduct(filename: string, data: Blob) {
+  createProduct(filename: string, data: string): Observable<any> {
     return this.http.post(
       DataService.toURL(`create-product/${filename}/${data}`),
       {},
