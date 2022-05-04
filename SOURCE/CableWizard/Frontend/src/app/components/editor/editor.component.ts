@@ -1,8 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {filter, map, Subscription, switchMap} from 'rxjs';
-import {DataService} from 'src/app/services/data.service';
-import {ProductDetails, DefaultCableDetails} from '../../models/product-details';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { filter, map, Subscription, switchMap } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+import {
+  ProductDetails,
+  DefaultCableDetails,
+} from '../../models/product-details';
 
 @Component({
   selector: 'app-editor',
@@ -10,13 +13,12 @@ import {ProductDetails, DefaultCableDetails} from '../../models/product-details'
   styleUrls: ['./editor.component.scss'],
 })
 export class EditorComponent implements OnInit, OnDestroy {
-  cable: ProductDetails = DefaultCableDetails
+  cable: ProductDetails = DefaultCableDetails;
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService
-  ) {
-  }
+  ) {}
 
   private cableSubscription: Subscription | undefined;
 
@@ -62,14 +64,32 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   addWire() {
     const countOfWires = this.cable.wires.length;
-    this.cable.wires.push('C' + (countOfWires + 1));
+    const number = this.cable.wires[countOfWires - 1].charAt(
+      this.cable.wires[countOfWires - 1].length - 1
+    );
+    console.log(number);
+    this.cable.wires.push('C' + (+number + 1));
   }
 
   confirmEdit() {
     console.log(this.cable);
   }
 
-  cancelEdit() {
-    //todo
+  deleteWire(wireName: string) {
+    const index = this.cable.wires.indexOf(wireName);
+    if (index > -1) {
+      this.cable.wires.splice(index, 1);
+    }
   }
+
+  deletePin(connector: any, pin: any) {
+    console.log(connector, pin);
+    const index = connector.pins.indexOf(pin);
+    console.log(connector.pins);
+    if (index > -1) {
+      connector.pins.splice(index, 1);
+    }
+  }
+
+  cancelEdit() {}
 }

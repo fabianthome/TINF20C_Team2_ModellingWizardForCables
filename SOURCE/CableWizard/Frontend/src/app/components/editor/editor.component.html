@@ -11,13 +11,8 @@
   </div>
   <div class="form-group">
     <label for="cable-id">ID</label>
-    <input
-      id="cable-id"
-      class="form-control"
-      [(ngModel)]="cable.id"
-      required
-    />
-    <br/>
+    <input id="cable-id" class="form-control" [(ngModel)]="cable.id" required />
+    <br />
     <label for="cable-library">Library</label>
     <input
       id="cable-library"
@@ -49,15 +44,17 @@
             [(ngModel)]="cable.attributes.manufacturer"
             required
           />
-          <br/>
-          <label for="cable-attributes-manufacturer-uri">Manufacturer URI</label>
+          <br />
+          <label for="cable-attributes-manufacturer-uri"
+            >Manufacturer URI</label
+          >
           <input
             id="cable-attributes-manufacturer-uri"
             class="form-control"
             [(ngModel)]="cable.attributes.manufacturerUri"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-device-class">Device-Class</label>
           <input
             id="cable-attributes-device-class"
@@ -65,7 +62,7 @@
             [(ngModel)]="cable.attributes.deviceClass"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-model">Model</label>
           <input
             id="cable-attributes-model"
@@ -73,7 +70,7 @@
             [(ngModel)]="cable.attributes.model"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-product-code">Product-Code</label>
           <input
             id="cable-attributes-product-code"
@@ -81,7 +78,7 @@
             [(ngModel)]="cable.attributes.productCode"
             required
           />
-          <br/>
+          <br />
         </div>
       </mat-expansion-panel>
       <mat-expansion-panel>
@@ -93,22 +90,26 @@
         </mat-expansion-panel-header>
         <div class="form-group">
           <div>
-            <label for="cable-attributes-temperature-min">Temperature-Min</label>
+            <label for="cable-attributes-temperature-min"
+              >Temperature-Min</label
+            >
             <input
               id="cable-attributes-temperature-min"
               class="form-control"
               [(ngModel)]="cable.attributes.temperatureMin"
               required
             />
-            <br/>
-            <label for="cable-attributes-temperature-max">Temperature-Max</label>
+            <br />
+            <label for="cable-attributes-temperature-max"
+              >Temperature-Max</label
+            >
             <input
               id="cable-attributes-temperature-max"
               class="form-control"
               [(ngModel)]="cable.attributes.temperatureMax"
               required
             />
-            <br/>
+            <br />
           </div>
           <label for="cable-attributes-ip-code">IP-Code</label>
           <input
@@ -117,7 +118,7 @@
             [(ngModel)]="cable.attributes.ipCode"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-material">Material</label>
           <input
             id="cable-attributes-material"
@@ -125,7 +126,7 @@
             [(ngModel)]="cable.attributes.material"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-weight">Weight</label>
           <input
             id="cable-attributes-weight"
@@ -133,7 +134,7 @@
             [(ngModel)]="cable.attributes.weight"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-height">Height</label>
           <input
             id="cable-attributes-height"
@@ -141,7 +142,7 @@
             [(ngModel)]="cable.attributes.height"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-width">Width</label>
           <input
             id="cable-attributes-width"
@@ -149,7 +150,7 @@
             [(ngModel)]="cable.attributes.width"
             required
           />
-          <br/>
+          <br />
           <label for="cable-attributes-length">Length</label>
           <input
             id="cable-attributes-length"
@@ -157,12 +158,12 @@
             [(ngModel)]="cable.attributes.length"
             required
           />
-          <br/>
+          <br />
         </div>
       </mat-expansion-panel>
     </mat-expansion-panel>
   </mat-accordion>
-  <br/>
+  <br />
   <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -173,7 +174,18 @@
       </mat-expansion-panel-header>
       <div class="form-group">
         <div *ngFor="let wire of cable.wires">
-          <div>{{ wire }}</div>
+          <div>
+            {{ wire }}
+            <button
+              mat-icon-button
+              class="add-icon"
+              aria-label="Example icon-button with heart icon"
+              [disableRipple]="true"
+              (click)="deleteWire(wire)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
       <button
@@ -187,7 +199,7 @@
       </button>
     </mat-expansion-panel>
   </mat-accordion>
-  <br/>
+  <br />
   <mat-accordion class="example-headers-align" multi>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
@@ -205,19 +217,15 @@
             [(ngModel)]="connector.type"
             required
           />
-          <br/>
+          <br />
           <div>
             <mat-expansion-panel *ngFor="let pin of connector.pins">
-              <mat-expansion-panel-header
-              >
-                <mat-panel-title>
-                  Pin
-                </mat-panel-title>
-              </mat-expansion-panel-header
-              >
+              <mat-expansion-panel-header>
+                <mat-panel-title> Pin </mat-panel-title>
+              </mat-expansion-panel-header>
               <div>PinType</div>
               <div>Pin-Name: {{ pin.name }}</div>
-              <br/>
+              <br />
               <label for="connector-name">Connected to wire</label>
               <input
                 id="connector-name"
@@ -225,8 +233,17 @@
                 [(ngModel)]="pin.connectedWire"
                 required
               />
+              <button
+                mat-icon-button
+                class="add-icon"
+                aria-label="Example icon-button with heart icon"
+                [disableRipple]="true"
+                (click)="deletePin(connector, pin)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
             </mat-expansion-panel>
-            <br/>
+            <br />
           </div>
         </div>
         <button
@@ -271,7 +288,7 @@
       <br />
     </mat-expansion-panel>
   </mat-accordion> -->
-  <br/>
+  <br />
   <div class="form-group footer-buttons">
     <button class="btn btn-danger btn-block" (click)="cancelEdit()">
       Cancel
