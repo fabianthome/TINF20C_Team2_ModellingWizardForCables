@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, Subscription, switchMap } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import {
@@ -17,10 +17,14 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {}
 
   private cableSubscription: Subscription | undefined;
+  editorPath: boolean = false;
+  caexVersion3: boolean = false;
+  caexVersion2: boolean = false;
 
   ngOnInit(): void {
     this.cableSubscription = this.route.params
@@ -32,34 +36,14 @@ export class EditorComponent implements OnInit, OnDestroy {
       .subscribe((cableInfo) => {
         this.cable = cableInfo;
       });
+    console.log(this.router.url);
+    if (this.router.url == '/editor') {
+      this.editorPath = true;
+    }
   }
 
   ngOnDestroy() {
     this.cableSubscription?.unsubscribe();
-  }
-
-  addConnector() {
-    this.cable.connectors.push({
-      type: 'M12A3PinMale',
-      pins: [
-        {
-          name: '1',
-          connectedWire: 'C1',
-        },
-        {
-          name: '2',
-          connectedWire: 'C2',
-        },
-        {
-          name: '3',
-          connectedWire: 'C3',
-        },
-        {
-          name: '4',
-          connectedWire: 'C4',
-        },
-      ],
-    });
   }
 
   addWire() {
@@ -94,6 +78,11 @@ export class EditorComponent implements OnInit, OnDestroy {
     if (index > -1) {
       connector.pins.splice(index, 1);
     }
+  }
+
+  addPin(connector: any) {
+    connector.pins.push({ name: 'P', connectedWire: '' });
+    console.log(connector);
   }
 
   cancelEdit() {}

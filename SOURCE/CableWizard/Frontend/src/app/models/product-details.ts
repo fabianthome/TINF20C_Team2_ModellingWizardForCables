@@ -92,5 +92,26 @@ export const DefaultCableDetails: ProductDetails = {
         },
       ],
     },
+    {
+      type: 'M12A3PinMale',
+      pins: [
+        {
+          name: '1',
+          connectedWire: 'C1',
+        },
+        {
+          name: '2',
+          connectedWire: 'C2',
+        },
+        {
+          name: '3',
+          connectedWire: 'C3',
+        },
+        {
+          name: '4',
+          connectedWire: 'C4',
+        },
+      ],
+    },
   ],
 };
