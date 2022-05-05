@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter, map, Subscription, switchMap } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import {
@@ -17,10 +17,14 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private router: Router
   ) {}
 
   private cableSubscription: Subscription | undefined;
+  editorPath: boolean = false;
+  caexVersion3: boolean = false;
+  caexVersion2: boolean = false;
 
   ngOnInit(): void {
     this.cableSubscription = this.route.params
@@ -32,6 +36,10 @@ export class EditorComponent implements OnInit, OnDestroy {
       .subscribe((cableInfo) => {
         this.cable = cableInfo;
       });
+    console.log(this.router.url);
+    if (this.router.url == '/editor') {
+      this.editorPath = true;
+    }
   }
 
   ngOnDestroy() {

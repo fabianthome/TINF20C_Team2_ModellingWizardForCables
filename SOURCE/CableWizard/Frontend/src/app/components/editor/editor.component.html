@@ -266,6 +266,35 @@
     </mat-expansion-panel>
   </mat-accordion>
   <br />
+  <mat-accordion class="example-headers-align" multi *ngIf="editorPath">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>CAEX Version</mat-panel-title>
+        <mat-panel-description>
+          Expand the panel to select CAEX Version
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="form-group">
+        <section class="example-section">
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="caexVersion2"
+            (click)="caexVersion2 = true; caexVersion3 = false"
+          >
+            CAEX 2.5</mat-checkbox
+          >
+          <mat-checkbox
+            class="example-margin"
+            [(ngModel)]="caexVersion3"
+            (click)="caexVersion3 = true; caexVersion2 = false"
+          >
+            CAXE 3.0</mat-checkbox
+          >
+        </section>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br />
   <div class="form-group footer-buttons">
     <button
       class="btn btn-danger btn-block"
