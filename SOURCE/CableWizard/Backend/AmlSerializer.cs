@@ -113,73 +113,7 @@ public static class AmlSerializer
         var cable = cableDir.SystemUnitClass.Append(productDetails.Name);
         
         var data = cable.Attribute.Append("Data");
-        var manufacturer = data.Attribute.Append("Manufacturer");
-        manufacturer.AttributeDataType = "xs:string";
-        manufacturer.Description =
-            "Name of the Manufacturer (person, company or organisation)";
-        manufacturer.Value = productDetails.Attributes.Manufacturer;
-        var manufacturerUri = data.Attribute.Append(("ManufacturerURI"));
-        manufacturerUri.AttributeDataType = "xs:string";
-        manufacturerUri.Description = "Address of the product manufacturer on the world wide web (URL)";
-        manufacturerUri.Value = productDetails.Attributes.ManufacturerUri;
-        var deviceClass = data.Attribute.Append("DeviceClass");
-        deviceClass.AttributeDataType = "xs:string";
-        deviceClass.Description =
-            "Product family name of the manufacturer, characterization may be based on its usage, operation principle, and its fabricated form";
-        deviceClass.Value = productDetails.Attributes.DeviceClass;
-        var model = data.Attribute.Append("Model");
-        model.AttributeDataType = "xs:string";
-        model.Description = "Product name or model code of the manufacturer";
-        model.Value = productDetails.Attributes.Model;
-        var productCode = data.Attribute.Append("ProductCode");
-        productCode.AttributeDataType = "xs:string";
-        productCode.Description = "Unique product identifier given by the manufacturer";
-        productCode.Value = productDetails.Attributes.ProductCode;
-        var temperatureMin = data.Attribute.Append("TemperatureMin");
-        temperatureMin.AttributeDataType = "xs:int";
-        temperatureMin.Unit = "°C";
-        temperatureMin.Description =
-            "Lowest ambient temperature for which the component operates within its specified limits.";
-        temperatureMin.Value = productDetails.Attributes.TemperatureMin.ToString();
-        var temperatureMax = data.Attribute.Append("TemperatureMax");
-        temperatureMax.AttributeDataType = "xs:int";
-        temperatureMax.Unit = "°C";
-        temperatureMax.Description =
-            "Highest ambient temperature for which the component operates within its specified limits.";
-        temperatureMax.Value = productDetails.Attributes.TemperatureMax.ToString();
-        var ipCode = data.Attribute.Append("IPCode");
-        ipCode.AttributeDataType = "xs:string";
-        ipCode.Description =
-            "Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.";
-        ipCode.Value = productDetails.Attributes.IpCode;
-        var material = data.Attribute.Append("Material");
-        material.AttributeDataType = "xs:string";
-        material.Description = "Basic material of the housing of the component.";
-        material.Value = productDetails.Attributes.Material;
-        var weight = data.Attribute.Append("Weight");
-        weight.AttributeDataType = "xs:float";
-        weight.Unit = "g";
-        weight.Description =
-            "Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.";
-        weight.Value = productDetails.Attributes.Weight.ToString();
-        var height = data.Attribute.Append("Height");
-        height.AttributeDataType = "xs:int";
-        height.Unit = "mm";
-        height.Description =
-            "Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.";
-        height.Value = productDetails.Attributes.Height.ToString();
-        var width = data.Attribute.Append("Width");
-        width.AttributeDataType = "xs:int";
-        width.Unit = "mm";
-        width.Description =
-            "Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.";
-        width.Value = productDetails.Attributes.Width.ToString();
-        var length = data.Attribute.Append("Length");
-        length.AttributeDataType = "xs:int";
-        length.Unit = "mm";
-        length.Description =
-            "Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.";
-        length.Value = productDetails.Attributes.Length.ToString();
+        AddAttributes(productDetails, data);
 
         // add connectors & pins
         foreach (var connectorInfo in productDetails.Connectors)
@@ -195,6 +129,89 @@ public static class AmlSerializer
         roleClass.RefRoleClassPath = "CableRCL/Cable";
 
         document.SaveToFile("Workdir/" + filename + ".aml", true);
+    }
+
+    public static void AddAttributes(ProductDetails productDetails, AttributeType data)
+    {
+        var manufacturer = data.Attribute.Append("Manufacturer");
+        manufacturer.AttributeDataType = "xs:string";
+        manufacturer.Description =
+            "Name of the Manufacturer (person, company or organisation)";
+        manufacturer.Value = productDetails.Attributes.Manufacturer;
+        
+        var manufacturerUri = data.Attribute.Append(("ManufacturerURI"));
+        manufacturerUri.AttributeDataType = "xs:string";
+        manufacturerUri.Description = "Address of the product manufacturer on the world wide web (URL)";
+        manufacturerUri.Value = productDetails.Attributes.ManufacturerUri;
+        
+        var deviceClass = data.Attribute.Append("DeviceClass");
+        deviceClass.AttributeDataType = "xs:string";
+        deviceClass.Description =
+            "Product family name of the manufacturer, characterization may be based on its usage, operation principle, and its fabricated form";
+        deviceClass.Value = productDetails.Attributes.DeviceClass;
+        
+        var model = data.Attribute.Append("Model");
+        model.AttributeDataType = "xs:string";
+        model.Description = "Product name or model code of the manufacturer";
+        model.Value = productDetails.Attributes.Model;
+        
+        var productCode = data.Attribute.Append("ProductCode");
+        productCode.AttributeDataType = "xs:string";
+        productCode.Description = "Unique product identifier given by the manufacturer";
+        productCode.Value = productDetails.Attributes.ProductCode;
+        
+        var temperatureMin = data.Attribute.Append("TemperatureMin");
+        temperatureMin.AttributeDataType = "xs:int";
+        temperatureMin.Unit = "°C";
+        temperatureMin.Description =
+            "Lowest ambient temperature for which the component operates within its specified limits.";
+        temperatureMin.Value = productDetails.Attributes.TemperatureMin.ToString();
+        
+        var temperatureMax = data.Attribute.Append("TemperatureMax");
+        temperatureMax.AttributeDataType = "xs:int";
+        temperatureMax.Unit = "°C";
+        temperatureMax.Description =
+            "Highest ambient temperature for which the component operates within its specified limits.";
+        temperatureMax.Value = productDetails.Attributes.TemperatureMax.ToString();
+        
+        var ipCode = data.Attribute.Append("IPCode");
+        ipCode.AttributeDataType = "xs:string";
+        ipCode.Description =
+            "Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.";
+        ipCode.Value = productDetails.Attributes.IpCode;
+        
+        var material = data.Attribute.Append("Material");
+        material.AttributeDataType = "xs:string";
+        material.Description = "Basic material of the housing of the component.";
+        material.Value = productDetails.Attributes.Material;
+        
+        var weight = data.Attribute.Append("Weight");
+        weight.AttributeDataType = "xs:float";
+        weight.Unit = "g";
+        weight.Description =
+            "Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.";
+        weight.Value = productDetails.Attributes.Weight.ToString();
+        
+        var height = data.Attribute.Append("Height");
+        height.AttributeDataType = "xs:int";
+        height.Unit = "mm";
+        height.Description =
+            "Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.";
+        height.Value = productDetails.Attributes.Height.ToString();
+        
+        var width = data.Attribute.Append("Width");
+        width.AttributeDataType = "xs:int";
+        width.Unit = "mm";
+        width.Description =
+            "Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.";
+        width.Value = productDetails.Attributes.Width.ToString();
+        
+        var length = data.Attribute.Append("Length");
+        length.AttributeDataType = "xs:int";
+        length.Unit = "mm";
+        length.Description =
+            "Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.";
+        length.Value = productDetails.Attributes.Length.ToString();
     }
 
     private static ProductDetails GetAttributes(ProductDetails productDetails, SystemUnitFamilyType unitFamilyType)
