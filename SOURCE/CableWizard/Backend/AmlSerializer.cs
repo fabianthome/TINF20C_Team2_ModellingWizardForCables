@@ -149,7 +149,7 @@ public static class AmlSerializer
             var wire = wireDir.InternalElement.Append(wireInfo);
             for (var i = 1; i <= numberConnectors; i++) // i serves as help for naming pins
             {
-                var wirePin = wire.InternalElement.Append("P" + i);
+                var wirePin = wire.ExternalInterface.Append("P" + i);
                 wirePinIds.Add(new Tuple<string, string>(wirePin.ID, wire.Name + wirePin.Name)); // used later on for adding links
             }
             wirePinIdsList.Add(wirePinIds);
