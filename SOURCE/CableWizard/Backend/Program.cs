@@ -3,7 +3,12 @@ var allowSpecificOrigins = "AllowSpecificOrigins";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(allowSpecificOrigins, policy => policy.WithOrigins("http://localhost:4200"));
+    options.AddPolicy(allowSpecificOrigins, policy =>
+    {
+        policy.WithOrigins("http://localhost:4200");
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+    });
 });
 
 builder.Services.AddControllers();

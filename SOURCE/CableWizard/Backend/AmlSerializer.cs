@@ -101,12 +101,8 @@ public static class AmlSerializer
         return false;
     }
 
-    public static void CreateProduct(string filename, string productDetailsInfo)
+    public static void CreateProduct(string filename, ProductDetails productDetails)
     {
-        byte[] productDetailsData = Convert.FromBase64String(productDetailsInfo);
-        productDetailsInfo = Encoding.UTF8.GetString(productDetailsData);
-        var productDetails = JsonConvert.DeserializeObject<ProductDetails>(productDetailsInfo);
-        
         var document = CAEXDocument.New_CAEXDocument();
         var productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + filename);
         var cableDir = productLib.SystemUnitClass.Append("Cables");
