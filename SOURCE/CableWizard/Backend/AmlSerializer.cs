@@ -9,19 +9,23 @@ namespace CableWizardBackend;
 
 public static class AmlSerializer
 {
-    private static readonly CAEXDocument Document;
+    private static readonly CAEXDocument document;
+
+    private static string AmlName = "Template.aml";
 
     static AmlSerializer()
     {
-        var filepath = $"{Directory.GetCurrentDirectory()}/Workdir/Cables_28032022.amlx";
+        /*var filepath = $"{Directory.GetCurrentDirectory()}/Workdir/Cables_28032022.amlx";
         //todo get this path over environment variables
         var container = new AutomationMLContainer(filepath);
-        Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());
+        Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());*/
+        
+        document = CAEXDocument.LoadFromFile("Workdir/" + AmlName);
     }
 
     public static IEnumerable<string> GetProducts()
     {
-        var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
+        var systemUnitClassLib = document.CAEXFile.SystemUnitClassLib;
 
         var productList = new List<string>();
 
@@ -42,7 +46,7 @@ public static class AmlSerializer
 
     public static ProductDetails GetProductDetails(string id)
     {
-        var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
+        var systemUnitClassLib = document.CAEXFile.SystemUnitClassLib;
 
         var productDetails = new ProductDetails();
 
@@ -82,7 +86,7 @@ public static class AmlSerializer
 
     public static bool DeleteProduct(string id)
     {
-        var cable = Document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
+        var cable = document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
         if (cable != null)
         {
             // only cables can be deleted
@@ -92,7 +96,7 @@ public static class AmlSerializer
                 {
                     // delete cable
                     cable.Remove(removeRelations: true);
-                    Document.SaveToFile("Workdir/Cables_28032022.amlx", true);
+                    document.SaveToFile("Workdir/" + AmlName, true);
                     return true;
                 }
             }
@@ -101,21 +105,43 @@ public static class AmlSerializer
         return false;
     }
 
-    public static void CreateProduct(string filename, string productDetailsInfo)
+    public static void CreateProduct(string libName, string productDetailsInfo)
     {
         byte[] productDetailsData = Convert.FromBase64String(productDetailsInfo);
         productDetailsInfo = Encoding.UTF8.GetString(productDetailsData);
         var productDetails = JsonConvert.DeserializeObject<ProductDetails>(productDetailsInfo);
-        
-        var document = CAEXDocument.New_CAEXDocument();
 
-        // add library
-        var productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + filename);
-        
-        // add cable directory and cable
-        var cableDir = productLib.SystemUnitClass.Append("Cables");
-        var cable = cableDir.SystemUnitClass.Append(productDetails.Name);
-        
+        // add library if not already existing
+        SystemUnitClassLibType productLib = null;
+        foreach (var lib in document.CAEXFile.SystemUnitClassLib)
+        {
+            if (lib.Name == "ProductLibrary_" + libName)
+            {
+                productLib = lib;
+                break;
+            }
+        }
+        if (productLib == null)
+        {
+            productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + libName);
+        }
+
+        // add cable if not already existing (if existing, delete and add new)
+        SystemUnitClassType cable = null;
+        foreach (var cab in productLib.SystemUnitClass)
+        {
+            if (cab.Name == productDetails.Name)
+            {
+                DeleteProduct(cab.ID);
+                break;
+            }
+        }
+
+        if (cable == null)
+        {
+            cable = productLib.SystemUnitClass.Append(productDetails.Name);
+        }
+
         // add attributes
         var data = cable.Attribute.Append("Data");
         AddAttributes(productDetails, data);
@@ -179,7 +205,7 @@ public static class AmlSerializer
         }
 
         // save aml file
-        document.SaveToFile("Workdir/" + filename + ".aml", true);
+        document.SaveToFile("Workdir/" + AmlName, true);
     }
 
     public static void AddAttributes(ProductDetails productDetails, AttributeType data)
@@ -444,10 +470,10 @@ public static class AmlSerializer
             if (connectorPinId == internalLink.RefPartnerSideA)
             {
                 var connectorPin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideA);
                 var wirePin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideB);
                 
                 //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
@@ -457,10 +483,10 @@ public static class AmlSerializer
             else if (connectorPinId == internalLink.RefPartnerSideB)
             {
                 var connectorPin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideB);
                 var wirePin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideA);
 
                 //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
