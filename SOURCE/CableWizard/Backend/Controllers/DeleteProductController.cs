@@ -5,7 +5,7 @@ namespace CableWizardBackend.Controllers;
 [ApiController]
 [Route("api/v2/delete-product/{id:regex(^[[a-z0-9]]*)}")]
 
-public class DeleteController : Controller
+public class DeleteProductController : Controller
 {
     [HttpDelete(Name = "DeleteProduct")]
 

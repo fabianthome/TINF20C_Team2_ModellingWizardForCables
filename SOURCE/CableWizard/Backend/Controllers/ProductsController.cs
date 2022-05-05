@@ -4,7 +4,7 @@ namespace CableWizardBackend.Controllers;
 
 [ApiController]
 [Route("api/v2/products")]
-public class ProductController : Controller
+public class ProductsController : Controller
 {
     [HttpGet(Name = "GetProducts")]
     public IEnumerable<string> Get()
