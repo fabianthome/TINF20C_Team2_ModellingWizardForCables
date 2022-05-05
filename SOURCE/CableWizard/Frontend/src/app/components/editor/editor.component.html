@@ -11,7 +11,14 @@
   </div>
   <div class="form-group">
     <label for="cable-id">ID</label>
-    <input id="cable-id" class="form-control" [(ngModel)]="cable.id" required />
+    <input
+      id="cable-id"
+      class="form-control"
+      [(ngModel)]="cable.id"
+      required
+      placeholder="Id is assigned automatically"
+      disabled="true"
+    />
     <br />
     <label for="cable-library">Library</label>
     <input
@@ -224,7 +231,12 @@
                 <mat-panel-title> Pin </mat-panel-title>
               </mat-expansion-panel-header>
               <div>PinType</div>
-              <div>Pin-Name: {{ pin.name }}</div>
+              <input
+                id="pin-name"
+                class="form-control"
+                [(ngModel)]="pin.name"
+                required
+              />
               <br />
               <label for="connector-name">Connected to wire</label>
               <input
@@ -245,56 +257,29 @@
             </mat-expansion-panel>
             <br />
           </div>
+          <button class="btn btn-primary btn-block" (click)="addPin(connector)">
+            Add Pin
+          </button>
+          <br />
         </div>
-        <button
-          mat-icon-button
-          class="add-icon"
-          aria-label="Example icon-button with heart icon"
-          [disableRipple]="true"
-          (click)="addConnector()"
-        >
-          <mat-icon>add</mat-icon>
-        </button>
       </div>
     </mat-expansion-panel>
   </mat-accordion>
-  <!-- <br />
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title> Images </mat-panel-title>
-      </mat-expansion-panel-header>
-      <label for="cable.attachedImagePaths">Attached Image</label>
-      <input
-        type="file"
-        class="form-control"
-        name="cable.attachedImagePaths"
-        [(ngModel)]="cable.attachedImagePaths"
-        required
-        cable.attachedImagePaths
-        #cable.attachedImagePaths="ngModel"
-      />
-      <br />
-      <label for="cable.attachedFilePaths">Attached File</label>
-      <input
-        type="file"
-        class="form-control"
-        name="cable.attachedFilePaths"
-        [(ngModel)]="cable.attachedFilePaths"
-        required
-        cable.attachedFilePaths
-        #cable.attachedFilePaths="ngModel"
-      />
-      <br />
-    </mat-expansion-panel>
-  </mat-accordion> -->
   <br />
   <div class="form-group footer-buttons">
-    <button class="btn btn-danger btn-block" (click)="cancelEdit()">
+    <button
+      class="btn btn-danger btn-block"
+      (click)="cancelEdit()"
+      routerLink="/"
+    >
       Cancel
     </button>
     <span class="spacer"></span>
-    <button class="btn btn-primary btn-block" (click)="confirmEdit()">
+    <button
+      class="btn btn-primary btn-block"
+      routerLink="/"
+      (click)="confirmEdit()"
+    >
       Confirm
     </button>
   </div>

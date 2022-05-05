@@ -38,30 +38,6 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.cableSubscription?.unsubscribe();
   }
 
-  addConnector() {
-    this.cable.connectors.push({
-      type: 'M12A3PinMale',
-      pins: [
-        {
-          name: '1',
-          connectedWire: 'C1',
-        },
-        {
-          name: '2',
-          connectedWire: 'C2',
-        },
-        {
-          name: '3',
-          connectedWire: 'C3',
-        },
-        {
-          name: '4',
-          connectedWire: 'C4',
-        },
-      ],
-    });
-  }
-
   addWire() {
     const countOfWires = this.cable.wires.length;
     const number = this.cable.wires[countOfWires - 1].charAt(
@@ -95,6 +71,11 @@ export class EditorComponent implements OnInit, OnDestroy {
     if (index > -1) {
       connector.pins.splice(index, 1);
     }
+  }
+
+  addPin(connector: any) {
+    connector.pins.push({ name: 'P', connectedWire: '' });
+    console.log(connector);
   }
 
   cancelEdit() {}
