@@ -1,0 +1,76 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" #drawer opened>
+    <div class="drawer-content">
+
+      <h2 class="drawer-title">Search cables</h2>
+
+      <div class="drawer-row">
+        <mat-form-field appearance="standard">
+          <mat-label>Search</mat-label>
+          <input matInput type="text" [(ngModel)]="filter.queryText" (ngModelChange)="onFilterChanged()"/>
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <h3 class="drawer-title">Length</h3>
+
+      <app-cable-search-number-range
+        [attribute]="filter.length"
+        [name]="'length'"
+        (attributeChange)="onFilterChanged()"
+      ></app-cable-search-number-range>
+
+      <h3 class="drawer-title">Width</h3>
+
+      <app-cable-search-number-range
+        [attribute]="filter.width"
+        [name]="'width'"
+        (attributeChange)="onFilterChanged()"
+      ></app-cable-search-number-range>
+
+      <h3 class="drawer-title">Height</h3>
+
+      <app-cable-search-number-range
+        [attribute]="filter.height"
+        [name]="'height'"
+        (attributeChange)="onFilterChanged()"
+      ></app-cable-search-number-range>
+
+      <h3 class="drawer-title">Weight</h3>
+
+      <app-cable-search-number-range
+        [attribute]="filter.weight"
+        [name]="'weight'"
+        (attributeChange)="onFilterChanged()"
+      ></app-cable-search-number-range>
+
+      <h3 class="drawer-title">Temperature</h3>
+
+      <app-cable-search-number-range
+        [attribute]="filter.temperature"
+        [name]="'temperature'"
+        (attributeChange)="onFilterChanged()"
+      ></app-cable-search-number-range>
+
+    </div>
+
+    <button class="drawer-button close"
+            (click)="drawer.close()"
+            mat-mini-fab
+            color="primary"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+  </mat-drawer>
+  <app-cable-search-grid [products]="filteredProducts$ | async"></app-cable-search-grid>
+</mat-drawer-container>
+
+<button class="drawer-button open"
+        *ngIf="!drawer.opened"
+        (click)="drawer.open()"
+        mat-mini-fab
+        color="primary"
+>
+  <mat-icon>chevron_right</mat-icon>
+</button>

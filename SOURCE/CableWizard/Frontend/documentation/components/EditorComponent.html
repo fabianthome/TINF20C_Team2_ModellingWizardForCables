@@ -1,0 +1,1448 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>cable-wizard documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">cable-wizard documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  EditorComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/editor/editor.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-editor</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./editor.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./editor.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#attachedFilePaths" >attachedFilePaths</a>
+                            </li>
+                            <li>
+                                <a href="#attachedImagePaths" >attachedImagePaths</a>
+                            </li>
+                            <li>
+                                <a href="#attributes" >attributes</a>
+                            </li>
+                            <li>
+                                <a href="#cable" >cable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cableSubscription" >cableSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#cableText" >cableText</a>
+                            </li>
+                            <li>
+                                <a href="#connectors" >connectors</a>
+                            </li>
+                            <li>
+                                <a href="#connectorType" >connectorType</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#library" >library</a>
+                            </li>
+                            <li>
+                                <a href="#name" >name</a>
+                            </li>
+                            <li>
+                                <a href="#pins" >pins</a>
+                            </li>
+                            <li>
+                                <a href="#wires" >wires</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addConnector" >addConnector</a>
+                            </li>
+                            <li>
+                                <a href="#addWire" >addWire</a>
+                            </li>
+                            <li>
+                                <a href="#confirmEdit" >confirmEdit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, dataService: <a href="../injectables/DataService.html" target="_self">DataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/editor/editor.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addConnector"></a>
+                    <span class="name">
+                        <span ><b>addConnector</b></span>
+                        <a href="#addConnector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addConnector()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">src/app/components/editor/editor.component.ts:70</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addWire"></a>
+                    <span class="name">
+                        <span ><b>addWire</b></span>
+                        <a href="#addWire"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addWire()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/app/components/editor/editor.component.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmEdit"></a>
+                    <span class="name">
+                        <span ><b>confirmEdit</b></span>
+                        <a href="#confirmEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmEdit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="97"
+                            class="link-to-prism">src/app/components/editor/editor.component.ts:97</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/components/editor/editor.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="attachedFilePaths"></a>
+                    <span class="name">
+                        <span ><b>attachedFilePaths</b></span>
+                        <a href="#attachedFilePaths"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.attachedFilePaths</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/editor/editor.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="attachedImagePaths"></a>
+                    <span class="name">
+                        <span ><b>attachedImagePaths</b></span>
+                        <a href="#attachedImagePaths"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.attachedImagePaths</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/editor/editor.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="attributes"></a>
+                    <span class="name">
+                        <span ><b>attributes</b></span>
+                        <a href="#attributes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductAttributes.html" target="_self" >ProductAttributes</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.attributes</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/editor/editor.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cable"></a>
+                    <span class="name">
+                        <span ><b>cable</b></span>
+                        <a href="#cable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductDetails.html" target="_self" >ProductDetails</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    attachedImagePaths: this.attachedImagePaths,
+    attachedFilePaths: this.attachedFilePaths,
+    id: this.id,
+    library: this.library,
+    name: this.name,
+    attributes: this.attributes,
+    connectors: cable.connectors,
+    wires: cable.wires,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/editor/editor.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cableSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cableSubscription</b></span>
+                        <a href="#cableSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription | undefined</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/editor/editor.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cableText"></a>
+                    <span class="name">
+                        <span ><b>cableText</b></span>
+                        <a href="#cableText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/editor/editor.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="connectors"></a>
+                    <span class="name">
+                        <span ><b>connectors</b></span>
+                        <a href="#connectors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Connector.html" target="_self" >Connector[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.connectors</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/editor/editor.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="connectorType"></a>
+                    <span class="name">
+                        <span ><b>connectorType</b></span>
+                        <a href="#connectorType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.connectors[0].type</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/editor/editor.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.id</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/components/editor/editor.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="library"></a>
+                    <span class="name">
+                        <span ><b>library</b></span>
+                        <a href="#library"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.library</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/components/editor/editor.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="name"></a>
+                    <span class="name">
+                        <span ><b>name</b></span>
+                        <a href="#name"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.name</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/editor/editor.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pins"></a>
+                    <span class="name">
+                        <span ><b>pins</b></span>
+                        <a href="#pins"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Pin.html" target="_self" >Pin[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.connectors[0].pins</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/editor/editor.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="wires"></a>
+                    <span class="name">
+                        <span ><b>wires</b></span>
+                        <a href="#wires"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Wire" target="_self" >Wire[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>cable.wires</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/components/editor/editor.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { filter, map, Subscription, switchMap } from &#x27;rxjs&#x27;;
+import { DataService } from &#x27;src/app/services/data.service&#x27;;
+import { cable } from &#x27;../../models/cable.models&#x27;;
+import {
+  ProductDetails,
+  ProductAttributes,
+  Connector,
+  Pin,
+  Wire,
+} from &#x27;../../models/product-details&#x27;;
+@Component({
+  selector: &#x27;app-editor&#x27;,
+  templateUrl: &#x27;./editor.component.html&#x27;,
+  styleUrls: [&#x27;./editor.component.scss&#x27;],
+})
+export class EditorComponent implements OnInit {
+  attributes: ProductAttributes &#x3D; cable.attributes;
+  id: string &#x3D; cable.id;
+  name: string &#x3D; cable.name;
+  wires: Wire[] &#x3D; cable.wires;
+  library: string &#x3D; cable.library;
+  connectors: Connector[] &#x3D; cable.connectors;
+  connectorType: string &#x3D; cable.connectors[0].type;
+  pins: Pin[] &#x3D; cable.connectors[0].pins;
+  attachedImagePaths: string[] &#x3D; cable.attachedImagePaths;
+  attachedFilePaths: string[] &#x3D; cable.attachedFilePaths;
+  cableText: any;
+
+  cable: ProductDetails &#x3D; {
+    attachedImagePaths: this.attachedImagePaths,
+    attachedFilePaths: this.attachedFilePaths,
+    id: this.id,
+    library: this.library,
+    name: this.name,
+    attributes: this.attributes,
+    connectors: cable.connectors,
+    wires: cable.wires,
+  };
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
+  private cableSubscription: Subscription | undefined;
+
+  ngOnInit(): void {
+    this.cableSubscription &#x3D; this.route.params
+      .pipe(
+        map((params) &#x3D;&gt; params[&#x27;id&#x27;]),
+        filter((id) &#x3D;&gt; typeof id &#x3D;&#x3D; &#x27;string&#x27;),
+        switchMap((id) &#x3D;&gt; this.dataService.getProductDetails(id as string))
+      )
+      .subscribe((cableInfo) &#x3D;&gt; {
+        this.cableText &#x3D; JSON.stringify(cableInfo);
+        // const cable: ProductDetails &#x3D; {
+        //   attachedImagePaths: cableInfo.attachedImagePaths,
+        //   attachedFilePaths: cableInfo.attachedFilePaths,
+        //   id: cableInfo.id,
+        //   library: cableInfo.library,
+        //   name: cableInfo.name,
+        //   attributes: cableInfo.attributes,
+        //   connectors: cableInfo.connectors,
+        //   wires: cableInfo.wires,
+        // };
+        this.cable &#x3D; cableInfo;
+        console.log(this.cable);
+      });
+  }
+  addConnector() {
+    this.cable.connectors.push({
+      type: &#x27;M12A3PinMale&#x27;,
+      pins: [
+        {
+          name: &#x27;1&#x27;,
+          connectedWire: &#x27;C1&#x27;,
+        },
+        {
+          name: &#x27;2&#x27;,
+          connectedWire: &#x27;C2&#x27;,
+        },
+        {
+          name: &#x27;3&#x27;,
+          connectedWire: &#x27;C3&#x27;,
+        },
+        {
+          name: &#x27;4&#x27;,
+          connectedWire: &#x27;C4&#x27;,
+        },
+      ],
+    });
+  }
+  addWire() {
+    const countOfWires &#x3D; this.cable.wires.length;
+    this.cable.wires.push(&#x27;C&#x27; + (countOfWires + 1));
+  }
+  confirmEdit() {
+    console.log(this.cable);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;mat-card class&#x3D;&quot;canvas&quot;&gt;
+  &lt;h1 mat-dialog-title&gt;Kabel konfigurieren&lt;/h1&gt;
+  &lt;form
+    name&#x3D;&quot;form&quot;
+    (ngSubmit)&#x3D;&quot;(f.form.valid)&quot;
+    #f&#x3D;&quot;ngForm&quot;
+    novalidate
+    class&#x3D;&quot;backgorund&quot;
+  &gt;
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+      &lt;label for&#x3D;&quot;cable.name&quot;&gt;Kabelname&lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;cable.name&quot;
+        class&#x3D;&quot;form-control&quot;
+        name&#x3D;&quot;cable.name&quot;
+        [(ngModel)]&#x3D;&quot;cable.name&quot;
+        required
+        cable.name
+        #cable.name&#x3D;&quot;ngModel&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+      &lt;label for&#x3D;&quot;cable.id&quot;&gt;Kabel Id&lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;cable.id&quot;
+        class&#x3D;&quot;form-control&quot;
+        name&#x3D;&quot;cable.id&quot;
+        [(ngModel)]&#x3D;&quot;cable.id&quot;
+        required
+        cable.id
+        #cable.id&#x3D;&quot;ngModel&quot;
+      /&gt;
+      &lt;br /&gt;
+      &lt;label for&#x3D;&quot;cable.library&quot;&gt;Product-Instance-URI&lt;/label&gt;
+      &lt;input
+        type&#x3D;&quot;cable.library&quot;
+        class&#x3D;&quot;form-control&quot;
+        name&#x3D;&quot;cable.library&quot;
+        [(ngModel)]&#x3D;&quot;cable.library&quot;
+        required
+        cable.library
+        #cable.library&#x3D;&quot;ngModel&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;mat-accordion class&#x3D;&quot;example-headers-align&quot; multi&gt;
+      &lt;mat-expansion-panel&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt; Attribute &lt;/mat-panel-title&gt;
+          &lt;mat-panel-description&gt;
+            Klappe das Panel aus, um alle Attribute zu sehen
+          &lt;/mat-panel-description&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;mat-expansion-panel&gt;
+          &lt;mat-expansion-panel-header&gt;
+            &lt;mat-panel-title&gt; Identification-Data &lt;/mat-panel-title&gt;
+            &lt;mat-panel-description&gt;
+              Klappe das Panel aus, um alle Attribute zur Identifikation zu
+              sehen
+            &lt;/mat-panel-description&gt;
+          &lt;/mat-expansion-panel-header&gt;
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.manufacturer&quot;&gt;Manufacturer&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.manufacturer&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.manufacturer&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.manufacturer&quot;
+              required
+              cable.attributes.manufacturer
+              #cable.attributes.manufacturer&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.manufacturerURI&quot;
+              &gt;Manufacturer URI&lt;/label
+            &gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.manufacturerURI&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.manufacturerURI&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.manufacturerUri&quot;
+              required
+              cable.attributes.manufacturerURI
+              #cable.attributes.manufacturerURI&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.DeviceClass&quot;&gt;Device-Class&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.deviceClass&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.deviceClass&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.deviceClass&quot;
+              required
+              cable.attributes.deviceClass
+              #cable.attributes.deviceClass&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.model&quot;&gt;Model&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.model&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.model&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.model&quot;
+              required
+              cable.attributes.model
+              #cable.attributes.model&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.ProductCode&quot;&gt;Product-Code&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.productCode&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.productCode&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.productCode&quot;
+              required
+              cable.attributes.productCode
+              #cable.attributes.productCode&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+          &lt;/div&gt;
+        &lt;/mat-expansion-panel&gt;
+        &lt;mat-expansion-panel&gt;
+          &lt;mat-expansion-panel-header&gt;
+            &lt;mat-panel-title&gt; General-Technical-Data &lt;/mat-panel-title&gt;
+            &lt;mat-panel-description&gt;
+              Klappe das Panel aus, um alle Attribute zu den Technischen Daten
+              zu sehen
+            &lt;/mat-panel-description&gt;
+          &lt;/mat-expansion-panel-header&gt;
+          &lt;div class&#x3D;&quot;form-group&quot;&gt;
+            &lt;div&gt;
+              &lt;label for&#x3D;&quot;cable.attributes.ambientTemperature.temperatureMin&quot;
+                &gt;Temperature-Min&lt;/label
+              &gt;
+              &lt;input
+                type&#x3D;&quot;cable.attributes.ambientTemperature.temperatureMin&quot;
+                class&#x3D;&quot;form-control&quot;
+                name&#x3D;&quot;cable.attributes.ambientTemperature.temperatureMin&quot;
+                [(ngModel)]&#x3D;&quot;cable.attributes.temperatureMin&quot;
+                required
+                cable.attributes.ambientTemperature.temperatureMin
+                #cable.attributes.ambientTemperature.temperatureMin&#x3D;&quot;ngModel&quot;
+              /&gt;
+              &lt;br /&gt;
+              &lt;label for&#x3D;&quot;cable.attributes.ambientTemperature.temperatureMax&quot;
+                &gt;Temperature-Max&lt;/label
+              &gt;
+              &lt;input
+                type&#x3D;&quot;cable.attributes.ambientTemperature.temperatureMax&quot;
+                class&#x3D;&quot;form-control&quot;
+                name&#x3D;&quot;cable.attributes.ambientTemperature.temperatureMax&quot;
+                [(ngModel)]&#x3D;&quot;cable.attributes.temperatureMax&quot;
+                required
+                cable.attributes.ambientTemperature.temperatureMax
+                #cable.attributes.ambientTemperature.temperatureMax&#x3D;&quot;ngModel&quot;
+              /&gt;
+              &lt;br /&gt;
+            &lt;/div&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.ipCode&quot;&gt;IP-Code&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.ipCode&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.ipCode&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.ipCode&quot;
+              required
+              cable.attributes.ipCode
+              #cable.attributes.ipCode&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.material&quot;&gt;Material&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.material&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.material&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.material&quot;
+              required
+              cable.attributes.material
+              #cable.attributes.material&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.weight&quot;&gt;Weight&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.weight&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.weight&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.weight&quot;
+              required
+              cable.attributes.weight
+              #cable.attributes.weight&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.height&quot;&gt;Height&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.height&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.height&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.height&quot;
+              required
+              cable.attributes.height
+              #cable.attributes.height&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.width&quot;&gt;Widht&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.width&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.width&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.width&quot;
+              required
+              cable.attributes.width
+              #cable.attributes.width&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;label for&#x3D;&quot;cable.attributes.length&quot;&gt;Length&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;cable.attributes.length&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;cable.attributes.length&quot;
+              [(ngModel)]&#x3D;&quot;cable.attributes.length&quot;
+              required
+              cable.attributes.length
+              #cable.attributes.length&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+          &lt;/div&gt;
+        &lt;/mat-expansion-panel&gt;
+      &lt;/mat-expansion-panel&gt;
+    &lt;/mat-accordion&gt;
+    &lt;br /&gt;
+    &lt;mat-accordion class&#x3D;&quot;example-headers-align&quot; multi&gt;
+      &lt;mat-expansion-panel&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt; Wires &lt;/mat-panel-title&gt;
+          &lt;mat-panel-description&gt;
+            Klappe das Panel aus, um alle Wires zu sehen
+          &lt;/mat-panel-description&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;div *ngFor&#x3D;&quot;let wire of cable.wires&quot;&gt;
+            &lt;div&gt;{{ wire }}&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button
+          mat-icon-button
+          class&#x3D;&quot;add-icon&quot;
+          aria-label&#x3D;&quot;Example icon-button with heart icon&quot;
+          [disableRipple]&#x3D;&quot;true&quot;
+          (click)&#x3D;&quot;addWire()&quot;
+        &gt;
+          &lt;mat-icon&gt;add&lt;/mat-icon&gt;
+        &lt;/button&gt;
+      &lt;/mat-expansion-panel&gt;
+    &lt;/mat-accordion&gt;
+    &lt;br /&gt;
+    &lt;mat-accordion class&#x3D;&quot;example-headers-align&quot; multi&gt;
+      &lt;mat-expansion-panel&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt; Connectors &lt;/mat-panel-title&gt;
+          &lt;mat-panel-description&gt;
+            Klappe das Panel aus, um alle Connectors zu sehen
+          &lt;/mat-panel-description&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;div *ngFor&#x3D;&quot;let connector of cable.connectors&quot;&gt;
+            &lt;label for&#x3D;&quot;connector.type&quot;&gt;Connector Name&lt;/label&gt;
+            &lt;input
+              type&#x3D;&quot;connector.type&quot;
+              class&#x3D;&quot;form-control&quot;
+              name&#x3D;&quot;connector.type&quot;
+              [(ngModel)]&#x3D;&quot;connector.type&quot;
+              required
+              connector.type
+              #connector.type&#x3D;&quot;ngModel&quot;
+            /&gt;
+            &lt;br /&gt;
+            &lt;div&gt;
+              &lt;mat-expansion-panel *ngFor&#x3D;&quot;let pin of connector.pins&quot;&gt;
+                &lt;mat-expansion-panel-header
+                  &gt;&lt;mat-panel-title&gt;
+                    Pin
+                  &lt;/mat-panel-title&gt;&lt;/mat-expansion-panel-header
+                &gt;
+                &lt;div&gt;PinType&lt;/div&gt;
+                &lt;div&gt;Pin-Name: {{ pin.name }}&lt;/div&gt;
+                &lt;br /&gt;
+                &lt;label for&#x3D;&quot;connector.name&quot;&gt;Verbunden mit:&lt;/label&gt;
+                &lt;input
+                  type&#x3D;&quot;text&quot;
+                  class&#x3D;&quot;form-control&quot;
+                  name&#x3D;&quot;pin.connectedWire&quot;
+                  [(ngModel)]&#x3D;&quot;pin.connectedWire&quot;
+                  required
+                  pin.connectedWire
+                  #pin.connectedWire&#x3D;&quot;ngModel&quot;
+                /&gt;
+              &lt;/mat-expansion-panel&gt;
+              &lt;br /&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;button
+            mat-icon-button
+            class&#x3D;&quot;add-icon&quot;
+            aria-label&#x3D;&quot;Example icon-button with heart icon&quot;
+            [disableRipple]&#x3D;&quot;true&quot;
+            (click)&#x3D;&quot;addConnector()&quot;
+          &gt;
+            &lt;mat-icon&gt;add&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/mat-expansion-panel&gt;
+    &lt;/mat-accordion&gt;
+    &lt;!-- &lt;br /&gt;
+    &lt;mat-accordion&gt;
+      &lt;mat-expansion-panel&gt;
+        &lt;mat-expansion-panel-header&gt;
+          &lt;mat-panel-title&gt; Images &lt;/mat-panel-title&gt;
+        &lt;/mat-expansion-panel-header&gt;
+        &lt;label for&#x3D;&quot;cable.attachedImagePaths&quot;&gt;Attached Image&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;file&quot;
+          class&#x3D;&quot;form-control&quot;
+          name&#x3D;&quot;cable.attachedImagePaths&quot;
+          [(ngModel)]&#x3D;&quot;cable.attachedImagePaths&quot;
+          required
+          cable.attachedImagePaths
+          #cable.attachedImagePaths&#x3D;&quot;ngModel&quot;
+        /&gt;
+        &lt;br /&gt;
+        &lt;label for&#x3D;&quot;cable.attachedFilePaths&quot;&gt;Attached File&lt;/label&gt;
+        &lt;input
+          type&#x3D;&quot;file&quot;
+          class&#x3D;&quot;form-control&quot;
+          name&#x3D;&quot;cable.attachedFilePaths&quot;
+          [(ngModel)]&#x3D;&quot;cable.attachedFilePaths&quot;
+          required
+          cable.attachedFilePaths
+          #cable.attachedFilePaths&#x3D;&quot;ngModel&quot;
+        /&gt;
+        &lt;br /&gt;
+      &lt;/mat-expansion-panel&gt;
+    &lt;/mat-accordion&gt; --&gt;
+    &lt;br /&gt;
+    &lt;div class&#x3D;&quot;form-group footer-buttons&quot;&gt;
+      &lt;button class&#x3D;&quot;btn btn-danger btn-block&quot; mat-dialog-close&gt;Cancel&lt;/button&gt;
+      &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
+      &lt;button class&#x3D;&quot;btn btn-primary btn-block&quot; (click)&#x3D;&quot;confirmEdit()&quot;&gt;
+        Confirm
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/mat-card&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./editor.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.spacer {
+  flex-grow: 1;
+  width: 5%;
+}
+
+.footer-buttons {
+  display: flex;
+  width: 100%;
+}
+
+.example-action-buttons {
+  padding-bottom: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.canvas {
+  margin: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><mat-card class="canvas">  <h1 mat-dialog-title>Kabel konfigurieren</h1>  <form    name="form"    (ngSubmit)="(f.form.valid)"    #f="ngForm"    novalidate    class="backgorund"  >    <div class="form-group">      <label for="cable.name">Kabelname</label>      <input        type="cable.name"        class="form-control"        name="cable.name"        [(ngModel)]="cable.name"        required        cable.name        #cable.name="ngModel"      />    </div>    <div class="form-group">      <label for="cable.id">Kabel Id</label>      <input        type="cable.id"        class="form-control"        name="cable.id"        [(ngModel)]="cable.id"        required        cable.id        #cable.id="ngModel"      />      <br />      <label for="cable.library">Product-Instance-URI</label>      <input        type="cable.library"        class="form-control"        name="cable.library"        [(ngModel)]="cable.library"        required        cable.library        #cable.library="ngModel"      />    </div>    <mat-accordion class="example-headers-align" multi>      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title> Attribute </mat-panel-title>          <mat-panel-description>            Klappe das Panel aus, um alle Attribute zu sehen          </mat-panel-description>        </mat-expansion-panel-header>        <mat-expansion-panel>          <mat-expansion-panel-header>            <mat-panel-title> Identification-Data </mat-panel-title>            <mat-panel-description>              Klappe das Panel aus, um alle Attribute zur Identifikation zu              sehen            </mat-panel-description>          </mat-expansion-panel-header>          <div class="form-group">            <label for="cable.attributes.manufacturer">Manufacturer</label>            <input              type="cable.attributes.manufacturer"              class="form-control"              name="cable.attributes.manufacturer"              [(ngModel)]="cable.attributes.manufacturer"              required              cable.attributes.manufacturer              #cable.attributes.manufacturer="ngModel"            />            <br />            <label for="cable.attributes.manufacturerURI"              >Manufacturer URI</label            >            <input              type="cable.attributes.manufacturerURI"              class="form-control"              name="cable.attributes.manufacturerURI"              [(ngModel)]="cable.attributes.manufacturerUri"              required              cable.attributes.manufacturerURI              #cable.attributes.manufacturerURI="ngModel"            />            <br />            <label for="cable.attributes.DeviceClass">Device-Class</label>            <input              type="cable.attributes.deviceClass"              class="form-control"              name="cable.attributes.deviceClass"              [(ngModel)]="cable.attributes.deviceClass"              required              cable.attributes.deviceClass              #cable.attributes.deviceClass="ngModel"            />            <br />            <label for="cable.attributes.model">Model</label>            <input              type="cable.attributes.model"              class="form-control"              name="cable.attributes.model"              [(ngModel)]="cable.attributes.model"              required              cable.attributes.model              #cable.attributes.model="ngModel"            />            <br />            <label for="cable.attributes.ProductCode">Product-Code</label>            <input              type="cable.attributes.productCode"              class="form-control"              name="cable.attributes.productCode"              [(ngModel)]="cable.attributes.productCode"              required              cable.attributes.productCode              #cable.attributes.productCode="ngModel"            />            <br />          </div>        </mat-expansion-panel>        <mat-expansion-panel>          <mat-expansion-panel-header>            <mat-panel-title> General-Technical-Data </mat-panel-title>            <mat-panel-description>              Klappe das Panel aus, um alle Attribute zu den Technischen Daten              zu sehen            </mat-panel-description>          </mat-expansion-panel-header>          <div class="form-group">            <div>              <label for="cable.attributes.ambientTemperature.temperatureMin"                >Temperature-Min</label              >              <input                type="cable.attributes.ambientTemperature.temperatureMin"                class="form-control"                name="cable.attributes.ambientTemperature.temperatureMin"                [(ngModel)]="cable.attributes.temperatureMin"                required                cable.attributes.ambientTemperature.temperatureMin                #cable.attributes.ambientTemperature.temperatureMin="ngModel"              />              <br />              <label for="cable.attributes.ambientTemperature.temperatureMax"                >Temperature-Max</label              >              <input                type="cable.attributes.ambientTemperature.temperatureMax"                class="form-control"                name="cable.attributes.ambientTemperature.temperatureMax"                [(ngModel)]="cable.attributes.temperatureMax"                required                cable.attributes.ambientTemperature.temperatureMax                #cable.attributes.ambientTemperature.temperatureMax="ngModel"              />              <br />            </div>            <label for="cable.attributes.ipCode">IP-Code</label>            <input              type="cable.attributes.ipCode"              class="form-control"              name="cable.attributes.ipCode"              [(ngModel)]="cable.attributes.ipCode"              required              cable.attributes.ipCode              #cable.attributes.ipCode="ngModel"            />            <br />            <label for="cable.attributes.material">Material</label>            <input              type="cable.attributes.material"              class="form-control"              name="cable.attributes.material"              [(ngModel)]="cable.attributes.material"              required              cable.attributes.material              #cable.attributes.material="ngModel"            />            <br />            <label for="cable.attributes.weight">Weight</label>            <input              type="cable.attributes.weight"              class="form-control"              name="cable.attributes.weight"              [(ngModel)]="cable.attributes.weight"              required              cable.attributes.weight              #cable.attributes.weight="ngModel"            />            <br />            <label for="cable.attributes.height">Height</label>            <input              type="cable.attributes.height"              class="form-control"              name="cable.attributes.height"              [(ngModel)]="cable.attributes.height"              required              cable.attributes.height              #cable.attributes.height="ngModel"            />            <br />            <label for="cable.attributes.width">Widht</label>            <input              type="cable.attributes.width"              class="form-control"              name="cable.attributes.width"              [(ngModel)]="cable.attributes.width"              required              cable.attributes.width              #cable.attributes.width="ngModel"            />            <br />            <label for="cable.attributes.length">Length</label>            <input              type="cable.attributes.length"              class="form-control"              name="cable.attributes.length"              [(ngModel)]="cable.attributes.length"              required              cable.attributes.length              #cable.attributes.length="ngModel"            />            <br />          </div>        </mat-expansion-panel>      </mat-expansion-panel>    </mat-accordion>    <br />    <mat-accordion class="example-headers-align" multi>      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title> Wires </mat-panel-title>          <mat-panel-description>            Klappe das Panel aus, um alle Wires zu sehen          </mat-panel-description>        </mat-expansion-panel-header>        <div class="form-group">          <div *ngFor="let wire of cable.wires">            <div>{{ wire }}</div>          </div>        </div>        <button          mat-icon-button          class="add-icon"          aria-label="Example icon-button with heart icon"          [disableRipple]="true"          (click)="addWire()"        >          <mat-icon>add</mat-icon>        </button>      </mat-expansion-panel>    </mat-accordion>    <br />    <mat-accordion class="example-headers-align" multi>      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title> Connectors </mat-panel-title>          <mat-panel-description>            Klappe das Panel aus, um alle Connectors zu sehen          </mat-panel-description>        </mat-expansion-panel-header>        <div class="form-group">          <div *ngFor="let connector of cable.connectors">            <label for="connector.type">Connector Name</label>            <input              type="connector.type"              class="form-control"              name="connector.type"              [(ngModel)]="connector.type"              required              connector.type              #connector.type="ngModel"            />            <br />            <div>              <mat-expansion-panel *ngFor="let pin of connector.pins">                <mat-expansion-panel-header                  ><mat-panel-title>                    Pin                  </mat-panel-title></mat-expansion-panel-header                >                <div>PinType</div>                <div>Pin-Name: {{ pin.name }}</div>                <br />                <label for="connector.name">Verbunden mit:</label>                <input                  type="text"                  class="form-control"                  name="pin.connectedWire"                  [(ngModel)]="pin.connectedWire"                  required                  pin.connectedWire                  #pin.connectedWire="ngModel"                />              </mat-expansion-panel>              <br />            </div>          </div>          <button            mat-icon-button            class="add-icon"            aria-label="Example icon-button with heart icon"            [disableRipple]="true"            (click)="addConnector()"          >            <mat-icon>add</mat-icon>          </button>        </div>      </mat-expansion-panel>    </mat-accordion>    <!-- <br />    <mat-accordion>      <mat-expansion-panel>        <mat-expansion-panel-header>          <mat-panel-title> Images </mat-panel-title>        </mat-expansion-panel-header>        <label for="cable.attachedImagePaths">Attached Image</label>        <input          type="file"          class="form-control"          name="cable.attachedImagePaths"          [(ngModel)]="cable.attachedImagePaths"          required          cable.attachedImagePaths          #cable.attachedImagePaths="ngModel"        />        <br />        <label for="cable.attachedFilePaths">Attached File</label>        <input          type="file"          class="form-control"          name="cable.attachedFilePaths"          [(ngModel)]="cable.attachedFilePaths"          required          cable.attachedFilePaths          #cable.attachedFilePaths="ngModel"        />        <br />      </mat-expansion-panel>    </mat-accordion> -->    <br />    <div class="form-group footer-buttons">      <button class="btn btn-danger btn-block" mat-dialog-close>Cancel</button>      <span class="spacer"></span>      <button class="btn btn-primary btn-block" (click)="confirmEdit()">        Confirm      </button>    </div>  </form></mat-card></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CableDetailsComponent', 'selector': 'app-cable-details'},{'name': 'CableEditorTabsComponent', 'selector': 'app-cable-editor-tabs'},{'name': 'CableSearchComponent', 'selector': 'app-cable-search'},{'name': 'CableSearchGridComponent', 'selector': 'app-cable-search-grid'},{'name': 'CableSearchNumberRangeComponent', 'selector': 'app-cable-search-number-range'},{'name': 'EditorComponent', 'selector': 'app-editor'},{'name': 'HeaderComponent', 'selector': 'app-header'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EditorComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditorComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,52 @@
+:host {
+  flex-grow: 1;
+  display: flex;
+  overflow: auto;
+}
+
+mat-drawer-container {
+  flex-grow: 1;
+}
+
+mat-drawer {
+  background-color: var(--color_base);
+  min-width: 20%;
+}
+
+.drawer-content {
+  display: block;
+  padding: 0 1rem 4rem;
+
+  .drawer-title {
+    margin: 2rem 0 0;
+  }
+
+  .drawer-row {
+    display: grid;
+  }
+
+  .drawer-spacer {
+    display: block;
+    height: 4rem;
+  }
+}
+
+.drawer-button {
+  $drawer-button-gap: 1rem;
+  position: absolute;
+  bottom: $drawer-button-gap;
+  z-index: 2;
+
+  &.close {
+    right: $drawer-button-gap;
+  }
+
+  &.open {
+    left: $drawer-button-gap;
+  }
+}
+
+mat-form-field {
+  margin-inline: 0;
+  margin-block: -0.5rem;
+}
