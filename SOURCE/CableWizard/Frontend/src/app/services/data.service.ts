@@ -57,8 +57,8 @@ export class DataService {
     });
   }
 
-  createProduct(filename: string, product: ProductDetails): Observable<any> {
-    return this.http.post(DataService.toURL(`create-product/${filename}`), product, {
+  createProduct(product: ProductDetails): Observable<any> {
+    return this.http.post(DataService.toURL(`create-product`), product, {
       responseType: 'json',
     });
   }
