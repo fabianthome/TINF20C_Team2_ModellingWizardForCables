@@ -11,9 +11,7 @@ public class CreateProductController : Controller
     [HttpPost(Name = "CreateProduct")]
     public string Create([FromBody] ProductDetails productDetails)
     {
-        AmlSerializer.CreateProduct(productDetails);
-
-        return "Created product.";
+        return AmlSerializer.CreateProduct(productDetails);
     }
     
 }

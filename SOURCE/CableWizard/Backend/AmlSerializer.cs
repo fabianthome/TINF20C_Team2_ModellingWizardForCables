@@ -3,6 +3,7 @@ using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using CableWizardBackend.Models;
+using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
 namespace CableWizardBackend;
@@ -11,6 +12,8 @@ public static class AmlSerializer
 {
     private static readonly CAEXDocument document;
 
+    private const string workdir = "data/";
+    
     private static string AmlName = "Template.aml";
 
     static AmlSerializer()
@@ -20,7 +23,7 @@ public static class AmlSerializer
         var container = new AutomationMLContainer(filepath);
         Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());*/
         
-        document = CAEXDocument.LoadFromFile("Workdir/" + AmlName);
+        document = CAEXDocument.LoadFromFile(workdir + AmlName);
     }
 
     public static IEnumerable<string> GetProducts()
@@ -84,6 +87,49 @@ public static class AmlSerializer
         return productDetails;
     }
 
+    public static List<Tuple<string, string>> GetPossibleConnectors()
+    {
+        var possibleConnectors = new List<Tuple<string, string>>();
+        var interfaceClassLib = document.CAEXFile.InterfaceClassLib;
+
+        foreach (var interfaceClass in interfaceClassLib)
+        {
+            foreach (var interfaceFamilyType in interfaceClass.InterfaceClass)
+            {
+                var list = DeepSearchInterfaceClass(interfaceFamilyType);
+                
+                foreach (var possibleConnector in list)
+                { 
+                    //Console.WriteLine($"{possibleConnector.Name}: \"{possibleConnector.RefBaseClassPath}\"");
+                    possibleConnectors.Add(new Tuple<string, string>(possibleConnector.Name, possibleConnector.RefBaseClassPath));
+                }
+            }
+        }
+
+        return possibleConnectors;
+    }
+    
+    private static List<InterfaceFamilyType> DeepSearchInterfaceClass(InterfaceFamilyType interfaceClass)
+    {
+        if (interfaceClass.InterfaceClass.Count == 0)
+        {
+            // only add to list, if it's really a cable
+            if (interfaceClass.Name.Contains("Female") || interfaceClass.Name.Contains("Male"))
+            {
+                return new List<InterfaceFamilyType>{interfaceClass};
+            }
+        }
+    
+        List<InterfaceFamilyType> results = new List<InterfaceFamilyType>();
+        
+        foreach (var inner in interfaceClass.InterfaceClass)
+        {
+            results = results.Concat(DeepSearchInterfaceClass(inner)).ToList();
+        }
+        
+        return results;
+    }
+
     public static bool DeleteProduct(string id)
     {
         var cable = document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
@@ -96,7 +142,7 @@ public static class AmlSerializer
                 {
                     // delete cable
                     cable.Remove(removeRelations: true);
-                    document.SaveToFile("Workdir/" + AmlName, true);
+                    document.SaveToFile(workdir + AmlName, true);
                     return true;
                 }
             }
@@ -105,8 +151,10 @@ public static class AmlSerializer
         return false;
     }
     
-    public static void CreateProduct(ProductDetails productDetails)
+    public static string CreateProduct(ProductDetails productDetails)
     {
+        var status = "Product created.";
+    
         // add library if not already existing
         SystemUnitClassLibType productLib = null;
         foreach (var lib in document.CAEXFile.SystemUnitClassLib)
@@ -129,6 +177,7 @@ public static class AmlSerializer
             if (cab.Name == productDetails.Name)
             {
                 DeleteProduct(cab.ID);
+                status = "Product updated.";
                 break;
             }
         }
@@ -150,6 +199,7 @@ public static class AmlSerializer
             var pinIds = new List<Tuple<string, string>>(); // list containing tuples like ("11b49049-95fe-42bb-9c16-f275e4995acd", "C1P1")
             numberConnectors++;
             var connector = cable.ExternalInterface.Append(connectorInfo.Type);
+            connector.RefBaseClassPath = connectorInfo.Path + "/" + connectorInfo.Type;
             foreach (var pinInfo in connectorInfo.Pins)
             {
                 var pin = connector.ExternalInterface.Append(pinInfo.Name);
@@ -201,7 +251,8 @@ public static class AmlSerializer
         }
 
         // save aml file
-        document.SaveToFile("Workdir/" + AmlName, true);
+        document.SaveToFile(workdir + AmlName, true);
+        return status;
     }
 
     public static void AddAttributes(ProductDetails productDetails, AttributeType data)
