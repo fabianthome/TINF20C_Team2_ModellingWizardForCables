@@ -1,0 +1,19 @@
+<mat-card
+  class="grid-item"
+  *ngFor="let product of products"
+  [routerLink]="routerLink(product)"
+>
+  <h2 [matTooltip]="product.name">{{product.name}}</h2>
+  <p>{{product.library}}</p>
+  <mat-divider></mat-divider>
+  <div class="attributes-table">
+    <span>Material</span><span>{{product.attributes.material ?? "Unknown"}}</span>
+    <span>Length</span><span>{{product.attributes.length ?? "Unknown"}}</span>
+    <span>Width</span><span>{{product.attributes.width ?? "Unknown"}}</span>
+    <span>Height</span><span>{{product.attributes.height ?? "Unknown"}}</span>
+    <span>Weight</span><span>{{product.attributes.weight ?? "Unknown"}}</span>
+    <span>Min. Temperature</span><span>{{product.attributes.temperatureMin ?? "Unknown"}}</span>
+    <span>Max. Temperature</span><span>{{product.attributes.temperatureMax ?? "Unknown"}}</span>
+  </div>
+
+</mat-card>

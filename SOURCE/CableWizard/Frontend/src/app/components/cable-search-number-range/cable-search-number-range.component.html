@@ -1,0 +1,13 @@
+<mat-form-field class="left" appearance="standard">
+  <mat-label>Minimum</mat-label>
+  <input matInput type="number" [(ngModel)]="attribute.min" (ngModelChange)="onAttributeChanged()"/>
+</mat-form-field>
+
+<mat-form-field class="right" appearance="standard">
+  <mat-label>Maximum</mat-label>
+  <input matInput type="number" [(ngModel)]="attribute.max" (ngModelChange)="onAttributeChanged()"/>
+</mat-form-field>
+
+<mat-slide-toggle color="primary" class="below" [(ngModel)]="attribute.acceptNull" (ngModelChange)="onAttributeChanged()">
+  Show products with unknown {{name}}
+</mat-slide-toggle>

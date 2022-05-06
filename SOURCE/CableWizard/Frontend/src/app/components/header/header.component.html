@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <div *ngIf="showBurgerMenu">
+    <button (click)="toggleDrawer()" mat-icon-button aria-label="Menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <!-- <button *ngIf="!showBurgerMenu"
+          mat-icon-button
+          aria-label="Back"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button> -->
+  <a href="" class=""><span>Cable Wizard</span></a>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
