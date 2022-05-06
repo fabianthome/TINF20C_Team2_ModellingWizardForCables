@@ -219,6 +219,8 @@ public static class AmlSerializer
         {
             var wirePinIds = new List<Tuple<string, string>>(); // list containing tuples like ("31ecc4c5-490a-4e2d-ba6a-0b5210d648be", "C1P1")
             var wire = wireDir.InternalElement.Append(wireInfo);
+            var wireRoleReq = wire.RoleRequirements.Append();
+            wireRoleReq.RefBaseRoleClassPath = "CableRCL/Wire";
             for (var i = 1; i <= numberConnectors; i++) // i serves as help for naming pins
             {
                 var wirePin = wire.ExternalInterface.Append("P" + i);
