@@ -61,7 +61,6 @@ export class EditorComponent implements OnInit, OnDestroy {
       .subscribe((cableInfo) => {
         this.cable = cableInfo;
         this.standardTypeMale = this.cable.connectors[0].type;
-        this.standardRouteMale = this.cable.connectors[0].path;
         this.standardTypeFemale = this.cable.connectors[1].type;
         this.standardRouteFemale = this.cable.connectors[1].path;
         console.log(this.cable);
@@ -69,6 +68,14 @@ export class EditorComponent implements OnInit, OnDestroy {
 
     this.dataService.getPossibleConnectors().subscribe((res) => {
       this.possibleConnectors = res;
+      this.possibleConnectors.forEach((element) => {
+        element.item1 = this.standardTypeMale;
+        this.standardRouteMale = element.item2;
+      });
+      this.possibleConnectors.forEach((element) => {
+        element.item1 = this.standardTypeFemale;
+        this.standardRouteFemale = element.item2;
+      });
     });
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
