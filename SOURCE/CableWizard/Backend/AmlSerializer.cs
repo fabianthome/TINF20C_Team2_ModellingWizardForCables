@@ -119,7 +119,7 @@ public static class AmlSerializer
         }
         if (productLib == null)
         {
-            productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + productDetails.Library);
+            productLib = document.CAEXFile.SystemUnitClassLib.Append(productDetails.Library);
         }
 
         // add cable if not already existing (if existing, delete and add new)
