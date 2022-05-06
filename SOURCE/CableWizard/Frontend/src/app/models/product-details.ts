@@ -27,6 +27,7 @@ export interface ProductAttributes {
 
 export interface Connector {
   type: string;
+  path: string;
   pins: Pin[];
 }
 
@@ -69,6 +70,7 @@ export const DefaultCableDetails: ProductDetails = {
   connectors: [
     {
       type: 'M12A3PinFemale',
+      path: 'some Path',
       pins: [
         {
           //  type: 'PinType',
@@ -94,6 +96,7 @@ export const DefaultCableDetails: ProductDetails = {
     },
     {
       type: 'M12A3PinMale',
+      path: 'some Path',
       pins: [
         {
           name: '1',

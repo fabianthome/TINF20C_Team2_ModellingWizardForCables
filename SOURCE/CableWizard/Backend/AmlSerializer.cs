@@ -4,7 +4,6 @@ using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using CableWizardBackend.Models;
-using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
 namespace CableWizardBackend;
@@ -224,23 +223,17 @@ public static class AmlSerializer
         }
 
         // add role class
-        var roleClass1 = cable.SupportedRoleClass.Append();
-        roleClass1.RefRoleClassPath = "AutomationMLComponentStandardRCL/AutomationComponent";
-        var roleClass2 = cable.SupportedRoleClass.Append();
-        roleClass2.RefRoleClassPath = "CableRCL/Cable";
+        var roleClass = cable.SupportedRoleClass.Append();
+        roleClass.RefRoleClassPath = "CableRCL/Cable";
         
         // add wiring
         var wireIds = new List<string>();
         var wireDir = cable.InternalElement.Append("Wiring");
-        var wireDirRoleReq = wireDir.RoleRequirements.Append();
-        wireDirRoleReq.RefBaseRoleClassPath = "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure";
         var wirePinIdsList = new List<List<Tuple<string, string>>>();
         /*foreach (var wireInfo in productDetails.Wires)
         {
             var wirePinIds = new List<Tuple<string, string>>(); // list containing tuples like ("31ecc4c5-490a-4e2d-ba6a-0b5210d648be", "C1P1")
             var wire = wireDir.InternalElement.Append(wireInfo);
-            var wireRoleReq = wire.RoleRequirements.Append();
-            wireRoleReq.RefBaseRoleClassPath = "CableRCL/Wire";
             for (var i = 1; i <= numberConnectors; i++) // i serves as help for naming pins
             {
                 var wirePin = wire.ExternalInterface.Append("P" + i);
