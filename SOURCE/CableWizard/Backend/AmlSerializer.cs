@@ -3,25 +3,32 @@ using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using CableWizardBackend.Models;
+using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
 namespace CableWizardBackend;
 
 public static class AmlSerializer
 {
-    private static readonly CAEXDocument Document;
+    private static readonly CAEXDocument document;
+
+    private const string workdir = "data/";
+    
+    private static string AmlName = "Template.aml";
 
     static AmlSerializer()
     {
-        var filepath = $"{Directory.GetCurrentDirectory()}/Workdir/Cables_28032022.amlx";
+        /*var filepath = $"{Directory.GetCurrentDirectory()}/Workdir/Cables_28032022.amlx";
         //todo get this path over environment variables
         var container = new AutomationMLContainer(filepath);
-        Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());
+        Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());*/
+        
+        document = CAEXDocument.LoadFromFile(workdir + AmlName);
     }
 
     public static IEnumerable<string> GetProducts()
     {
-        var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
+        var systemUnitClassLib = document.CAEXFile.SystemUnitClassLib;
 
         var productList = new List<string>();
 
@@ -42,7 +49,7 @@ public static class AmlSerializer
 
     public static ProductDetails GetProductDetails(string id)
     {
-        var systemUnitClassLib = Document.CAEXFile.SystemUnitClassLib;
+        var systemUnitClassLib = document.CAEXFile.SystemUnitClassLib;
 
         var productDetails = new ProductDetails();
 
@@ -80,9 +87,52 @@ public static class AmlSerializer
         return productDetails;
     }
 
+    public static List<Tuple<string, string>> GetPossibleConnectors()
+    {
+        var possibleConnectors = new List<Tuple<string, string>>();
+        var interfaceClassLib = document.CAEXFile.InterfaceClassLib;
+
+        foreach (var interfaceClass in interfaceClassLib)
+        {
+            foreach (var interfaceFamilyType in interfaceClass.InterfaceClass)
+            {
+                var list = DeepSearchInterfaceClass(interfaceFamilyType);
+                
+                foreach (var possibleConnector in list)
+                { 
+                    //Console.WriteLine($"{possibleConnector.Name}: \"{possibleConnector.RefBaseClassPath}\"");
+                    possibleConnectors.Add(new Tuple<string, string>(possibleConnector.Name, possibleConnector.RefBaseClassPath));
+                }
+            }
+        }
+
+        return possibleConnectors;
+    }
+    
+    private static List<InterfaceFamilyType> DeepSearchInterfaceClass(InterfaceFamilyType interfaceClass)
+    {
+        if (interfaceClass.InterfaceClass.Count == 0)
+        {
+            // only add to list, if it's really a cable
+            if (interfaceClass.Name.Contains("Female") || interfaceClass.Name.Contains("Male"))
+            {
+                return new List<InterfaceFamilyType>{interfaceClass};
+            }
+        }
+    
+        List<InterfaceFamilyType> results = new List<InterfaceFamilyType>();
+        
+        foreach (var inner in interfaceClass.InterfaceClass)
+        {
+            results = results.Concat(DeepSearchInterfaceClass(inner)).ToList();
+        }
+        
+        return results;
+    }
+
     public static bool DeleteProduct(string id)
     {
-        var cable = Document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
+        var cable = document.CAEXFile.FindCaexObjectFromId<SystemUnitFamilyType>(id);
         if (cable != null)
         {
             // only cables can be deleted
@@ -92,7 +142,7 @@ public static class AmlSerializer
                 {
                     // delete cable
                     cable.Remove(removeRelations: true);
-                    Document.SaveToFile("Workdir/Cables_28032022.amlx", true);
+                    document.SaveToFile(workdir + AmlName, true);
                     return true;
                 }
             }
@@ -100,18 +150,43 @@ public static class AmlSerializer
 
         return false;
     }
-
-    public static void CreateProduct(string filename, ProductDetails productDetails)
+    
+    public static string CreateProduct(ProductDetails productDetails)
     {
-        var document = CAEXDocument.New_CAEXDocument();
+        var status = "Product created.";
+    
+        // add library if not already existing
+        SystemUnitClassLibType productLib = null;
+        foreach (var lib in document.CAEXFile.SystemUnitClassLib)
+        {
+            if (lib.Name == productDetails.Library)
+            {
+                productLib = lib;
+                break;
+            }
+        }
+        if (productLib == null)
+        {
+            productLib = document.CAEXFile.SystemUnitClassLib.Append(productDetails.Library);
+        }
 
-        // add library
-        var productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + filename);
-        
-        // add cable directory and cable
-        var cableDir = productLib.SystemUnitClass.Append("Cables");
-        var cable = cableDir.SystemUnitClass.Append(productDetails.Name);
-        
+        // add cable if not already existing (if existing, delete and add new)
+        SystemUnitClassType cable = null;
+        foreach (var cab in productLib.SystemUnitClass)
+        {
+            if (cab.Name == productDetails.Name)
+            {
+                DeleteProduct(cab.ID);
+                status = "Product updated.";
+                break;
+            }
+        }
+
+        if (cable == null)
+        {
+            cable = productLib.SystemUnitClass.Append(productDetails.Name);
+        }
+
         // add attributes
         var data = cable.Attribute.Append("Data");
         AddAttributes(productDetails, data);
@@ -124,6 +199,7 @@ public static class AmlSerializer
             var pinIds = new List<Tuple<string, string>>(); // list containing tuples like ("11b49049-95fe-42bb-9c16-f275e4995acd", "C1P1")
             numberConnectors++;
             var connector = cable.ExternalInterface.Append(connectorInfo.Type);
+            connector.RefBaseClassPath = connectorInfo.Path + "/" + connectorInfo.Type;
             foreach (var pinInfo in connectorInfo.Pins)
             {
                 var pin = connector.ExternalInterface.Append(pinInfo.Name);
@@ -175,7 +251,8 @@ public static class AmlSerializer
         }
 
         // save aml file
-        document.SaveToFile("Workdir/" + filename + ".aml", true);
+        document.SaveToFile(workdir + AmlName, true);
+        return status;
     }
 
     public static void AddAttributes(ProductDetails productDetails, AttributeType data)
@@ -440,10 +517,10 @@ public static class AmlSerializer
             if (connectorPinId == internalLink.RefPartnerSideA)
             {
                 var connectorPin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideA);
                 var wirePin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideB);
                 
                 //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");
@@ -453,10 +530,10 @@ public static class AmlSerializer
             else if (connectorPinId == internalLink.RefPartnerSideB)
             {
                 var connectorPin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideB);
                 var wirePin =
-                    Document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
+                    document.CAEXFile.FindCaexObjectFromId<ExternalInterfaceType>(internalLink
                         .RefPartnerSideA);
 
                 //Console.WriteLine($"{connectorPin.CAEXParent}: {connectorPin} & {wirePin.CAEXParent}");

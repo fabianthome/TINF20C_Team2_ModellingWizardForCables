@@ -58,7 +58,7 @@ export class EditorComponent implements OnInit, OnDestroy {
   confirmEdit() {
     console.log(this.cable);
     this.dataService
-      .createProduct(this.cable.name, this.cable)
+      .createProduct(this.cable)
       .subscribe((res) => {
         console.log(res);
       });
