@@ -209,11 +209,15 @@ public static class AmlSerializer
         }
 
         // add role class
-        var roleClass = cable.SupportedRoleClass.Append();
-        roleClass.RefRoleClassPath = "CableRCL/Cable";
+        var roleClass1 = cable.SupportedRoleClass.Append();
+        roleClass1.RefRoleClassPath = "AutomationMLComponentStandardRCL/AutomationComponent";
+        var roleClass2 = cable.SupportedRoleClass.Append();
+        roleClass2.RefRoleClassPath = "CableRCL/Cable";
         
         // add wiring
         var wireDir = cable.InternalElement.Append("Wiring");
+        var wireDirRoleReq = wireDir.RoleRequirements.Append();
+        wireDirRoleReq.RefBaseRoleClassPath = "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure";
         var wirePinIdsList = new List<List<Tuple<string, string>>>();
         foreach (var wireInfo in productDetails.Wires)
         {
