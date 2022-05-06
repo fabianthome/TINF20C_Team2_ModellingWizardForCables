@@ -197,6 +197,7 @@ public static class AmlSerializer
             var pinIds = new List<Tuple<string, string>>(); // list containing tuples like ("11b49049-95fe-42bb-9c16-f275e4995acd", "C1P1")
             numberConnectors++;
             var connector = cable.ExternalInterface.Append(connectorInfo.Type);
+            connector.RefBaseClassPath = connectorInfo.Path + "/" + connectorInfo.Type;
             foreach (var pinInfo in connectorInfo.Pins)
             {
                 var pin = connector.ExternalInterface.Append(pinInfo.Name);
