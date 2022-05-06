@@ -1,0 +1,13 @@
+:host {
+  background-color: var(--color_base);
+  border-bottom: var(--color_border) 1px solid;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  color: white;
+  text-decoration: none; /* no underline */
+}

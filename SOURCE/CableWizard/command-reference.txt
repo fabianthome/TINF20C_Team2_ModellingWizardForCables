@@ -1,0 +1,11 @@
+# build and upload frontend
+
+npm run build --prefix ./Frontend/
+ssh root@amtmann.de "rm -rf /root/dockervolumes/service_nginx-config/_data/www/cablewizard/*"
+scp ./Frontend/dist/cable-wizard/* root@amtmann.de:/root/dockervolumes/service_nginx-config/_data/www/cablewizard/
+ssh root@amtmann.de "docker exec nginx service nginx reload"
+
+# docker build backend /run in backend folder)
+
+docker run --network=proxy -v /root/DHBW/cablewizard/data:/app/Workdir --name=dhbw_cablewizardbackend -p 5001:80 cablewizardbackend
+docker save cablewizardbackend | ssh -C root@amtmann.de docker load
