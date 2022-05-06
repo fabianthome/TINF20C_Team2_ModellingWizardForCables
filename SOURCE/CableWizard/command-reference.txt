@@ -7,5 +7,10 @@ ssh root@amtmann.de "docker exec nginx service nginx reload"
 
 # docker build backend /run in backend folder)
 
-docker run --network=proxy -v /root/DHBW/cablewizard/data:/app/Workdir --name=dhbw_cablewizardbackend -p 5001:80 cablewizardbackend
+docker buildx build --platform linux/amd64 --load -t cablewizardbackend:latest .
 docker save cablewizardbackend | ssh -C root@amtmann.de docker load
+
+
+# run on argon
+docker run -d --network=proxy -v /root/DHBW/cablewizard/data:/app/Workdir --name=dhbw_cablewizardbackend -p 5001:80 cablewizardbackend
+
