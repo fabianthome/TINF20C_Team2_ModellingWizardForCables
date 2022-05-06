@@ -297,12 +297,21 @@
   <br />
   <div class="form-group footer-buttons">
     <button
-      class="btn btn-danger btn-block"
+      class="btn btn-secondary btn-block"
       (click)="cancelEdit()"
       routerLink="/"
     >
       Cancel
     </button>
+    <span class="spacer"></span>
+    <button
+      class="btn btn-danger btn-block"
+      routerLink="/"
+      (click)="deleteCable()"
+    >
+      Delte Cable
+    </button>
+
     <span class="spacer"></span>
     <button
       class="btn btn-primary btn-block"

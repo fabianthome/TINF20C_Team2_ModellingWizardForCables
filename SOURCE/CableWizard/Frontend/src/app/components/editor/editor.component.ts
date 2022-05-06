@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter, map, Subscription, switchMap } from 'rxjs';
+import { delay, filter, map, Subscription, switchMap } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import {
   ProductDetails,
@@ -57,11 +57,9 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   confirmEdit() {
     console.log(this.cable);
-    this.dataService
-      .createProduct(this.cable)
-      .subscribe((res) => {
-        console.log(res);
-      });
+    this.dataService.createProduct(this.cable).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   deleteWire(wireName: string) {
@@ -78,6 +76,11 @@ export class EditorComponent implements OnInit, OnDestroy {
     if (index > -1) {
       connector.pins.splice(index, 1);
     }
+  }
+
+  deleteCable() {
+    this.dataService.deleteProductDetails(this.cable.id).subscribe((res) => {});
+    delay(1000);
   }
 
   addPin(connector: any) {
