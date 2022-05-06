@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Aml.Engine.Adapter;
 using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
@@ -193,19 +194,33 @@ public static class AmlSerializer
 
         // add connectors & pins
         var numberConnectors = 0;
+        var numberPins = 0;
+        var pinIds = new List<string>(); // used later on for links
         var pinIdsList = new List<List<Tuple<string, string>>>();
         foreach (var connectorInfo in productDetails.Connectors)
         {
-            var pinIds = new List<Tuple<string, string>>(); // list containing tuples like ("11b49049-95fe-42bb-9c16-f275e4995acd", "C1P1")
+            //var pinIds = new List<Tuple<string, string>>(); // list containing tuples like ("11b49049-95fe-42bb-9c16-f275e4995acd", "C1P1")
             numberConnectors++;
             var connector = cable.ExternalInterface.Append(connectorInfo.Type);
             connector.RefBaseClassPath = connectorInfo.Path + "/" + connectorInfo.Type;
             foreach (var pinInfo in connectorInfo.Pins)
             {
-                var pin = connector.ExternalInterface.Append(pinInfo.Name);
-                pinIds.Add(new Tuple<string, string>(pin.ID, pinInfo.ConnectedWire + "P" + numberConnectors)); // used later on for adding links
+                //var pin = connector.ExternalInterface.Append(pinInfo.Name);
+                //pinIds.Add(new Tuple<string, string>(pin.ID, pinInfo.ConnectedWire + "P" + numberConnectors)); // used later on for adding links
             }
-            pinIdsList.Add(pinIds);
+            //pinIdsList.Add(pinIds);
+            
+            // find connector in connector libs
+            var libPath = connectorInfo.Path.Remove(connectorInfo.Path.LastIndexOf("/"));
+            var connectorInLib = document.CAEXFile.getReferencedInterfaceClass(libPath);
+
+            // add 1, 2, 3... to connector female, male
+            numberPins = Int16.Parse(connectorInLib.ExternalInterface.Last.Name); // number of pins
+            for (var i = 1; i <= numberPins; i++)
+            {
+                var pin = connector.ExternalInterface.Append(i.ToString());
+                pinIds.Add(pin.ID);
+            }
         }
 
         // add role class
@@ -215,11 +230,12 @@ public static class AmlSerializer
         roleClass2.RefRoleClassPath = "CableRCL/Cable";
         
         // add wiring
+        var wireIds = new List<string>();
         var wireDir = cable.InternalElement.Append("Wiring");
         var wireDirRoleReq = wireDir.RoleRequirements.Append();
         wireDirRoleReq.RefBaseRoleClassPath = "AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure";
         var wirePinIdsList = new List<List<Tuple<string, string>>>();
-        foreach (var wireInfo in productDetails.Wires)
+        /*foreach (var wireInfo in productDetails.Wires)
         {
             var wirePinIds = new List<Tuple<string, string>>(); // list containing tuples like ("31ecc4c5-490a-4e2d-ba6a-0b5210d648be", "C1P1")
             var wire = wireDir.InternalElement.Append(wireInfo);
@@ -231,31 +247,49 @@ public static class AmlSerializer
                 wirePinIds.Add(new Tuple<string, string>(wirePin.ID, wire.Name + wirePin.Name)); // used later on for adding links
             }
             wirePinIdsList.Add(wirePinIds);
+        }*/
+
+        // add C1, C2...
+        for (var i = 1; i <= numberPins; i++)
+        {
+            var wire = wireDir.InternalElement.Append("C" + i);
+            var wireRoleReq = wire.RoleRequirements.Append();
+            wireRoleReq.RefBaseRoleClassPath = "CableRCL/Wire";
+
+            wireIds.Add(wire.ID);
+
+            // add P1, P2 for C1...
+            for (var j = 1; j <= numberConnectors; j++)
+            {
+                var wirePin = wire.ExternalInterface.Append("P" + j);
+            }
         }
 
         // add links
         var numberLinks = 0; // serves as help for naming links
-        foreach (var pinList in pinIdsList)
+
+        for (var i = 1; i <= numberConnectors; i++)
         {
-            foreach (var pin in pinList)
+            for (var j = 1; j <= numberPins; j++)
             {
-                foreach (var wirePinList in wirePinIdsList)
+                var wire = document.CAEXFile.FindCaexObjectFromId<InternalElementType>(wireIds[j-1]);
+                var wirePinId = "";
+                if (i == 1)
                 {
-                    foreach (var wirePin in wirePinList)
-                    {
-                        if (pin.Item2 == wirePin.Item2) // check if pin and wire pin belong together
-                        {
-                            //Console.WriteLine($"{pinId.Item1} & {wirePinId.Item1}"); // test
-                            var link = cable.InternalLink.Append("InternalLink" + numberLinks);
-                            link.RefPartnerSideA = pin.Item1; // add pin id as partner a
-                            link.RefPartnerSideB = wirePin.Item1; // add wire pin id as partner b
-                            numberLinks++;
-                        }
-                    }
+                    wirePinId = wire.ExternalInterface[i-1].ID;
                 }
+                else
+                {
+                    wirePinId = wire.ExternalInterface[i-1].ID;
+                }
+
+                numberLinks++;
+                var internalLink = cable.InternalLink.Append("InternalLink" + numberLinks);
+                internalLink.RefPartnerSideA = pinIds[numberLinks-1];
+                internalLink.RefPartnerSideB = wirePinId;
             }
         }
-
+        
         // save aml file
         document.SaveToFile(workdir + AmlName, true);
         return status;
