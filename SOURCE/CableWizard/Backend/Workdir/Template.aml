@@ -4821,7 +4821,7 @@
       </RoleClass>
     </RoleClass>
   </RoleClassLib>
-    <SystemUnitClassLib Name="ProductLibrary_Murrelektronik">
+  <SystemUnitClassLib Name="ProductLibrary_Murrelektronik">
     <Version>0</Version>
     <SystemUnitClass Name="Connection Technology" ID="85f9fa45-64c5-4b01-a016-c31f0e40f92d">
       <SystemUnitClass Name="Connection Cables" ID="c98ecc2f-d93e-4415-baa2-f66410d6bddf">

@@ -111,7 +111,7 @@ public static class AmlSerializer
         SystemUnitClassLibType productLib = null;
         foreach (var lib in document.CAEXFile.SystemUnitClassLib)
         {
-            if (lib.Name == "ProductLibrary_" + productDetails.Library)
+            if (lib.Name == productDetails.Library)
             {
                 productLib = lib;
                 break;
