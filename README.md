@@ -20,14 +20,9 @@ The Modelling Wizard development was devided in departments and carried out by t
 * Leon Amtmann      -  `Documentation`
 </p>
 
-## About AutomationML
-
-<p><i>Insert text here</i>
-</p>
-
 ## Installation and usage
 
-<p><i>Insert text here</i>
+<p>To get the program running go to <a href=https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/EXECUTABLE/CableWizard/>EXECUTABLE/CableWizard</a> and click CableWizardBackend.exe. Once the application is running, you can access the application in your browser under http://localhost:5000/. For further information see the <a href=https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/PROJECT/Documentation/>User Manual</a>
 </p>
 
 ## Project structure

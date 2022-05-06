@@ -3,7 +3,6 @@ using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using CableWizardBackend.Models;
-using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
 namespace CableWizardBackend;
