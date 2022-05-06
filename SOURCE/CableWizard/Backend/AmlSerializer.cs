@@ -104,13 +104,9 @@ public static class AmlSerializer
 
         return false;
     }
-
-    public static void CreateProduct(string libName, string productDetailsInfo)
+    
+    public static void CreateProduct(string libName, ProductDetails productDetails)
     {
-        byte[] productDetailsData = Convert.FromBase64String(productDetailsInfo);
-        productDetailsInfo = Encoding.UTF8.GetString(productDetailsData);
-        var productDetails = JsonConvert.DeserializeObject<ProductDetails>(productDetailsInfo);
-
         // add library if not already existing
         SystemUnitClassLibType productLib = null;
         foreach (var lib in document.CAEXFile.SystemUnitClassLib)
