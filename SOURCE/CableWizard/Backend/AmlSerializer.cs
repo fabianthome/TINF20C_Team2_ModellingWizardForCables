@@ -11,6 +11,8 @@ public static class AmlSerializer
 {
     private static readonly CAEXDocument document;
 
+    private const string workdir = "data/";
+    
     private static string AmlName = "Template.aml";
 
     static AmlSerializer()
@@ -20,7 +22,7 @@ public static class AmlSerializer
         var container = new AutomationMLContainer(filepath);
         Document = CAEXDocument.LoadFromStream(container.RootDocumentStream());*/
         
-        document = CAEXDocument.LoadFromFile("Workdir/" + AmlName);
+        document = CAEXDocument.LoadFromFile(workdir + AmlName);
     }
 
     public static IEnumerable<string> GetProducts()
@@ -96,7 +98,7 @@ public static class AmlSerializer
                 {
                     // delete cable
                     cable.Remove(removeRelations: true);
-                    document.SaveToFile("Workdir/" + AmlName, true);
+                    document.SaveToFile(workdir + AmlName, true);
                     return true;
                 }
             }
@@ -204,7 +206,7 @@ public static class AmlSerializer
         }
 
         // save aml file
-        document.SaveToFile("Workdir/" + AmlName, true);
+        document.SaveToFile(workdir + AmlName, true);
         return status;
     }
 
