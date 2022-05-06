@@ -105,8 +105,10 @@ public static class AmlSerializer
         return false;
     }
     
-    public static void CreateProduct(ProductDetails productDetails)
+    public static string CreateProduct(ProductDetails productDetails)
     {
+        var status = "Product created.";
+    
         // add library if not already existing
         SystemUnitClassLibType productLib = null;
         foreach (var lib in document.CAEXFile.SystemUnitClassLib)
@@ -129,6 +131,7 @@ public static class AmlSerializer
             if (cab.Name == productDetails.Name)
             {
                 DeleteProduct(cab.ID);
+                status = "Product updated.";
                 break;
             }
         }
@@ -202,6 +205,7 @@ public static class AmlSerializer
 
         // save aml file
         document.SaveToFile("Workdir/" + AmlName, true);
+        return status;
     }
 
     public static void AddAttributes(ProductDetails productDetails, AttributeType data)
