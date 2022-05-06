@@ -7,8 +7,6 @@
 
 ## Description
 
-<p><i>Insert text here</i>
-
 The Modelling Wizard development was devided in departments and carried out by the following students:
 
 * Kevin Pauer       -  `Project Manager`
