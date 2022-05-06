@@ -3,6 +3,7 @@ using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
 using CableWizardBackend.Models;
+using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 
 namespace CableWizardBackend;
@@ -82,6 +83,49 @@ public static class AmlSerializer
         }
         Console.WriteLine($"No cable with that ID!");
         return productDetails;
+    }
+
+    public static List<Tuple<string, string>> GetPossibleConnectors()
+    {
+        var possibleConnectors = new List<Tuple<string, string>>();
+        var interfaceClassLib = document.CAEXFile.InterfaceClassLib;
+
+        foreach (var interfaceClass in interfaceClassLib)
+        {
+            foreach (var interfaceFamilyType in interfaceClass.InterfaceClass)
+            {
+                var list = DeepSearchInterfaceClass(interfaceFamilyType);
+                
+                foreach (var possibleConnector in list)
+                { 
+                    //Console.WriteLine($"{possibleConnector.Name}: \"{possibleConnector.RefBaseClassPath}\"");
+                    possibleConnectors.Add(new Tuple<string, string>(possibleConnector.Name, possibleConnector.RefBaseClassPath));
+                }
+            }
+        }
+
+        return possibleConnectors;
+    }
+    
+    private static List<InterfaceFamilyType> DeepSearchInterfaceClass(InterfaceFamilyType interfaceClass)
+    {
+        if (interfaceClass.InterfaceClass.Count == 0)
+        {
+            // only add to list, if it's really a cable
+            if (interfaceClass.Name.Contains("Female") || interfaceClass.Name.Contains("Male"))
+            {
+                return new List<InterfaceFamilyType>{interfaceClass};
+            }
+        }
+    
+        List<InterfaceFamilyType> results = new List<InterfaceFamilyType>();
+        
+        foreach (var inner in interfaceClass.InterfaceClass)
+        {
+            results = results.Concat(DeepSearchInterfaceClass(inner)).ToList();
+        }
+        
+        return results;
     }
 
     public static bool DeleteProduct(string id)
