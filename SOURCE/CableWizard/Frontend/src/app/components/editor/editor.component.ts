@@ -67,14 +67,17 @@ export class EditorComponent implements OnInit, OnDestroy {
       });
 
     this.dataService.getPossibleConnectors().subscribe((res) => {
+      console.log(res);
       this.possibleConnectors = res;
       this.possibleConnectors.forEach((element) => {
-        element.item1 = this.standardTypeMale;
-        this.standardRouteMale = element.item2;
+        if (element.item1 == this.standardTypeMale) {
+          this.standardRouteMale = element.item2;
+        }
       });
       this.possibleConnectors.forEach((element) => {
-        element.item1 = this.standardTypeFemale;
-        this.standardRouteFemale = element.item2;
+        if (element.item1 == this.standardTypeFemale) {
+          this.standardRouteFemale = element.item2;
+        }
       });
     });
 
