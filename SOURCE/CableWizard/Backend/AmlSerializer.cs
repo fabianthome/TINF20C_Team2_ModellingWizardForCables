@@ -105,13 +105,13 @@ public static class AmlSerializer
         return false;
     }
     
-    public static void CreateProduct(string libName, ProductDetails productDetails)
+    public static void CreateProduct(ProductDetails productDetails)
     {
         // add library if not already existing
         SystemUnitClassLibType productLib = null;
         foreach (var lib in document.CAEXFile.SystemUnitClassLib)
         {
-            if (lib.Name == "ProductLibrary_" + libName)
+            if (lib.Name == "ProductLibrary_" + productDetails.Library)
             {
                 productLib = lib;
                 break;
@@ -119,7 +119,7 @@ public static class AmlSerializer
         }
         if (productLib == null)
         {
-            productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + libName);
+            productLib = document.CAEXFile.SystemUnitClassLib.Append("ProductLibrary_" + productDetails.Library);
         }
 
         // add cable if not already existing (if existing, delete and add new)
