@@ -216,21 +216,38 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div class="form-group">
-        <div *ngFor="let connector of cable.connectors">
-          <label for="connector-type">Connector Name</label>
-          <input
-            id="connector-type"
-            class="form-control"
-            [(ngModel)]="connector.type"
-            required
-          />
-          <br />
+        <div>
+          <label for="cable-connector1-path">Connector 1</label>
+          <mat-form-field
+            id="cable-connector1-path"
+            class="example-full-width"
+            appearance="fill"
+          >
+            <mat-label>{{ standardTypeMale }}</mat-label>
+            <input
+              type="text"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto"
+              [(ngModel)]="typeMale"
+            />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+              >
+                {{ option.item1 }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
           <div>
-            <mat-expansion-panel *ngFor="let pin of connector.pins">
+            <mat-expansion-panel *ngFor="let pin of cable.connectors[0].pins">
               <mat-expansion-panel-header>
                 <mat-panel-title> Pin </mat-panel-title>
               </mat-expansion-panel-header>
               <div>PinType</div>
+              <br />
+              <label for="pin-name">Pin Name</label>
               <input
                 id="pin-name"
                 class="form-control"
@@ -238,29 +255,68 @@
                 required
               />
               <br />
-              <label for="connector-name">Connected to wire</label>
+              <label for="connectedWire-name">Connected to wire</label>
               <input
-                id="connector-name"
+                id="connectedWire-name"
                 class="form-control"
                 [(ngModel)]="pin.connectedWire"
                 required
               />
-              <button
-                mat-icon-button
-                class="add-icon"
-                aria-label="Example icon-button with heart icon"
-                [disableRipple]="true"
-                (click)="deletePin(connector, pin)"
-              >
-                <mat-icon>delete</mat-icon>
-              </button>
             </mat-expansion-panel>
             <br />
           </div>
-          <button class="btn btn-primary btn-block" (click)="addPin(connector)">
-            Add Pin
-          </button>
-          <br />
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+          <label for="cable-connector2-path">Connector 2</label>
+          <mat-form-field
+            id="cable-connector2-path"
+            class="example-full-width"
+            appearance="fill"
+          >
+            <mat-label>{{ standardTypeFemale }}</mat-label>
+            <input
+              type="text"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto"
+              [(ngModel)]="typeFemale"
+            />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              <mat-option
+                *ngFor="let option of filteredOptions | async"
+                [value]="option"
+              >
+                {{ option.item1 }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <div>
+            <mat-expansion-panel *ngFor="let pin of cable.connectors[1].pins">
+              <mat-expansion-panel-header>
+                <mat-panel-title> Pin </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div>PinType</div>
+              <br />
+              <label for="pin-name">Pin Name</label>
+              <input
+                id="pin-name"
+                class="form-control"
+                [(ngModel)]="pin.name"
+                required
+              />
+              <br />
+              <label for="connectedWire-name">Connected to wire</label>
+              <input
+                id="connectedWire-name"
+                class="form-control"
+                [(ngModel)]="pin.connectedWire"
+                required
+              />
+            </mat-expansion-panel>
+            <br />
+          </div>
         </div>
       </div>
     </mat-expansion-panel>
