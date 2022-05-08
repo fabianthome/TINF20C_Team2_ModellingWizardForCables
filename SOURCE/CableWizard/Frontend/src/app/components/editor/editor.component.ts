@@ -45,6 +45,7 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   typeMale: any = '';
   typeFemale: any = '';
+  subWorked: boolean = false;
 
   standardTypeMale: string = '';
   standardRouteMale: string = '';
@@ -59,6 +60,7 @@ export class EditorComponent implements OnInit, OnDestroy {
         switchMap((id) => this.dataService.getProductDetails(id as string))
       )
       .subscribe((cableInfo) => {
+        this.subWorked = true;
         this.cable = cableInfo;
         this.standardTypeMale = this.cable.connectors[0].type;
         console.log(this.standardTypeMale);
@@ -84,6 +86,25 @@ export class EditorComponent implements OnInit, OnDestroy {
           });
         });
       });
+
+    if (!this.subWorked) {
+      this.subWorked = false;
+      this.dataService.getPossibleConnectors().subscribe((res) => {
+        this.possibleConnectors = res;
+        this.possibleConnectors.forEach((element) => {
+          if (element.item1 == this.standardTypeMale) {
+            this.standardRouteMale = element.item2;
+            console.log(this.standardRouteMale);
+          }
+        });
+        this.possibleConnectors.forEach((element) => {
+          if (element.item1 == this.standardTypeFemale) {
+            this.standardRouteFemale = element.item2;
+            console.log(this.standardRouteFemale);
+          }
+        });
+      });
+    }
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
