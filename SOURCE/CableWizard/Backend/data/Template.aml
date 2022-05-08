@@ -4837,11 +4837,11 @@
         </Attribute>
       </Attribute>
     </AdditionalInformation>
-    <SystemUnitClass Name="BCC M313-M313-30-300-EX43T2-050" ID="8565a958-26b7-43cf-953e-2adad35d81ab">
+    <SystemUnitClass Name="BCC M313-M313-30-300-EX43T2-050" ID="f450f74e-08d4-464d-b367-59f0138c5f6c">
       <Attribute Name="Data">
         <Attribute Name="Manufacturer" AttributeDataType="xs:string">
           <Description>Name of the Manufacturer (person, company or organisation)</Description>
-          <Value>Heinz Ketchup GmbH</Value>
+          <Value>Balluff GmbH</Value>
         </Attribute>
         <Attribute Name="ManufacturerURI" AttributeDataType="xs:string">
           <Description>Address of the product manufacturer on the world wide web (URL)</Description>
@@ -4873,7 +4873,7 @@
         </Attribute>
         <Attribute Name="Material" AttributeDataType="xs:string">
           <Description>Basic material of the housing of the component.</Description>
-          <Value>Zinc</Value>
+          <Value>Mythrill</Value>
         </Attribute>
         <Attribute Name="Weight" AttributeDataType="xs:float" Unit="g">
           <Description>Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.</Description>
@@ -4892,39 +4892,9 @@
           <Value>224</Value>
         </Attribute>
       </Attribute>
-      <ExternalInterface Name="M8A3PinFemale" ID="8629bcbe-27fb-4d7f-b76a-f07335f1757d">
-        <ExternalInterface Name="1" ID="7e81c61d-0aad-4c1b-96c3-77902b4b7330" />
-        <ExternalInterface Name="2" ID="34e4d97e-e050-4aa1-8d20-91fd14889977" />
-        <ExternalInterface Name="3" ID="4ea06d07-c98d-4af4-bee4-8170b75864fb" />
-      </ExternalInterface>
-      <ExternalInterface Name="M8A3PinMale" ID="5fd06b04-49d7-40c6-9a8f-9b8db1ecfcc5">
-        <ExternalInterface Name="1" ID="9378b801-19be-42e9-b08d-52eee8ccee0c" />
-        <ExternalInterface Name="2" ID="e1d2bfb4-4a0d-416a-9477-0230de0325f6" />
-        <ExternalInterface Name="3" ID="5d3e7c32-a723-420a-99bd-ed47b5629dc0" />
-      </ExternalInterface>
-      <InternalElement Name="Wiring" ID="9f3fcaed-2edc-480e-a207-d96b68518085">
-        <InternalElement Name="C1" ID="cbbbace8-7f27-4884-8b06-fdedd69bebfc">
-          <ExternalInterface Name="P1" ID="9b870ce9-7e60-406f-8eea-fcd1080c4fd4" />
-          <ExternalInterface Name="P2" ID="fd305c4c-ec90-4587-8833-1555fe5d353f" />
-        </InternalElement>
-        <InternalElement Name="C2" ID="e76ed322-8e35-41e4-b155-17cf3b3504ab">
-          <ExternalInterface Name="P1" ID="d2653368-6e9f-4de6-8c0a-7bdf0152f15d" />
-          <ExternalInterface Name="P2" ID="ce32af31-888f-46ac-b428-860b264302c6" />
-        </InternalElement>
-        <InternalElement Name="C3" ID="20a8864b-c9f9-4bba-9830-0fddb299f4a2">
-          <ExternalInterface Name="P1" ID="e3c16431-f568-4846-bb5c-767ad51e7df0" />
-          <ExternalInterface Name="P2" ID="88d309da-a3ea-4006-9d0a-af3966fcc4a8" />
-        </InternalElement>
-      </InternalElement>
-      <SupportedRoleClass RefRoleClassPath="CableRCL/Cable" />
-      <InternalLink RefPartnerSideA="7e81c61d-0aad-4c1b-96c3-77902b4b7330" RefPartnerSideB="9b870ce9-7e60-406f-8eea-fcd1080c4fd4" Name="InternalLink0" />
-      <InternalLink RefPartnerSideA="34e4d97e-e050-4aa1-8d20-91fd14889977" RefPartnerSideB="d2653368-6e9f-4de6-8c0a-7bdf0152f15d" Name="InternalLink1" />
-      <InternalLink RefPartnerSideA="4ea06d07-c98d-4af4-bee4-8170b75864fb" RefPartnerSideB="e3c16431-f568-4846-bb5c-767ad51e7df0" Name="InternalLink2" />
-      <InternalLink RefPartnerSideA="9378b801-19be-42e9-b08d-52eee8ccee0c" RefPartnerSideB="fd305c4c-ec90-4587-8833-1555fe5d353f" Name="InternalLink3" />
-      <InternalLink RefPartnerSideA="e1d2bfb4-4a0d-416a-9477-0230de0325f6" RefPartnerSideB="ce32af31-888f-46ac-b428-860b264302c6" Name="InternalLink4" />
-      <InternalLink RefPartnerSideA="5d3e7c32-a723-420a-99bd-ed47b5629dc0" RefPartnerSideB="88d309da-a3ea-4006-9d0a-af3966fcc4a8" Name="InternalLink5" />
+      <ExternalInterface Name="M8A3PinFemale" ID="9d611b0b-a88d-4c0d-9445-078c7afa70f1" RefBaseClassPath="/M8A3PinFemale" />
     </SystemUnitClass>
-    <SystemUnitClass Name="BCC M415-M415-3A-312-PX0534-035" ID="615c0cdb-a808-4ae3-8b9b-ac3b6ff7808c">
+    <SystemUnitClass Name="BCC M415-M415-3A-312-PX0534-035" ID="ec42822d-65be-4f77-9f94-2cb35876e2d0">
       <Attribute Name="Data">
         <Attribute Name="Manufacturer" AttributeDataType="xs:string">
           <Description>Name of the Manufacturer (person, company or organisation)</Description>
@@ -4948,54 +4918,42 @@
         </Attribute>
         <Attribute Name="TemperatureMin" AttributeDataType="xs:int" Unit="°C">
           <Description>Lowest ambient temperature for which the component operates within its specified limits.</Description>
-          <Value>-25</Value>
+          <Value>-5</Value>
         </Attribute>
         <Attribute Name="TemperatureMax" AttributeDataType="xs:int" Unit="°C">
           <Description>Highest ambient temperature for which the component operates within its specified limits.</Description>
-          <Value>90</Value>
+          <Value>700</Value>
         </Attribute>
         <Attribute Name="IPCode" AttributeDataType="xs:string">
           <Description>Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.</Description>
-          <Value>IP31</Value>
+          <Value>IP67</Value>
         </Attribute>
         <Attribute Name="Material" AttributeDataType="xs:string">
           <Description>Basic material of the housing of the component.</Description>
-          <Value>Mythrill</Value>
+          <Value>Vibranium</Value>
         </Attribute>
         <Attribute Name="Weight" AttributeDataType="xs:float" Unit="g">
           <Description>Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.</Description>
-          <Value>95</Value>
+          <Value>695</Value>
         </Attribute>
         <Attribute Name="Height" AttributeDataType="xs:int" Unit="mm">
           <Description>Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
-          <Value>15</Value>
+          <Value>38</Value>
         </Attribute>
         <Attribute Name="Width" AttributeDataType="xs:int" Unit="mm">
           <Description>Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
-          <Value>44</Value>
+          <Value>68</Value>
         </Attribute>
         <Attribute Name="Length" AttributeDataType="xs:int" Unit="mm">
           <Description>Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
-          <Value>1045</Value>
+          <Value>224</Value>
         </Attribute>
       </Attribute>
-      <ExternalInterface Name="M12A5PinFemale" ID="3aec30b6-18b6-4651-b6cb-f2047b7d88c0">
-        <ExternalInterface Name="1" ID="dcd7ce56-d959-45a0-b567-69af1e8137aa" />
-        <ExternalInterface Name="2" ID="39adc640-2978-491f-9f42-27e250d3230f" />
-        <ExternalInterface Name="3" ID="27296023-b0a3-47bb-b8b0-26dfa507c36b" />
-        <ExternalInterface Name="4" ID="499bbfc9-55bd-4d9d-8a52-2dfb3fd6ab74" />
-        <ExternalInterface Name="5" ID="28249cbc-44cc-4541-9370-02643e19425b" />
-      </ExternalInterface>
-      <ExternalInterface Name="M12A5PinMale" ID="e0d87bab-b689-49ea-8e61-4def8b86c193">
-        <ExternalInterface Name="1" ID="bfaacbaa-83be-48a7-9f0e-dc4ea63990ed" />
-        <ExternalInterface Name="2" ID="3d6e8ad3-f39f-495a-9dcd-29835cf9cc90" />
-        <ExternalInterface Name="3" ID="28409505-fdc1-4c92-a16c-2f619fba0362" />
-        <ExternalInterface Name="4" ID="3183360b-db63-4aae-8687-e49cbd5ace72" />
-        <ExternalInterface Name="5" ID="598754d2-7390-4702-a508-a2678b97ea91" />
-      </ExternalInterface>
-      <InternalElement Name="Wiring" ID="82ea610b-d5c4-474e-ba3e-88b6e76cbb75" />
-      <SupportedRoleClass RefRoleClassPath="CableRCL/Cable" />
+      <ExternalInterface Name="M12A5PinFemale" ID="c5d193b0-3d18-43dd-89a0-8b77d8d60107" RefBaseClassPath="/M12A5PinFemale" />
     </SystemUnitClass>
+  </SystemUnitClassLib>
+  <SystemUnitClassLib Name="Balluff">
+    <Version>0</Version>
   </SystemUnitClassLib>
   <AttributeTypeLib Name="GenericIndustrialAttributeTypeLib">
     <Description>This AttributeTypeLib collects relevant attribute definitions for electromechanical components.</Description>
