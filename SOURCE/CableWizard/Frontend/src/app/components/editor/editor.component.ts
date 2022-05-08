@@ -61,13 +61,16 @@ export class EditorComponent implements OnInit, OnDestroy {
       .subscribe((cableInfo) => {
         this.cable = cableInfo;
         this.standardTypeMale = this.cable.connectors[0].type;
+        console.log(this.standardTypeMale);
+        this.standardRouteMale = this.cable.connectors[0].path;
         this.standardTypeFemale = this.cable.connectors[1].type;
+        console.log(this.standardTypeFemale);
         this.standardRouteFemale = this.cable.connectors[1].path;
         console.log(this.cable);
       });
 
+    this.dataService.delay(1000);
     this.dataService.getPossibleConnectors().subscribe((res) => {
-      console.log(res);
       this.possibleConnectors = res;
       this.possibleConnectors.forEach((element) => {
         if (element.item1 == this.standardTypeMale) {
@@ -80,7 +83,6 @@ export class EditorComponent implements OnInit, OnDestroy {
         }
       });
     });
-
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => (typeof value === 'string' ? value : value.name)),
@@ -124,7 +126,11 @@ export class EditorComponent implements OnInit, OnDestroy {
     if (this.typeMale.item1 == undefined) {
       this.cable.connectors[0].type = this.standardTypeMale;
       this.cable.connectors[0].path = this.standardRouteMale;
+      this.cable.connectors[1].type = this.standardTypeFemale;
+      this.cable.connectors[1].path = this.standardRouteFemale;
     } else if (this.typeFemale.item1 == undefined) {
+      this.cable.connectors[0].type = this.standardTypeMale;
+      this.cable.connectors[0].path = this.standardRouteMale;
       this.cable.connectors[1].type = this.standardTypeFemale;
       this.cable.connectors[1].path = this.standardRouteFemale;
     } else {
