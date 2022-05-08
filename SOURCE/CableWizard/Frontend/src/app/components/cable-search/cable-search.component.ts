@@ -30,7 +30,7 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     public dataService: DataService,
     public drawerService: DrawerService
   ) {
-    this.dataService.delay(1000);
+    this.dataService.delay(2000);
     this.filter = new FilterOptions();
     this.filter$ = new BehaviorSubject<FilterOptions>(this.filter);
 
