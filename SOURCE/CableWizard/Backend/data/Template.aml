@@ -4837,123 +4837,378 @@
         </Attribute>
       </Attribute>
     </AdditionalInformation>
-    <SystemUnitClass Name="BCC M313-M313-30-300-EX43T2-050" ID="f450f74e-08d4-464d-b367-59f0138c5f6c">
-      <Attribute Name="Data">
-        <Attribute Name="Manufacturer" AttributeDataType="xs:string">
-          <Description>Name of the Manufacturer (person, company or organisation)</Description>
-          <Value>Balluff GmbH</Value>
-        </Attribute>
-        <Attribute Name="ManufacturerURI" AttributeDataType="xs:string">
-          <Description>Address of the product manufacturer on the world wide web (URL)</Description>
-          <Value>www.balluff.com</Value>
-        </Attribute>
-        <Attribute Name="DeviceClass" AttributeDataType="xs:string">
-          <Description>Product family name of the manufacturer, characterization may be based on its usage, operation principle, and its fabricated form</Description>
-          <Value>Double-Ended Cordsets</Value>
-        </Attribute>
-        <Attribute Name="Model" AttributeDataType="xs:string">
-          <Description>Product name or model code of the manufacturer</Description>
-          <Value>BCC M313-M313-30-300-EX43T2-050</Value>
-        </Attribute>
-        <Attribute Name="ProductCode" AttributeDataType="xs:string">
-          <Description>Unique product identifier given by the manufacturer</Description>
-          <Value>BCC051J</Value>
-        </Attribute>
-        <Attribute Name="TemperatureMin" AttributeDataType="xs:int" Unit="°C">
-          <Description>Lowest ambient temperature for which the component operates within its specified limits.</Description>
-          <Value>-5</Value>
-        </Attribute>
-        <Attribute Name="TemperatureMax" AttributeDataType="xs:int" Unit="°C">
-          <Description>Highest ambient temperature for which the component operates within its specified limits.</Description>
-          <Value>70</Value>
-        </Attribute>
-        <Attribute Name="IPCode" AttributeDataType="xs:string">
-          <Description>Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.</Description>
-          <Value>IP67</Value>
-        </Attribute>
-        <Attribute Name="Material" AttributeDataType="xs:string">
-          <Description>Basic material of the housing of the component.</Description>
-          <Value>Mythrill</Value>
-        </Attribute>
-        <Attribute Name="Weight" AttributeDataType="xs:float" Unit="g">
-          <Description>Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.</Description>
-          <Value>695</Value>
-        </Attribute>
-        <Attribute Name="Height" AttributeDataType="xs:int" Unit="mm">
-          <Description>Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
-          <Value>38</Value>
-        </Attribute>
-        <Attribute Name="Width" AttributeDataType="xs:int" Unit="mm">
-          <Description>Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
-          <Value>68</Value>
-        </Attribute>
-        <Attribute Name="Length" AttributeDataType="xs:int" Unit="mm">
-          <Description>Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
-          <Value>224</Value>
-        </Attribute>
-      </Attribute>
-      <ExternalInterface Name="M8A3PinFemale" ID="9d611b0b-a88d-4c0d-9445-078c7afa70f1" RefBaseClassPath="/M8A3PinFemale" />
-    </SystemUnitClass>
-    <SystemUnitClass Name="BCC M415-M415-3A-312-PX0534-035" ID="ec42822d-65be-4f77-9f94-2cb35876e2d0">
-      <Attribute Name="Data">
+    <SystemUnitClass Name="BCC M415-M415-3A-312-PX0534-035" ID="0dbe2617-6775-42e1-8a5a-6c4b955a5f55">
+      <Attribute Name="IdentificationData">
+        <Description>Identification data of the automation component type or instance model.</Description>
+        <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACC011#001" />
+        <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABC269#005" />
         <Attribute Name="Manufacturer" AttributeDataType="xs:string">
           <Description>Name of the Manufacturer (person, company or organisation)</Description>
           <Value>BALLUFF</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE102#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA565#006" />
         </Attribute>
         <Attribute Name="ManufacturerURI" AttributeDataType="xs:string">
-          <Description>Address of the product manufacturer on the world wide web (URL)</Description>
+          <Description>Address of the product manufacturer on the world wide web (URL) </Description>
           <Value>www.balluff.com</Value>
         </Attribute>
         <Attribute Name="DeviceClass" AttributeDataType="xs:string">
           <Description>Product family name of the manufacturer, characterization may be based on its usage, operation principle, and its fabricated form</Description>
           <Value>Double-Ended Cordsets</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE104#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA566#005" />
         </Attribute>
         <Attribute Name="Model" AttributeDataType="xs:string">
           <Description>Product name or model code of the manufacturer</Description>
           <Value>BCC M415-M415-3A-312-PX0534-035</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE105#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA567#006" />
         </Attribute>
         <Attribute Name="ProductCode" AttributeDataType="xs:string">
           <Description>Unique product identifier given by the manufacturer</Description>
           <Value>BCC0KZ3</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE103#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA300#005" />
         </Attribute>
-        <Attribute Name="TemperatureMin" AttributeDataType="xs:int" Unit="°C">
-          <Description>Lowest ambient temperature for which the component operates within its specified limits.</Description>
-          <Value>-5</Value>
+        <Attribute Name="ProductInstanceURI" AttributeDataType="xs:anyURI">
+          <Description>Unique global identification of the product type or sample (assetID) using an universal resource identifier, such as an online URL to the product data.</Description>
+          <Value>https://www.balluff.com/local/us/productfinder/#/ca/A0011/product/G1103/variant/PV8754556?bas_connector_coding_01=260032&amp;cal_connector_head1=-1301766766&amp;cal_connector_head2=1196614099</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABN591#001" />
         </Attribute>
-        <Attribute Name="TemperatureMax" AttributeDataType="xs:int" Unit="°C">
-          <Description>Highest ambient temperature for which the component operates within its specified limits.</Description>
-          <Value>700</Value>
+      </Attribute>
+      <Attribute Name="GeneralTechnicalData">
+        <Description>Classification data of the component.</Description>
+        <Attribute Name="AmbientTemperature" AttributeDataType="xs:string">
+          <Description>Operating temperature limits of the air surrounding the complete component.</Description>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE440#001" />
+          <Attribute Name="TemperatureMin" AttributeDataType="xs:int" Unit="°C">
+            <Description>Lowest ambient temperature for which the component operates within its specified limits.</Description>
+            <Value>-5</Value>
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH008#002" />
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA621#007" />
+          </Attribute>
+          <Attribute Name="TemperatureMax" AttributeDataType="xs:int" Unit="°C">
+            <Description>Highest ambient temperature for which the component operates within its specified limits.</Description>
+            <Value>70</Value>
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH007#002" />
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA623#007" />
+            <RefSemantic CorrespondingAttributePath="IRDI:" />
+          </Attribute>
         </Attribute>
         <Attribute Name="IPCode" AttributeDataType="xs:string">
           <Description>Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.</Description>
           <Value>IP67</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH011#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE248#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA558#006" />
         </Attribute>
         <Attribute Name="Material" AttributeDataType="xs:string">
           <Description>Basic material of the housing of the component.</Description>
-          <Value>Vibranium</Value>
+          <Value>Zinc</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE351#006" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE260#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA158#004" />
         </Attribute>
         <Attribute Name="Weight" AttributeDataType="xs:float" Unit="g">
           <Description>Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.</Description>
           <Value>695</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#ACB032#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE808#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA553#006" />
         </Attribute>
-        <Attribute Name="Height" AttributeDataType="xs:int" Unit="mm">
+        <Attribute Name="Height" AttributeDataType="xs:integer" Unit="mm">
           <Description>Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
           <Value>38</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE020#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE801#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA574#006" />
         </Attribute>
-        <Attribute Name="Width" AttributeDataType="xs:int" Unit="mm">
+        <Attribute Name="Width" AttributeDataType="xs:integer">
           <Description>Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
           <Value>68</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE021#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE802#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA573#006" />
         </Attribute>
-        <Attribute Name="Length" AttributeDataType="xs:int" Unit="mm">
+        <Attribute Name="Length" AttributeDataType="xs:integer">
           <Description>Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
           <Value>224</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE019#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE803#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA640#006" />
         </Attribute>
       </Attribute>
-      <ExternalInterface Name="M12A5PinFemale" ID="c5d193b0-3d18-43dd-89a0-8b77d8d60107" RefBaseClassPath="/M12A5PinFemale" />
+      <ExternalInterface Name="M12A5PinFemale" ID="e5882760-d52d-4c95-b432-52d054728248" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/IEC61076-2-101/M12A/M12A5Pin/M12A5PinFemale">
+        <Attribute Name="Max.PlugCycles" AttributeDataType="xs:string" />
+        <Attribute Name="SurfaceMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="ContactMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="Max.Current" AttributeDataType="xs:string" />
+        <ExternalInterface Name="1" ID="d31fff04-1209-43ae-a478-d65f086f9d75" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="2" ID="ad15ec6c-616f-405d-9ac7-194b21ed8675" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="3" ID="486eed96-46ca-4c52-b710-3a9eaa7bbd51" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="4" ID="5a63a344-c412-4648-8727-46efc5fb48d4" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="5" ID="7f068a28-042e-4797-ba51-fc225c7e5ca8" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+      </ExternalInterface>
+      <ExternalInterface Name="M12A5PinMale" ID="73886bc4-35ba-4fde-b035-e2281e2ebe9b" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/IEC61076-2-101/M12A/M12A5Pin/M12A5PinMale">
+        <Attribute Name="Max.PlugCycles" AttributeDataType="xs:string" />
+        <Attribute Name="SurfaceMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="ContactMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="Max.Current" AttributeDataType="xs:string" />
+        <ExternalInterface Name="1" ID="1d4dc244-1001-4b08-86c2-c4297ef5bb77" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="2" ID="0c34af40-b4fe-4941-a4dd-e3927b42b9d2" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="3" ID="de9a2c48-d8bb-4a3a-ad28-dda53c6d0e27" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="4" ID="d2ac65ce-0689-4174-b4e1-f43c0516e9b6" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="5" ID="d3f16cf3-40a9-4d1f-b488-47e2ef10200d" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+      </ExternalInterface>
+      <InternalElement Name="Wiring" ID="c6660245-1d83-4779-8240-135728a9dcca">
+        <InternalElement Name="C1" ID="42e00805-d094-43c8-a3d3-06db6979533d">
+          <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+          <ExternalInterface Name="P1" ID="fdd6648a-747f-4904-89ba-3382cf0e6d66" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>first end</Description>
+          </ExternalInterface>
+          <ExternalInterface Name="P2" ID="3886a24b-8fa3-41d8-9942-8dd74218dffa" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>second end</Description>
+          </ExternalInterface>
+          <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+        </InternalElement>
+        <InternalElement Name="C2" ID="919e9db9-d701-4eb3-af97-bb7aee7aaf7c">
+          <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+          <ExternalInterface Name="P1" ID="ad53c6f8-187d-4541-b345-77cde259c4f8" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>first end</Description>
+          </ExternalInterface>
+          <ExternalInterface Name="P2" ID="032ef27f-df1b-40d8-bbab-bb1d97f0490e" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>second end</Description>
+          </ExternalInterface>
+          <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+        </InternalElement>
+        <InternalElement Name="C3" ID="f904e79e-79d4-49a9-8806-10286f42945b">
+          <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+          <ExternalInterface Name="P1" ID="539013b0-03af-4ca0-9893-be25a63cb5ec" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>first end</Description>
+          </ExternalInterface>
+          <ExternalInterface Name="P2" ID="815a402d-09c0-4955-a9c0-f4efb9d11c4f" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>second end</Description>
+          </ExternalInterface>
+          <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+        </InternalElement>
+        <InternalElement Name="C4" ID="22f6a751-ba62-4730-9b59-404e427e7de4">
+          <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+          <ExternalInterface Name="P1" ID="a5623207-ca80-4161-9b6b-91042e3eec3b" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>first end</Description>
+          </ExternalInterface>
+          <ExternalInterface Name="P2" ID="ae68309b-3e29-4bf3-90a0-b451c67339e3" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>second end</Description>
+          </ExternalInterface>
+          <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+        </InternalElement>
+        <InternalElement Name="C5" ID="9825fe45-ad67-40d1-a077-e6b386dda54d">
+          <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+          <ExternalInterface Name="P1" ID="90627f30-c370-4396-ad9b-48ab0b2ca869" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>first end</Description>
+          </ExternalInterface>
+          <ExternalInterface Name="P2" ID="13e88e11-da22-4408-9080-4e06f904ba4a" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+            <Description>second end</Description>
+          </ExternalInterface>
+          <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+        </InternalElement>
+        <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+      </InternalElement>
+      <InternalElement Name="ComponentPicture" ID="9636b986-4832-49e7-84d7-14aaaacad73d">
+        <ExternalInterface Name="ExternalDataReference" ID="39d85c2d-c50b-4b36-9040-9ca3a389ba3c" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference">
+          <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+            <Value>https://assets.balluff.com/product_detail_1280x1280/44882_02_P_01_bk_bk_bk.png</Value>
+          </Attribute>
+          <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+        </ExternalInterface>
+        <RoleRequirements RefBaseRoleClassPath="AutomationMLComponentStandardRCL/ComponentPicture">
+          <ExternalInterface Name="GraphicRepresentationReference" ID="1520ba53-a607-408b-b0b3-bcd6d1bd568b" RefBaseClassPath="AutomationMLComponentBaseICL/GraphicRepresentationReference">
+            <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+          </ExternalInterface>
+        </RoleRequirements>
+      </InternalElement>
+      <SupportedRoleClass RefRoleClassPath="AutomationMLComponentStandardRCL/AutomationComponent" />
+      <SupportedRoleClass RefRoleClassPath="CableRCL/Cable" />
+      <InternalLink RefPartnerSideA="d31fff04-1209-43ae-a478-d65f086f9d75" RefPartnerSideB="fdd6648a-747f-4904-89ba-3382cf0e6d66" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="ad15ec6c-616f-405d-9ac7-194b21ed8675" RefPartnerSideB="ad53c6f8-187d-4541-b345-77cde259c4f8" Name="InternalLink1" />
+      <InternalLink RefPartnerSideA="486eed96-46ca-4c52-b710-3a9eaa7bbd51" RefPartnerSideB="539013b0-03af-4ca0-9893-be25a63cb5ec" Name="InternalLink2" />
+      <InternalLink RefPartnerSideA="3886a24b-8fa3-41d8-9942-8dd74218dffa" RefPartnerSideB="1d4dc244-1001-4b08-86c2-c4297ef5bb77" Name="InternalLink3" />
+      <InternalLink RefPartnerSideA="032ef27f-df1b-40d8-bbab-bb1d97f0490e" RefPartnerSideB="0c34af40-b4fe-4941-a4dd-e3927b42b9d2" Name="InternalLink4" />
+      <InternalLink RefPartnerSideA="815a402d-09c0-4955-a9c0-f4efb9d11c4f" RefPartnerSideB="de9a2c48-d8bb-4a3a-ad28-dda53c6d0e27" Name="InternalLink5" />
+      <InternalLink RefPartnerSideA="a5623207-ca80-4161-9b6b-91042e3eec3b" RefPartnerSideB="5a63a344-c412-4648-8727-46efc5fb48d4" Name="InternalLink6" />
+      <InternalLink RefPartnerSideA="90627f30-c370-4396-ad9b-48ab0b2ca869" RefPartnerSideB="7f068a28-042e-4797-ba51-fc225c7e5ca8" Name="InternalLink7" />
+      <InternalLink RefPartnerSideA="ae68309b-3e29-4bf3-90a0-b451c67339e3" RefPartnerSideB="d2ac65ce-0689-4174-b4e1-f43c0516e9b6" Name="InternalLink8" />
+      <InternalLink RefPartnerSideA="13e88e11-da22-4408-9080-4e06f904ba4a" RefPartnerSideB="d3f16cf3-40a9-4d1f-b488-47e2ef10200d" Name="InternalLink9" />
     </SystemUnitClass>
-  </SystemUnitClassLib>
-  <SystemUnitClassLib Name="Balluff">
-    <Version>0</Version>
+    <SystemUnitClass Name="BCC M313-M313-30-300-EX43T2-050" ID="a9c79bdb-81d4-4098-9eb8-bebb796d2842">
+      <Attribute Name="IdentificationData">
+        <Description>Identification data of the automation component type or instance model.</Description>
+        <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACC011#001" />
+        <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABC269#005" />
+        <Attribute Name="Manufacturer" AttributeDataType="xs:string">
+          <Description>Name of the Manufacturer (person, company or organisation)</Description>
+          <Value>Balluff GmbH</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE102#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA565#006" />
+        </Attribute>
+        <Attribute Name="ManufacturerURI" AttributeDataType="xs:string">
+          <Description>Address of the product manufacturer on the world wide web (URL) </Description>
+          <Value>www.balluff.com</Value>
+        </Attribute>
+        <Attribute Name="DeviceClass" AttributeDataType="xs:string">
+          <Description>Product family name of the manufacturer, characterization may be based on its usage, operation principle, and its fabricated form</Description>
+          <Value>Double-Ended Cordsets</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE104#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA566#005" />
+        </Attribute>
+        <Attribute Name="Model" AttributeDataType="xs:string">
+          <Description>Product name or model code of the manufacturer</Description>
+          <Value>BCC M313-M313-30-300-EX43T2-050</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE105#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA567#006" />
+        </Attribute>
+        <Attribute Name="ProductCode" AttributeDataType="xs:string">
+          <Description>Unique product identifier given by the manufacturer</Description>
+          <Value>BCC051J</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE103#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA300#005" />
+        </Attribute>
+        <Attribute Name="ProductInstanceURI" AttributeDataType="xs:string">
+          <Description>Unique global identification of the product type or sample (assetID) using an universal resource identifier, such as an online URL to the product data.</Description>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABN591#001" />
+        </Attribute>
+      </Attribute>
+      <Attribute Name="GeneralTechnicalData">
+        <Description>Classification data of the component.</Description>
+        <Attribute Name="AmbientTemperature" AttributeDataType="xs:string">
+          <Description>Operating temperature limits of the air surrounding the complete component.</Description>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE440#001" />
+          <Attribute Name="TemperatureMin" AttributeDataType="xs:int" Unit="°C">
+            <Description>Lowest ambient temperature for which the component operates within its specified limits.</Description>
+            <Value>-5</Value>
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH008#002" />
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA621#007" />
+          </Attribute>
+          <Attribute Name="TemperatureMax" AttributeDataType="xs:int" Unit="°C">
+            <Description>Highest ambient temperature for which the component operates within its specified limits.</Description>
+            <Value>70</Value>
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH007#002" />
+            <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA623#007" />
+            <RefSemantic CorrespondingAttributePath="IRDI:" />
+          </Attribute>
+        </Attribute>
+        <Attribute Name="IPCode" AttributeDataType="xs:string">
+          <Description>Degree of protection (IP code) of the component provided by enclosure, numerical classification in accordance with IEC 60529 preceded by the symbol IP.</Description>
+          <Value>IP67</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAH011#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE248#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA558#006" />
+        </Attribute>
+        <Attribute Name="Material" AttributeDataType="xs:string">
+          <Description>Basic material of the housing of the component.</Description>
+          <Value>Zinc</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE351#006" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE260#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA158#004" />
+        </Attribute>
+        <Attribute Name="Weight" AttributeDataType="xs:float" Unit="g">
+          <Description>Net weight: Value of the mass of the component with all fixed parts without packaging and accessories.</Description>
+          <Value>695</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#ACB032#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE808#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA553#006" />
+        </Attribute>
+        <Attribute Name="Height" AttributeDataType="xs:integer" Unit="mm">
+          <Description>Height of the body, vertical distance between the top and bottom of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
+          <Value>38</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE020#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE801#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA574#006" />
+        </Attribute>
+        <Attribute Name="Width" AttributeDataType="xs:integer">
+          <Description>Width or breadth of the body, horizontal distance between the left-hand and right-hand extremes of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
+          <Value>68</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE021#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE802#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA573#006" />
+        </Attribute>
+        <Attribute Name="Length" AttributeDataType="xs:integer">
+          <Description>Length of the body, horizontal distance between the front and back of the component when standing in its normal position of use, including connectors and terminals, without accessory and cable.</Description>
+          <Value>224</Value>
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61360_4#AAE019#002" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///62683#ACE803#001" />
+          <RefSemantic CorrespondingAttributePath="IRDI:0112/2///61987#ABA640#006" />
+        </Attribute>
+      </Attribute>
+      <ExternalInterface Name="M8A3PinFemale" ID="75e6d775-4726-477e-8643-6f1da0f537bd" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/IEC61076-2-104/M8A/M8A3Pin/M8A3PinFemale">
+        <Attribute Name="Max.PlugCycles" AttributeDataType="xs:string" />
+        <Attribute Name="SurfaceMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="ContactMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="Max.Current" AttributeDataType="xs:string" />
+        <ExternalInterface Name="1" ID="aab3154a-85f3-4305-b401-ed936a38dc71" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="2" ID="0c861eb4-1bb3-4c41-9ec9-c0cfeeb7ade4" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="3" ID="31a95642-1b1f-4b7f-9d5f-2a0683182561" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+      </ExternalInterface>
+      <ExternalInterface Name="M8A3PinMale" ID="7e1e9666-57ea-44d1-8e0b-0c4915817915" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/IEC61076-2-104/M8A/M8A3Pin/M8A3PinMale">
+        <Attribute Name="Max.PlugCycles" AttributeDataType="xs:string" />
+        <Attribute Name="SurfaceMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="ContactMaterial" AttributeDataType="xs:string" />
+        <Attribute Name="Max.Current" AttributeDataType="xs:string" />
+        <ExternalInterface Name="1" ID="6ccefcd6-284b-44c7-aa9c-07fd2094607c" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="2" ID="767f1f48-efe5-4dde-abd0-db88c15506c0" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+        <ExternalInterface Name="3" ID="4e776604-d8b7-4821-afee-55586f2ce0b5" RefBaseClassPath="ConnectorLib_IEC61076/IEC61076-2/PinType"></ExternalInterface>
+      </ExternalInterface>
+      <InternalElement Name="C1" ID="96d84d99-f184-4ece-9cc0-54f6afc014b8">
+        <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+        <ExternalInterface Name="P1" ID="4c519eb1-62dc-4db9-b080-8694b265a1bc" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+          <Description>first end</Description>
+        </ExternalInterface>
+        <ExternalInterface Name="P2" ID="eb70639e-f036-4c14-9efb-2fb156568f33" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+          <Description>second end</Description>
+        </ExternalInterface>
+        <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+      </InternalElement>
+      <InternalElement Name="C2" ID="aefe912d-6451-4f00-8248-be78b45cdde5">
+        <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+        <ExternalInterface Name="P1" ID="93b215ac-29be-4a9d-ba8a-a47dd285eb69" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+          <Description>first end</Description>
+        </ExternalInterface>
+        <ExternalInterface Name="P2" ID="dc4e5dd4-a1cc-487e-a06f-844f0fd0bd78" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+          <Description>second end</Description>
+        </ExternalInterface>
+        <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+      </InternalElement>
+      <InternalElement Name="C3" ID="e4b6f1c9-ffd3-4c2f-872b-3c3add38828e">
+        <Attribute Name="colour" AttributeDataType="xs:string"></Attribute>
+        <ExternalInterface Name="P1" ID="521f9dc1-b076-43e8-915a-767e9cda2c4a" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+          <Description>first end</Description>
+        </ExternalInterface>
+        <ExternalInterface Name="P2" ID="cb8457c2-1476-414b-8c33-bf5881b3b7d6" RefBaseClassPath="AutomationMLComponentBaseICL/ElectricInterface">
+          <Description>second end</Description>
+        </ExternalInterface>
+        <RoleRequirements RefBaseRoleClassPath="CableRCL/Wire" />
+      </InternalElement>
+      <InternalElement Name="ComponentPicture" ID="c3fccde6-e528-451f-b247-5528f34cde37">
+        <ExternalInterface Name="ExternalDataReference" ID="59325633-fdf1-44d3-bca3-a43aef932c19" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference">
+          <Attribute Name="refURI" AttributeDataType="xs:anyURI">
+            <Value>BCC M313-M313-30-300-EX43T2-050/BCC M313-M313-30-300-EX43T2-050.png</Value>
+          </Attribute>
+          <Attribute Name="MIMEType" AttributeDataType="xs:string" />
+        </ExternalInterface>
+        <RoleRequirements RefBaseRoleClassPath="AutomationMLComponentStandardRCL/ComponentPicture">
+          <ExternalInterface Name="GraphicRepresentationReference" ID="4341c783-51b5-46fc-a607-5c5c8e84334d" RefBaseClassPath="AutomationMLComponentBaseICL/GraphicRepresentationReference">
+            <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+          </ExternalInterface>
+        </RoleRequirements>
+      </InternalElement>
+      <SupportedRoleClass RefRoleClassPath="AutomationMLComponentStandardRCL/AutomationComponent" />
+      <SupportedRoleClass RefRoleClassPath="CableRCL/Cable" />
+      <InternalLink RefPartnerSideA="aab3154a-85f3-4305-b401-ed936a38dc71" RefPartnerSideB="4c519eb1-62dc-4db9-b080-8694b265a1bc" Name="InternalLink" />
+      <InternalLink RefPartnerSideA="0c861eb4-1bb3-4c41-9ec9-c0cfeeb7ade4" RefPartnerSideB="93b215ac-29be-4a9d-ba8a-a47dd285eb69" Name="InternalLink1" />
+      <InternalLink RefPartnerSideA="31a95642-1b1f-4b7f-9d5f-2a0683182561" RefPartnerSideB="521f9dc1-b076-43e8-915a-767e9cda2c4a" Name="InternalLink2" />
+      <InternalLink RefPartnerSideA="eb70639e-f036-4c14-9efb-2fb156568f33" RefPartnerSideB="6ccefcd6-284b-44c7-aa9c-07fd2094607c" Name="InternalLink3" />
+      <InternalLink RefPartnerSideA="dc4e5dd4-a1cc-487e-a06f-844f0fd0bd78" RefPartnerSideB="767f1f48-efe5-4dde-abd0-db88c15506c0" Name="InternalLink4" />
+      <InternalLink RefPartnerSideA="cb8457c2-1476-414b-8c33-bf5881b3b7d6" RefPartnerSideB="4e776604-d8b7-4821-afee-55586f2ce0b5" Name="InternalLink5" />
+    </SystemUnitClass>
   </SystemUnitClassLib>
   <AttributeTypeLib Name="GenericIndustrialAttributeTypeLib">
     <Description>This AttributeTypeLib collects relevant attribute definitions for electromechanical components.</Description>
