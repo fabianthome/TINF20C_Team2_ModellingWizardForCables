@@ -176,10 +176,6 @@ public static class AmlSerializer
             connector.RefBaseClassPath = connectorInfo.Path + "/" + connectorInfo.Type;
 
             // find connector in connector libs
-            if (connectorInfo.Path == "")
-            {
-                return "no path!";
-            }
             //var libPath = connectorInfo.Path.Remove(connectorInfo.Path.LastIndexOf("/"));
             var libPath = connectorInfo.Path;
             var connectorInLib = document.CAEXFile.getReferencedInterfaceClass(libPath);
