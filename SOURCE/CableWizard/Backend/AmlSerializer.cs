@@ -181,7 +181,6 @@ public static class AmlSerializer
             var connectorInLib = document.CAEXFile.getReferencedInterfaceClass(libPath);
 
             // add 1, 2, 3... to connector female, male
-            Console.WriteLine(libPath);
             numberPins = Int16.Parse(connectorInLib.ExternalInterface.Last.Name); // number of pins
             for (var i = 1; i <= numberPins; i++)
             {
