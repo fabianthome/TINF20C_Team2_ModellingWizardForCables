@@ -50,7 +50,7 @@ export const DefaultCableDetails: ProductDetails = {
   name: 'Cable Name',
   attachedImagePaths: ['./32edq', './32edq'],
   attachedFilePaths: ['./32edq', './32edq'],
-  library: 'Balluff',
+  library: 'ProductLibrary_BALLUFF',
   attributes: {
     manufacturer: 'Company Name',
     manufacturerUri: 'www.company.com',

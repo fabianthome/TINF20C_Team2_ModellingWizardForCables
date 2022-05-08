@@ -45,6 +45,7 @@ export class EditorComponent implements OnInit, OnDestroy {
 
   typeMale: any = '';
   typeFemale: any = '';
+  subWorked: boolean = false;
 
   standardTypeMale: string = '';
   standardRouteMale: string = '';
@@ -59,6 +60,7 @@ export class EditorComponent implements OnInit, OnDestroy {
         switchMap((id) => this.dataService.getProductDetails(id as string))
       )
       .subscribe((cableInfo) => {
+        this.subWorked = true;
         this.cable = cableInfo;
         this.standardTypeMale = this.cable.connectors[0].type;
         console.log(this.standardTypeMale);
@@ -67,22 +69,43 @@ export class EditorComponent implements OnInit, OnDestroy {
         console.log(this.standardTypeFemale);
         this.standardRouteFemale = this.cable.connectors[1].path;
         console.log(this.cable);
+
+        this.dataService.getPossibleConnectors().subscribe((res) => {
+          this.possibleConnectors = res;
+          this.possibleConnectors.forEach((element) => {
+            if (element.item1 == this.standardTypeMale) {
+              this.standardRouteMale = element.item2;
+              console.log(this.standardRouteMale);
+            }
+          });
+          this.possibleConnectors.forEach((element) => {
+            if (element.item1 == this.standardTypeFemale) {
+              this.standardRouteFemale = element.item2;
+              console.log(this.standardRouteFemale);
+            }
+          });
+        });
       });
 
-    this.dataService.delay(1000);
-    this.dataService.getPossibleConnectors().subscribe((res) => {
-      this.possibleConnectors = res;
-      this.possibleConnectors.forEach((element) => {
-        if (element.item1 == this.standardTypeMale) {
-          this.standardRouteMale = element.item2;
-        }
+    if (!this.subWorked) {
+      this.subWorked = false;
+      this.dataService.getPossibleConnectors().subscribe((res) => {
+        this.possibleConnectors = res;
+        this.possibleConnectors.forEach((element) => {
+          if (element.item1 == this.standardTypeMale) {
+            this.standardRouteMale = element.item2;
+            console.log(this.standardRouteMale);
+          }
+        });
+        this.possibleConnectors.forEach((element) => {
+          if (element.item1 == this.standardTypeFemale) {
+            this.standardRouteFemale = element.item2;
+            console.log(this.standardRouteFemale);
+          }
+        });
       });
-      this.possibleConnectors.forEach((element) => {
-        if (element.item1 == this.standardTypeFemale) {
-          this.standardRouteFemale = element.item2;
-        }
-      });
-    });
+    }
+
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => (typeof value === 'string' ? value : value.name)),
