@@ -3,7 +3,9 @@ using Aml.Engine.Adapter;
 using Aml.Engine.AmlObjects;
 using Aml.Engine.CAEX;
 using Aml.Engine.CAEX.Extensions;
+using Aml.Engine.Services;
 using CableWizardBackend.Models;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Newtonsoft.Json;
 
 namespace CableWizardBackend;
@@ -14,7 +16,7 @@ public static class AmlSerializer
 
     private const string workdir = "data/";
     
-    private static string AmlName = "Template.aml";
+    private static string AmlName = "Cables3_0.aml";
 
     static AmlSerializer()
     {
@@ -103,6 +105,38 @@ public static class AmlSerializer
 
         return possibleConnectors;
     }
+
+    public static string ConvertFile()
+    {
+        var AmlName215 = "Cables2_15.aml";
+        
+        // register the transformation service. After registration of the service, the AMLEngine
+        // communicates with the transformation service via event notification.
+        var transformer = CAEXSchemaTransformer.Register();
+        CAEXSchemaTransformer.Register();
+
+        // transform the document to AutomationML 2.10 and CAEX 3.0
+        var doc215 = transformer.TransformTo(document, CAEXDocument.CAEXSchema.CAEX2_15);
+
+        // unregister the transformation service. The communication channel between the AMLEngine and
+        // the transformation service is closed.
+        CAEXSchemaTransformer.UnRegister();
+
+        doc215.SaveToFile(workdir + AmlName215, true);
+        
+        // validate the document according to the assigned CAEX version
+        if (doc215.Validate(out var message))
+        {
+            Console.WriteLine("Transformation success!");
+            
+        }
+        else
+        {
+            Console.WriteLine("Transformation failed! See the returned message for details.");
+        }
+
+        return AmlName215;
+    }
     
     public static bool DeleteProduct(string id)
     {
@@ -127,6 +161,7 @@ public static class AmlSerializer
     
     public static string CreateProduct(ProductDetails productDetails)
     {
+        var caexVersion = "2.15";
         var status = "Product created.";
     
         // add library if not already existing
@@ -240,6 +275,7 @@ public static class AmlSerializer
         
         // save aml file
         document.SaveToFile(workdir + AmlName, true);
+
         return status;
     }
 
@@ -349,7 +385,7 @@ public static class AmlSerializer
         // add connectors
         productDetails.Connectors = new List<ProductConnector>();
         
-        foreach (var connector in unitFamilyType.ExternalInterfaceAndInherited)
+        foreach (var connector in unitFamilyType.ExternalInterface)
         {
             var productConnector = new ProductConnector()
             {
@@ -417,7 +453,7 @@ public static class AmlSerializer
     {
         productDetails.Wires = new List<string>();
         //productDetails.Pins = new List<string>(); //not needed?!
-        foreach (var wireClass in unitFamilyType.InternalElementAndInherited)
+        foreach (var wireClass in unitFamilyType.InternalElement)
         {
             var wiresList = DeepSearchWires(wireClass);
 
