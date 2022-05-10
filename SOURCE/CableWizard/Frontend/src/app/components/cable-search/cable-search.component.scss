@@ -37,11 +37,11 @@ mat-drawer {
   bottom: $gap;
   z-index: 2;
 
-  &.close {
+  &.close-button {
     right: $gap;
   }
 
-  &.open {
+  &.open-button {
     left: $gap;
   }
 }
