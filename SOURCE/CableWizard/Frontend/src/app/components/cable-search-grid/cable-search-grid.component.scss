@@ -25,12 +25,3 @@ $card-max-title-height: 120px;
   grid-gap: 0.5rem;
   padding-top: 1rem;
 }
-
-.centered {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  transform: scale(3);
-}

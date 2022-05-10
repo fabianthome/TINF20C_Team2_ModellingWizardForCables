@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
-import { DrawerService } from 'src/app/services/drawer.service';
-import { FilterOptions } from '../../models/filter-options';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {MatDrawer} from '@angular/material/sidenav';
+import {DrawerService} from 'src/app/services/drawer.service';
+import {FilterOptions} from '../../models/filter-options';
 import {
   BehaviorSubject,
   combineLatest,
@@ -9,8 +9,9 @@ import {
   Observable,
   switchMap,
 } from 'rxjs';
-import { DataService } from '../../services/data.service';
-import { ProductDetails } from '../../models/product-details';
+import {DataService} from '../../services/data.service';
+import {ProductDetails} from '../../models/product-details';
+import {saveAs as importedSaveAs} from "file-saver";
 
 @Component({
   selector: 'app-cable-search',
@@ -30,7 +31,6 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     public dataService: DataService,
     public drawerService: DrawerService
   ) {
-    this.dataService.delay(2000);
     this.filter = new FilterOptions();
     this.filter$ = new BehaviorSubject<FilterOptions>(this.filter);
 
@@ -51,7 +51,8 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngAfterViewInit(): void {
     this.drawerService.setDrawer(this.drawer!);
@@ -68,5 +69,26 @@ export class CableSearchComponent implements OnInit, AfterViewInit {
     filter: FilterOptions
   ) {
     return filter.apply(products);
+  }
+
+  downloadFile(caexVersion: string) {
+    if (caexVersion == '2.15') {
+      this.dataService.getFile('2_15').subscribe((data) => {
+        console.log(data);
+        const blob = new Blob([data], {type: 'application/force-download'});
+        importedSaveAs(blob, 'CAEX_2_15.aml');
+        // const blob = new Blob([data], { type: 'application/force-download' });
+        // const url = window.URL.createObjectURL(blob);
+        // window.open(url);
+      });
+    } else if (caexVersion == '3.0') {
+      this.dataService.getFile('3_0').subscribe((data) => {
+        console.log(data);
+        const blob = new Blob([data], {type: 'application/force-download'});
+        importedSaveAs(blob, 'CAEX_3_0.aml');
+        // const url = window.URL.createObjectURL(blob);
+        // window.open(url);
+      });
+    }
   }
 }
