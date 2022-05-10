@@ -52,12 +52,6 @@ export class DataService {
     });
   }
 
-  getFile(path: string): Observable<Blob> {
-    return this.http.get(DataService.toURL(path), {
-      responseType: 'blob',
-    });
-  }
-
   createProduct(product: ProductDetails): Observable<any> {
     return this.http.post(DataService.toURL(`create-product`), product, {
       responseType: 'json',
@@ -75,5 +69,11 @@ export class DataService {
    */
   delay(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  getFile(caexVersion: string): Observable<any> {
+    return this.http.get(DataService.toURL(`download-file/${caexVersion}`), {
+      responseType: 'blob',
+    });
   }
 }
