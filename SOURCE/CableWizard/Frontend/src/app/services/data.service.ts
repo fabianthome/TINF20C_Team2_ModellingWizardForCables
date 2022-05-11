@@ -1,15 +1,17 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ProductDetails } from '../models/product-details';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {ProductDetails} from '../models/product-details';
+import {environment} from "../../environments/environment";
 
-const API_URL = 'https://swe.sowiho.de/api/v2';
+const API_URL = environment.production ? 'https://swe.sowiho.de/api/v2' : 'https://localhost:7200/api/v2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   private static toURL(path: string, query?: string, fragment?: string) {
     let url = `${API_URL}/${path}`;
