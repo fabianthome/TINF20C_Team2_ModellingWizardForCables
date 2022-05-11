@@ -93,9 +93,9 @@ Modelling Wizard For Cables
 │       │    ├── launch.json
 │       │    └── tasks.json
 │       ├── Backend
-│       │    └── [Backend source code]
+│       │    └── [Backend sourcecode]
 │       ├── Frontend
-│       │    └── [Frontend source code]
+│       │    └── [Frontend sourcecode]
 │       ├── command-reference.txt
 │       └── upload.sh
 ├── .gitignore
