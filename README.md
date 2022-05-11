@@ -2,7 +2,7 @@
 
 ## About this project
 
-<p><img src="https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/blob/master/PROJECT/Git/Cable.PNG" align=right width="160" height="130"> This repository is based on a project developed in the module <b>Software Engineering I</b> at</br> the <a href=https://www.dhbw-stuttgart.de/>Baden-Württemberg Cooperative State University (DHBW-Stuttgart)</a></br> and commissioned by our lecturers <a href=http://wwwlehre.dhbw-stuttgart.de/~rentschler/><b>Markus Rentschler</b></a> and <b>Christian Holder</b>. 
+<p><img src="https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/tree/master/PROJECT/Git/Cable.PNG" align=right width="160" height="130"> This repository is based on a project developed in the module <b>Software Engineering I</b> at</br> the <a href=https://www.dhbw-stuttgart.de/>Baden-Württemberg Cooperative State University (DHBW-Stuttgart)</a></br> and commissioned by our lecturers <a href=http://wwwlehre.dhbw-stuttgart.de/~rentschler/><b>Markus Rentschler</b></a> and <b>Christian Holder</b>. 
 </p>
 
 ## Description
