@@ -33,7 +33,7 @@ The Modelling Wizard development was devided in departments and carried out by t
 Modelling Wizard For Cables
 ├── EXECUTABLE
 │   ├── CableWizard
-│   │   └── <executable version>
+│   │   └── [executable version]
 │   └── Readme.md
 ├── PROJECT
 │   ├── BC
@@ -51,7 +51,7 @@ Modelling Wizard For Cables
 │   │   ├── TINF20C_Gantt_Chart_Team_2_Sem_4_v1.0.pdf
 │   │   └── TINF20C_Gantt_Chart_Team_2_Sem_4_v1.0.xlsx
 │   ├── Git
-│   │   └── <Image references>
+│   │   └── [Image references]
 │   ├── MODs
 │   │   └── Readme.md
 │   ├── MeetingMinutes
@@ -93,9 +93,9 @@ Modelling Wizard For Cables
 │       │    ├── launch.json
 │       │    └── tasks.json
 │       ├── Backend
-│       │    └── <Backend source code>
+│       │    └── [Backend source code]
 │       ├── Frontend
-│       │    └── <Frontend source code>
+│       │    └── [Frontend source code]
 │       ├── command-reference.txt
 │       └── upload.sh
 ├── .gitignore
