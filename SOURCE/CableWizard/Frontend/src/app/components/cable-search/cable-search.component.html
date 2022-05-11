@@ -66,18 +66,19 @@
 
   <app-cable-search-grid [products]="filteredProducts$ | async"></app-cable-search-grid>
 
-  <div class="bottom-right-buttons">
-    <button mat-raised-button color="primary" routerLink="/editor">
-      Create cable
-    </button>
-    <button mat-raised-button (click)="downloadFile('2.15')">
-      Download CAEX 2.15
-    </button>
-    <button mat-raised-button (click)="downloadFile('3.0')">
-      Download CAEX 3.0
-    </button>
-  </div>
 </mat-drawer-container>
+
+<div class="bottom-right-buttons">
+  <button mat-raised-button color="primary" routerLink="/editor">
+    Create cable
+  </button>
+  <button mat-raised-button (click)="downloadFile('2.15')">
+    Download CAEX 2.15
+  </button>
+  <button mat-raised-button (click)="downloadFile('3.0')">
+    Download CAEX 3.0
+  </button>
+</div>
 
 <button class="drawer-button open-button"
         *ngIf="!drawer.opened"
