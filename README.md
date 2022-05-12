@@ -2,7 +2,7 @@
 
 ## About this project
 
-<p><img src="https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/blob/master/PROJECT/Git/Cable.PNG" align=right width="160" height="130"> This repository is based on a project developed in the module <b>Software Engineering I</b> at</br> the <a href=https://www.dhbw-stuttgart.de/>Baden-Württemberg Cooperative State University (DHBW-Stuttgart)</a></br> and commissioned by our lecturers <a href=http://wwwlehre.dhbw-stuttgart.de/~rentschler/><b>Markus Rentschler</b></a> and <b>Christian Holder</b>. 
+<p><img src="https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/blob/master/PROJECT/Git/System_Design.png" align=right width="240" height="195"> This repository is based on a project developed in the module <b>Software Engineering I</b> at</br> the <a href=https://www.dhbw-stuttgart.de/>Baden-Württemberg Cooperative State University (DHBW-Stuttgart)</a></br> and commissioned by our lecturers <a href=http://wwwlehre.dhbw-stuttgart.de/~rentschler/><b>Markus Rentschler</b></a> and <b>Christian Holder</b>. 
 </p>
 
 ## Description
@@ -20,7 +20,7 @@ The Modelling Wizard development was devided in departments and carried out by t
 
 ## Installation and usage
 
-<p>To get the program running go to <a href=https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/EXECUTABLE/CableWizard/>EXECUTABLE/CableWizard</a> and click CableWizardBackend.exe. Once the application is running, you can access the application in your browser under http://localhost:5000/. For further information see the <a href=https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/PROJECT/Documentation/>User Manual</a>
+<p>To get the program running go to <a href=https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/tree/master/EXECUTABLE/CableWizard/>EXECUTABLE/CableWizard</a> and click CableWizardBackend.exe. Once the application is running, you can access the application in your browser under http://localhost:5000/. For further information see the <a href=https://github.com/fabianthome/TINF20C_Team2_ModellingWizardForCables/tree/master/PROJECT/Documentation/>User Manual</a>
 </p>
 
 ## Project structure
@@ -31,36 +31,74 @@ The Modelling Wizard development was devided in departments and carried out by t
 
 ```bash
 Modelling Wizard For Cables
-├── DOCUMENTS
+├── EXECUTABLE
+│   ├── CableWizard
+│   │   └── [executable version]
+│   └── Readme.md
+├── PROJECT
 │   ├── BC
-│   │   ├── BusinessCase.md
 │   │   ├── TINF20C_BC_Team_2_1v0.docx
 │   │   └── TINF20C_BC_Team_2_1v0.pdf
 │   ├── CRS
-│   │   ├── CRS.md
 │   │   ├── TINF20C_CRS_Team_2_1v0.docx
 │   │   └── TINF20C_CRS_Team_2_1v0.pdf
+│   ├── Documentation
+│   │   ├── Userdocu.pages
+│   │   └── Userdocu.pdf
+│   ├── GANTT
+│   │   ├── TINF20C_Gantt_Chart_Team_2_Sem_3_v1.0.pdf
+│   │   ├── TINF20C_Gantt_Chart_Team_2_Sem_3_v1.0.xlsx
+│   │   ├── TINF20C_Gantt_Chart_Team_2_Sem_4_v1.0.pdf
+│   │   └── TINF20C_Gantt_Chart_Team_2_Sem_4_v1.0.xlsx
 │   ├── Git
-│   │   └── Cable.PNG
+│   │   └── [Image references]
 │   ├── MODs
-│   │   └── Modifications.md
+│   │   └── Readme.md
 │   ├── MeetingMinutes
-│   │   ├── MeetingMinutes.md
-│   │   ├── TINF20C_MM_Team_2_1v0.docx
-│   │   └── TINF20C_MM_Team_2_1v0.pdf
+│   │   ├── MeetingMinutes.docx
+│   │   └── MeetingMinutes.pdf
 │   ├── PM
-│   │   ├── TINF20C_Gantt_Chart_Team_2_v1.0.mpp
-│   │   └── TINF20C_Gantt_Chart_Team_2_v1.0.pdf
+│   │   ├── TINF20C_PM_Team_2_v1.0.docx
+│   │   └── TINF20C_PM_Team_2_v1.0.pdf
+│   ├── Presentation
+│   │   ├── Software Engineering S3 Präsentation.pdf
+│   │   ├── Software Engineering S3 Präsentation.pptx
+│   │   ├── Software Engineering S4 Präsentation.pdf
+│   │   └── Software Engineering S4 Präsentation.pptx
 │   ├── SAS
+│   │   ├── Readme.md
+│   │   ├── System-Architecture-Specification.docx
+│   │   └── System-Architecture-Specification.pdf
 │   ├── SRS
+│   │   ├── Readme.md
+│   │   ├── System-Requirement-Specification.docx
+│   │   └── System-Requirement-Specification.pdf
 │   ├── STP
-│   ├── STR
-│   └── .DS_Store
-├── EXECUTABLE
-│   └── placeholder.exe
+│   │   ├── Readme.md
+│   │   ├── System-Test-Plan.docx
+│   │   ├── System-Test-Plan.pdf
+│   │   └── stp-schedule.png
+│   └── STR
+│       ├── TC-003-002
+│       │    ├── BCC_M313-M413-3E-300-PW3334-015.aml
+│       │    ├── BCC_M314-M414-3E-304-PX0434-035.aml
+│       │    └── BCC_M324-M414-3E-304-VX8434-100.aml
+│       ├── Readme.md
+│       ├── System-Test-Report.docx
+│       └── System-Test-Report.pdf
 ├── SOURCE
-│   └── placeholder.ts
-├── .DS_Store
+│   └── CableWizard
+│       ├── .vscode
+│       │    ├── extensions.json
+│       │    ├── launch.json
+│       │    └── tasks.json
+│       ├── Backend
+│       │    └── [Backend sourcecode]
+│       ├── Frontend
+│       │    └── [Frontend sourcecode]
+│       ├── command-reference.txt
+│       └── upload.sh
+├── .gitignore
 └── README.md
 ```
 

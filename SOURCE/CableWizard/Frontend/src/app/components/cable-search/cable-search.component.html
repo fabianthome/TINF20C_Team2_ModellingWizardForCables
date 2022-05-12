@@ -54,7 +54,7 @@
 
     </div>
 
-    <button class="drawer-button close"
+    <button class="drawer-button close-button"
             (click)="drawer.close()"
             mat-mini-fab
             color="primary"
@@ -63,10 +63,24 @@
     </button>
 
   </mat-drawer>
+
   <app-cable-search-grid [products]="filteredProducts$ | async"></app-cable-search-grid>
+
 </mat-drawer-container>
 
-<button class="drawer-button open"
+<div class="bottom-right-buttons">
+  <button mat-raised-button color="primary" routerLink="/editor">
+    Create cable
+  </button>
+  <button mat-raised-button (click)="downloadFile('2.15')">
+    Download CAEX 2.15
+  </button>
+  <button mat-raised-button (click)="downloadFile('3.0')">
+    Download CAEX 3.0
+  </button>
+</div>
+
+<button class="drawer-button open-button"
         *ngIf="!drawer.opened"
         (click)="drawer.open()"
         mat-mini-fab

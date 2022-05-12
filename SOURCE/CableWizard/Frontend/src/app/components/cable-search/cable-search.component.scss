@@ -32,21 +32,33 @@ mat-drawer {
 }
 
 .drawer-button {
-  $drawer-button-gap: 1rem;
+  $gap: 1rem;
   position: absolute;
-  bottom: $drawer-button-gap;
+  bottom: $gap;
   z-index: 2;
 
-  &.close {
-    right: $drawer-button-gap;
+  &.close-button {
+    right: $gap;
   }
 
-  &.open {
-    left: $drawer-button-gap;
+  &.open-button {
+    left: $gap;
   }
 }
 
 mat-form-field {
   margin-inline: 0;
   margin-block: -0.5rem;
+}
+
+.bottom-right-buttons {
+  $gap: 1rem;
+  position: absolute;
+  bottom: $gap;
+  right: $gap;
+  z-index: 2;
+
+  > button {
+    margin-left: $gap;
+  }
 }
